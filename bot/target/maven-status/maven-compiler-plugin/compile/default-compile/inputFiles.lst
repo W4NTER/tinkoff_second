@@ -1,2 +1,11 @@
+D:\tinkoffSecondHalf\bot\src\main\java\edu\java\bot\Bot.java
 D:\tinkoffSecondHalf\bot\src\main\java\edu\java\bot\BotApplication.java
+D:\tinkoffSecondHalf\bot\src\main\java\edu\java\bot\commands\Command.java
+D:\tinkoffSecondHalf\bot\src\main\java\edu\java\bot\commands\HelpCommand.java
+D:\tinkoffSecondHalf\bot\src\main\java\edu\java\bot\commands\ListCommand.java
+D:\tinkoffSecondHalf\bot\src\main\java\edu\java\bot\commands\StartCommand.java
+D:\tinkoffSecondHalf\bot\src\main\java\edu\java\bot\commands\TrackCommand.java
+D:\tinkoffSecondHalf\bot\src\main\java\edu\java\bot\commands\UntrackCommand.java
 D:\tinkoffSecondHalf\bot\src\main\java\edu\java\bot\configuration\ApplicationConfig.java
+D:\tinkoffSecondHalf\bot\src\main\java\edu\java\bot\Processor\MessageToUser.java
+D:\tinkoffSecondHalf\bot\src\main\java\edu\java\bot\Processor\UserMessageProcessor.java
