@@ -36,7 +36,7 @@ class UserMessageProcessorImplTest {
 
         var res = userProcessor.process(update);
 
-        var expectedRes = new SendMessage(1, "Такой команды не существует").getParameters().get("text");
+        var expectedRes = new SendMessage(1, "Такой команды `не существует").getParameters().get("text");
         assertEquals(res.getParameters().get("text"), expectedRes);
     }
 }
