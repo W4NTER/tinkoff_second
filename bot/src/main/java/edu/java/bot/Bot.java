@@ -3,7 +3,7 @@ package edu.java.bot;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Update;
-import edu.java.bot.Processor.MessageToUser;
+import edu.java.bot.processor.UserMessageProcessorImpl;
 import edu.java.bot.configuration.ApplicationConfig;
 import java.util.List;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -21,7 +21,7 @@ public class Bot {
     }
 
     public void start() {
-        MessageToUser sendMessage = new MessageToUser();
+        UserMessageProcessorImpl sendMessage = new UserMessageProcessorImpl();
         bot = new TelegramBot(System.getenv("TELEGRAM_API_KEY"));
         bot.setUpdatesListener(updates -> {
             updates.forEach(update -> bot.execute(sendMessage.process(update)));

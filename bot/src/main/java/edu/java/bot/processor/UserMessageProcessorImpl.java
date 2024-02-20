@@ -1,4 +1,4 @@
-package edu.java.bot.Processor;
+package edu.java.bot.processor;
 
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
@@ -10,7 +10,7 @@ import edu.java.bot.commands.TrackCommand;
 import edu.java.bot.commands.UntrackCommand;
 import java.util.List;
 
-public class MessageToUser implements UserMessageProcessor {
+public class UserMessageProcessorImpl implements UserMessageProcessor {
     @Override
     public List<? extends Command> commands() {
         return List.of(new StartCommand(),
