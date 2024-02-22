@@ -1,5 +1,5 @@
-#Tue Feb 20 14:04:14 UTC 2024
-D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\Bot.java=1708437846393
+#Thu Feb 22 12:48:51 UTC 2024
+D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\Bot.java=1708604830715
 D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\BotApplication.java=1708272051151
 D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\Processor\\MessageToUser.java=1708271721026
 D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\Processor\\UserMessageProcessor.java=1708271721039
@@ -7,10 +7,10 @@ D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\TgBot.java=1708271
 D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\commands\\Command.java=1708270544241
 D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\commands\\HelpCommand.java=1708271632036
 D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\commands\\ListCommand.java=1708271632008
-D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\commands\\StartCommand.java=1708271632013
+D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\commands\\StartCommand.java=1708605746124
 D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\commands\\TrackCommand.java=1708271632025
 D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\commands\\UntrackCommand.java=1708271632043
-D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\configuration\\ApplicationConfig.java=1708259620868
+D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\configuration\\ApplicationConfig.java=1708606125000
 D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\processor\\UserMessageProcessor.java=1708279263640
 D\:\\tinkoffSecondHalf\\bot\\src\\main\\java\\edu\\java\\bot\\processor\\UserMessageProcessorImpl.java=1708436694808
 configuration*?=750B9A4282D214168EF119F22A9C5226E9C8CC22

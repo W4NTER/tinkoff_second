@@ -11,8 +11,7 @@ public class StartCommand implements Command {
 
     @Override
     public String description() {
-        String desc = "Этот бот пока ничего не умеет, но скоро он наберется сил)";
-        return desc;
+        return "Этот бот призван стать вашим единым центром уведомлений, чтобы узнать все команды, введите \"help\"";
     }
 
     @Override

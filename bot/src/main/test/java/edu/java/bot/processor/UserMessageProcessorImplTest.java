@@ -27,7 +27,7 @@ class UserMessageProcessorImplTest {
 
     @Test
     @DisplayName("Вывод сообщения при неизвестной команде")
-    void testThatMessageWithWrongCommand() {
+    void testThatMessageWithWrongCommandReturnedSucceed() {
         Mockito.when(update.message()).thenReturn(message);
         Mockito.when(message.text()).thenReturn("some text");
         Mockito.when(message.chat()).thenReturn(chat);
@@ -36,7 +36,7 @@ class UserMessageProcessorImplTest {
 
         var res = userProcessor.process(update);
 
-        var expectedRes = new SendMessage(1, "Такой команды `не существует").getParameters().get("text");
+        var expectedRes = new SendMessage(1, "Такой команды не существует").getParameters().get("text");
         assertEquals(res.getParameters().get("text"), expectedRes);
     }
 }
