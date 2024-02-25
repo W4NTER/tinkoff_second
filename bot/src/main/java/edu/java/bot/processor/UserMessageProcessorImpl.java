@@ -2,22 +2,20 @@ package edu.java.bot.processor;
 
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
+import edu.java.bot.ApplicationContextProvider;
 import edu.java.bot.commands.Command;
+import java.util.ArrayList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import java.util.Map;
+import org.springframework.stereotype.Service;
 
 
-@SpringBootApplication
+@Service
 public class UserMessageProcessorImpl implements UserMessageProcessor {
-
-    @Autowired
-    private ApplicationContext context;
-
     @Override
     public List<? extends Command> commands() {
-        return (List<? extends Command>) context.getBeansOfType(Command.class).values();
+        Map<String, Command> map  = ApplicationContextProvider.getApplicationContext().getBeansOfType(Command.class);
+        return new ArrayList<>(map.values());
     }
 
 
