@@ -20,6 +20,7 @@ public class UserMessageProcessorImpl implements UserMessageProcessor {
         return (List<? extends Command>) context.getBeansOfType(Command.class).values();
     }
 
+
     @Override
     public SendMessage process(Update update) {
         var res = commands().stream().filter(cmd ->
