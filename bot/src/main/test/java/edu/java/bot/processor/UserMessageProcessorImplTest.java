@@ -3,6 +3,7 @@ package edu.java.bot.processor;
 import com.pengrad.telegrambot.model.Chat;
 import com.pengrad.telegrambot.model.Message;
 import com.pengrad.telegrambot.model.Update;
+import com.pengrad.telegrambot.model.User;
 import com.pengrad.telegrambot.request.SendMessage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
