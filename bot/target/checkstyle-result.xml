@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="10.12.7">
-<file name="D:\tinkoffSecondHalf\bot\src\main\java\edu\java\bot\Bot.java">
-</file>
 <file name="D:\tinkoffSecondHalf\bot\src\main\java\edu\java\bot\processor\UserMessageProcessorImpl.java">
 </file>
 </checkstyle>

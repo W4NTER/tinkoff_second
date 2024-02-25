@@ -2,13 +2,16 @@ package edu.java.bot.processor;
 
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
-import edu.java.bot.commands.Command;
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import edu.java.bot.commands.*;
 
-@SpringBootApplication
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Service;
+
+
+@Service
 public class UserMessageProcessorImpl implements UserMessageProcessor {
 
     @Autowired
@@ -16,7 +19,8 @@ public class UserMessageProcessorImpl implements UserMessageProcessor {
 
     @Override
     public List<? extends Command> commands() {
-        return (List<? extends Command>) context.getBeansOfType(Command.class).values();
+//        return (List<? extends Command>) context.getBeansOfType(Command.class).values();
+        return List.of(new HelpCommand(), new ListCommand(), new StartCommand(), new TrackCommand(), new UntrackCommand());
     }
 
     @Override
