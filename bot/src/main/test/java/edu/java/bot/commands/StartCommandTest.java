@@ -40,5 +40,4 @@ class StartCommandTest {
                 .getParameters().get("text");
         assertEquals(result, EXPECTED_VALUE);
     }
-
 }
