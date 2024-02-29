@@ -1,7 +1,6 @@
-#Sun Feb 25 20:00:51 UTC 2024
-=\=\=\=\=\=\=
-<<<<<<<=HEAD
->>>>>>>=hw1
-D\:\\tinkoffSecondHalf\\scrapper\\src\\main\\java\\edu\\java\\ScrapperApplication.java=1707246806777
-D\:\\tinkoffSecondHalf\\scrapper\\src\\main\\java\\edu\\java\\configuration\\ApplicationConfig.java=1707246806759
-configuration*?=166EE5292494047E1A6FB17DB13297F2F81EA840
+#Thu Feb 29 12:18:44 UTC 2024
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\ScrapperApplication.java=1709209105430
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\client\\GitHubClient.java=1709208979238
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\configuration\\ApplicationConfig.java=1709209066956
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\dto\\RepositoryResponse.java=1709209121904
+configuration*?=E853A37CAF4EFE9F272F433CD25DC68DC6A178B3
