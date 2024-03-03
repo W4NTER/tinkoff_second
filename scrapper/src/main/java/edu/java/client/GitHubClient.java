@@ -10,8 +10,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @Controller
 public class GitHubClient {
-
-    private String baseUrlGit;
+    private final String baseUrlGit;
     private final WebClient webClient;
     private static final int MAX_BUFFER = 16 * 1024 * 1024;
     private final static Logger LOGGER = LogManager.getLogger();
