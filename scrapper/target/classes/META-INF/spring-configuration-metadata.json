@@ -14,16 +14,6 @@
   ],
   "properties": [
     {
-      "name": "app.base-url-git",
-      "type": "java.lang.String",
-      "sourceType": "edu.java.configuration.ApplicationConfig"
-    },
-    {
-      "name": "app.base-url-stack-over-flow",
-      "type": "java.lang.String",
-      "sourceType": "edu.java.configuration.ApplicationConfig"
-    },
-    {
       "name": "app.scheduler.enable",
       "type": "java.lang.Boolean",
       "sourceType": "edu.java.configuration.ApplicationConfig$Scheduler",

@@ -3,7 +3,7 @@ package edu.java.client;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import edu.java.dto.StackOverFlowResponseDTO;
+import edu.java.client.dto.StackOverFlowResponseDTO;
 import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
@@ -12,12 +12,10 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @Controller
 public class StackOverFlowClient {
-    private String baseUrlStackOverFlow;
     private final WebClient webClient;
     private static final int MAX_BUFFER = 16 * 1024 * 1024;
 
     public StackOverFlowClient(String baseUrlStackOverFlow) {
-        this.baseUrlStackOverFlow = baseUrlStackOverFlow;
         this.webClient = WebClient.builder().codecs(codecs ->
                 codecs.defaultCodecs().maxInMemorySize(MAX_BUFFER)).baseUrl(baseUrlStackOverFlow).build();
     }
@@ -34,9 +32,9 @@ public class StackOverFlowClient {
     }
 
     private String getResponseUrl(String id) {
-        String baseUrl = baseUrlStackOverFlow + id;
         String searchQuery = "order=desc&sort=activity&site=stackoverflow&filter=withbody";
-        return baseUrl + "?" + searchQuery;
+        return "/" + id + "?" + searchQuery;
+
     }
 
     private StackOverFlowResponseDTO parse(String response) {
@@ -45,7 +43,7 @@ public class StackOverFlowClient {
 
         try {
             JsonNode node = objectMapper.readTree(response).get("items").get(0);
-            var instant = Instant.ofEpochSecond(node.get("last_edit_date").asLong());
+            var instant = Instant.ofEpochSecond(node.get("last_activity_date").asLong());
             OffsetDateTime date = OffsetDateTime.ofInstant(instant, ZoneId.of("UTC"));
 
             return new StackOverFlowResponseDTO(node.get("question_id").asLong(), node.get("title").asText(), date);
