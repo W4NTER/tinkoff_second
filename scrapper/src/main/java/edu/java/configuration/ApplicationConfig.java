@@ -27,11 +27,6 @@ public record ApplicationConfig(
     }
 
     @Bean
-    public GitHubClient gitClient(ApplicationConfig config) {
-        return new GitHubClient(config.baseUrlGit);
-    }
-
-    @Bean
     public StackOverFlowClient stackOverFlowClient(ApplicationConfig config) {
         return new StackOverFlowClient(config.baseUrlStackOverFlow);
     }
