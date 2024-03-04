@@ -1,9 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-scrapper,edu.java.client,GitHubClient,54,0,0,0,11,0,4,0,4,0
-scrapper,edu.java.client,StackOverFlowClient,98,0,0,0,18,0,6,0,6,0
-scrapper,edu.java.configuration,ApplicationConfig.Scheduler,12,0,0,0,1,0,1,0,1,0
-scrapper,edu.java.configuration,ApplicationConfig,6,0,0,0,1,0,1,0,1,0
-scrapper,edu.java.configuration,ClientConfig,13,0,0,0,3,0,3,0,3,0
-scrapper,edu.java.client.dto,GitResponseDTO,12,0,0,0,1,0,1,0,1,0
-scrapper,edu.java.client.dto,StackOverFlowResponseDTO,12,0,0,0,1,0,1,0,1,0
-scrapper,edu.java,ScrapperApplication,8,0,0,0,3,0,2,0,2,0

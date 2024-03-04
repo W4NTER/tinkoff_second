@@ -10,6 +10,11 @@
       "type": "edu.java.configuration.ApplicationConfig$Scheduler",
       "sourceType": "edu.java.configuration.ApplicationConfig",
       "sourceMethod": "scheduler()"
+    },
+    {
+      "name": "client",
+      "type": "edu.java.configuration.ClientConfig",
+      "sourceType": "edu.java.configuration.ClientConfig"
     }
   ],
   "properties": [

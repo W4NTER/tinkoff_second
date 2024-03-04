@@ -16,8 +16,7 @@ public class StackOverFlowClient {
     private static final int MAX_BUFFER = 16 * 1024 * 1024;
 
     public StackOverFlowClient(String baseUrlStackOverFlow) {
-        this.webClient = WebClient.builder().codecs(codecs ->
-                codecs.defaultCodecs().maxInMemorySize(MAX_BUFFER)).baseUrl(baseUrlStackOverFlow).build();
+        this.webClient = WebClient.builder().baseUrl(baseUrlStackOverFlow).build();
     }
 
 
