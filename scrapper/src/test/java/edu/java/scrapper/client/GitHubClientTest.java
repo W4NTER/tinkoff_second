@@ -63,6 +63,6 @@ public class GitHubClientTest {
 //                            response.updatedAt().isEqual(expectedDate);
 //                })
 //                .verifyComplete();
-        LOGGER.info(gitHubClient.getLastUpdate(USER_NAME, REPO));
+//        LOGGER.info(gitHubClient.getLastUpdate(USER_NAME, REPO));
     }
 }
