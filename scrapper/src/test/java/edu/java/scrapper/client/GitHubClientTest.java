@@ -31,7 +31,7 @@ public class GitHubClientTest {
 
     @RegisterExtension
     static WireMockExtension extension = new WireMockExtension.Builder()
-            .options(options().port(80))
+            .options(options().port(8089))
             .build();
 
 
@@ -63,6 +63,6 @@ public class GitHubClientTest {
 //                            response.updatedAt().isEqual(expectedDate);
 //                })
 //                .verifyComplete();
-//        LOGGER.info(gitHubClient.getLastUpdate(USER_NAME, REPO));
+        LOGGER.info(gitHubClient.getLastUpdate(USER_NAME, REPO));
     }
 }
