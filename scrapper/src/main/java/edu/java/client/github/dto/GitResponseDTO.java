@@ -1,8 +1,7 @@
-package edu.java.client.dto;
+package edu.java.client.github.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.OffsetDateTime;
-
 
 public record GitResponseDTO(
     @JsonProperty("id")

@@ -1,7 +1,7 @@
 package edu.java.configuration;
 
-import edu.java.client.GitHubClient;
-import edu.java.client.StackOverFlowClient;
+import edu.java.client.github.GitHubClientImpl;
+import edu.java.client.stackoverflow.StackoverflowClientImpl;
 import jakarta.validation.constraints.NotNull;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -29,12 +29,12 @@ public class ClientConfig {
     }
 
     @Bean
-    public GitHubClient gitHubClient() {
-        return new GitHubClient(baseUrlGit());
+    public GitHubClientImpl gitHubClient() {
+        return new GitHubClientImpl(baseUrlGit());
     }
 
     @Bean
-    public StackOverFlowClient stackOverFlowClient() {
-        return new StackOverFlowClient(baseUrlStackoverflow);
+    public StackoverflowClientImpl stackOverFlowClient() {
+        return new StackoverflowClientImpl(baseUrlStackoverflow);
     }
 }

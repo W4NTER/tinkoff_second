@@ -1,26 +1,27 @@
-package edu.java.client;
+package edu.java.client.stackoverflow;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import edu.java.client.dto.StackOverFlowResponseDTO;
+import edu.java.client.stackoverflow.dto.StackoverflowResponseDTO;
 import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.reactive.function.client.WebClient;
 
-@Controller
-public class StackOverFlowClient {
-    private final WebClient webClient;
-    private static final int MAX_BUFFER = 16 * 1024 * 1024;
 
-    public StackOverFlowClient(String baseUrlStackOverFlow) {
+@Controller
+public class StackoverflowClientImpl implements StackoverflowClient {
+    private final WebClient webClient;
+
+    public StackoverflowClientImpl(@Qualifier("baseUrlStackoverflow") String baseUrlStackOverFlow) {
         this.webClient = WebClient.builder().baseUrl(baseUrlStackOverFlow).build();
     }
 
 
-    public StackOverFlowResponseDTO getLastActivity(String userLink) {
+    public StackoverflowResponseDTO getLastActivity(String userLink) {
         return parse(webClient.get().uri(getResponseUrl(getId(userLink)))
                 .retrieve().bodyToMono(String.class).block());
     }
@@ -33,19 +34,21 @@ public class StackOverFlowClient {
     private String getResponseUrl(String id) {
         String searchQuery = "order=desc&sort=activity&site=stackoverflow&filter=withbody";
         return "/" + id + "?" + searchQuery;
-
     }
 
-    private StackOverFlowResponseDTO parse(String response) {
+    private StackoverflowResponseDTO parse(String response) {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
 
         try {
             JsonNode node = objectMapper.readTree(response).get("items").get(0);
             var instant = Instant.ofEpochSecond(node.get("last_activity_date").asLong());
-            OffsetDateTime date = OffsetDateTime.ofInstant(instant, ZoneId.of("UTC"));
+            OffsetDateTime lastActivityDate = OffsetDateTime.ofInstant(instant, ZoneId.of("UTC"));
 
-            return new StackOverFlowResponseDTO(node.get("question_id").asLong(), node.get("title").asText(), date);
+            return new StackoverflowResponseDTO(
+                    node.get("question_id").asLong(),
+                    node.get("title").asText(),
+                    lastActivityDate);
         } catch (Exception e) {
             return null;
         }

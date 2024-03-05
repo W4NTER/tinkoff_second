@@ -1,0 +1,12 @@
+#Tue Mar 05 10:36:36 UTC 2024
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\ScrapperApplication.java=1709634911202
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\client\\github\\GitHubClient.java=1709633017649
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\client\\github\\GitHubClientImpl.java=1709634915857
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\client\\github\\dto\\GitResponseDTO.java=1709633017657
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\client\\stackoverflow\\StackoverflowClient.java=1709633987857
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\client\\stackoverflow\\StackoverflowClientImpl.java=1709634990400
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\client\\stackoverflow\\dto\\StackoverflowResponseDTO.java=1709634946838
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\configuration\\ApplicationConfig.java=1709625601789
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\configuration\\ClientConfig.java=1709633317980
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\scheduler\\LinkUpdaterScheduler.java=1709625888916
+configuration*?=E853A37CAF4EFE9F272F433CD25DC68DC6A178B3

@@ -1,9 +1,5 @@
 edu\java\configuration\ApplicationConfig$Scheduler.class
-edu\java\client\GitHubClient.class
 edu\java\configuration\ApplicationConfig.class
 META-INF\spring-configuration-metadata.json
-edu\java\client\dto\StackOverFlowResponseDTO.class
-edu\java\client\dto\GitResponseDTO.class
 edu\java\configuration\ClientConfig.class
-edu\java\client\StackOverFlowClient.class
 edu\java\ScrapperApplication.class
