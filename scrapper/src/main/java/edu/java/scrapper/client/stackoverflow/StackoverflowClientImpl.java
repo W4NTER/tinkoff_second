@@ -1,16 +1,15 @@
-package edu.java.client.stackoverflow;
+package edu.java.scrapper.client.stackoverflow;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import edu.java.client.stackoverflow.dto.StackoverflowResponseDTO;
+import edu.java.scrapper.client.stackoverflow.dto.StackoverflowResponseDTO;
 import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.reactive.function.client.WebClient;
-
 
 @Controller
 public class StackoverflowClientImpl implements StackoverflowClient {

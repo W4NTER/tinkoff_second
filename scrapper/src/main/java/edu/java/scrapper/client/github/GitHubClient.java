@@ -1,6 +1,6 @@
-package edu.java.client.github;
+package edu.java.scrapper.client.github;
 
-import edu.java.client.github.dto.GitResponseDTO;
+import edu.java.scrapper.client.github.dto.GitResponseDTO;
 
 public interface GitHubClient {
     GitResponseDTO getLastUpdate(String userName, String repo);

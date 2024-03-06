@@ -1,7 +1,7 @@
-package edu.java.configuration;
+package edu.java.scrapper.configuration;
 
-import edu.java.client.github.GitHubClientImpl;
-import edu.java.client.stackoverflow.StackoverflowClientImpl;
+import edu.java.scrapper.client.github.GitHubClientImpl;
+import edu.java.scrapper.client.stackoverflow.StackoverflowClientImpl;
 import jakarta.validation.constraints.NotNull;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;

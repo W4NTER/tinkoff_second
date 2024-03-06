@@ -1,6 +1,6 @@
-package edu.java.client.github;
+package edu.java.scrapper.client.github;
 
-import edu.java.client.github.dto.GitResponseDTO;
+import edu.java.scrapper.client.github.dto.GitResponseDTO;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.reactive.function.client.WebClient;

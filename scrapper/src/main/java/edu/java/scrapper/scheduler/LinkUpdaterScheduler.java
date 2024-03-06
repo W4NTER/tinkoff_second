@@ -1,4 +1,4 @@
-package edu.java.scheduler;
+package edu.java.scrapper.scheduler;
 
 import lombok.Setter;
 import org.apache.logging.log4j.LogManager;
