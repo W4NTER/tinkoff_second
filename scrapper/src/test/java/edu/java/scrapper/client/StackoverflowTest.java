@@ -5,8 +5,6 @@ import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import com.github.tomakehurst.wiremock.junit5.WireMockTest;
 import com.github.tomakehurst.wiremock.matching.UrlPattern;
 import edu.java.scrapper.client.stackoverflow.StackoverflowClientImpl;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,8 +23,6 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 @TestPropertySource(locations = "classpath:test")
 @WireMockTest
 public class StackoverflowTest {
-    private final static Logger LOGGER = LogManager.getLogger();
-    private final static int ID = 12345;
 
     @RegisterExtension
     static WireMockExtension extension = new WireMockExtension.Builder()
