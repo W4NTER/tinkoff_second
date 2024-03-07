@@ -12,6 +12,12 @@ spring:
   application:
     name: scrapper
 
+# swagger-ui custom path
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+
+
 server:
   port: 8080
 
