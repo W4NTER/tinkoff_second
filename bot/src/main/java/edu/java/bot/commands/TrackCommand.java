@@ -17,7 +17,12 @@ public class TrackCommand implements Command {
     }
 
     @Override
+    public String post() {
+        return description();
+    }
+
+    @Override
     public SendMessage handle(Update update) {
-        return new SendMessage(update.message().chat().id(), description());
+        return new SendMessage(update.message().chat().id(), post());
     }
 }

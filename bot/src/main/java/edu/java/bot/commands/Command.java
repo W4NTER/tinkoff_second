@@ -11,9 +11,11 @@ public interface Command {
 
     String description();
 
+    String post();
+
     SendMessage handle(Update update);
 
     default BotCommand toApiCommand() {
-        return new BotCommand(command(), description());
+        return new BotCommand(command(), post());
     }
 }
