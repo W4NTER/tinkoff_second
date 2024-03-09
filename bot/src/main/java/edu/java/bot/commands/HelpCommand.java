@@ -29,9 +29,7 @@ public class HelpCommand implements Command {
         var listCommands = getListCommands();
         StringBuilder builder = new StringBuilder("Список команд, которые знает этот бот:");
         for (Command value : listCommands) {
-            String command = value.command();
-            String description = value.description();
-            builder.append(String.format("\n%s - %s", command, description));
+            builder.append(String.format("\n%s - %s", value.command(), value.description()));
         }
         return builder.toString();
     }
