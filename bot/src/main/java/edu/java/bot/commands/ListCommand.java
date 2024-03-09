@@ -4,6 +4,9 @@ import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class ListCommand implements Command {
     @Override
@@ -16,9 +19,14 @@ public class ListCommand implements Command {
         return "показать список отслеживаемых ссылок";
     }
 
-    @Override
+
     public String post() {
-        return description();
+        List<String> trackedLinks = new ArrayList<>(); //List of links
+        if (!trackedLinks.isEmpty()) {
+            return String.join("\n", trackedLinks);
+        } else {
+            return "Нет отслеживаемых ссылок";
+        }
     }
 
     @Override

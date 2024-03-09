@@ -23,10 +23,9 @@ public class UserMessageProcessorImpl implements UserMessageProcessor {
     public SendMessage process(Update update) {
         var res = commands().stream().filter(cmd ->
                 cmd.command().equals(update.message().text())).findFirst();
-        if (res.isPresent()) {
-            return res.get().handle(update);
-        } else {
+        if (res.isEmpty()) {
             return new SendMessage(update.message().chat().id(), "Такой команды не существует");
         }
+        return res.get().handle(update);
     }
 }

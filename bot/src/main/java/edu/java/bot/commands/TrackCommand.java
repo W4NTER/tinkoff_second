@@ -1,6 +1,8 @@
 package edu.java.bot.commands;
 
+import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.Update;
+import com.pengrad.telegrambot.request.GetUpdates;
 import com.pengrad.telegrambot.request.SendMessage;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +22,6 @@ public class TrackCommand implements Command {
     public String post() {
         return description();
     }
-
     @Override
     public SendMessage handle(Update update) {
         return new SendMessage(update.message().chat().id(), post());
