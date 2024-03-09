@@ -4,6 +4,11 @@
       "name": "app",
       "type": "edu.java.bot.configuration.ApplicationConfig",
       "sourceType": "edu.java.bot.configuration.ApplicationConfig"
+    },
+    {
+      "name": "client",
+      "type": "edu.java.bot.configuration.ClientConfig",
+      "sourceType": "edu.java.bot.configuration.ClientConfig"
     }
   ],
   "properties": [

@@ -18,18 +18,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class LinksController {
 
     @GetMapping
-    public ResponseEntity<ListLinksResponse> getAllTrackedLinks(@RequestBody ListLinksResponse listLinksResponse) {
+    public ResponseEntity<Void> getAllTrackedLinks(@RequestHeader("Tg-Chat-Id") Long id) {
         return ResponseEntity.ok().build();
     }
 
 
     @PostMapping
-    public ResponseEntity<LinkResponse> trackLink(@RequestHeader Long id, @RequestBody AddLinkRequest addLinkRequest) {
+    public ResponseEntity<LinkResponse> trackLink(@RequestHeader("Tg-Chat-Id") Long id, @RequestBody AddLinkRequest addLinkRequest) {
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping
-    public ResponseEntity<LinkResponse> untrackLink(@RequestHeader Long id) {
+    public ResponseEntity<LinkResponse> untrackLink(@RequestHeader("Tg-Chat-Id") Long id) {
         return ResponseEntity.ok().build();
     }
 }

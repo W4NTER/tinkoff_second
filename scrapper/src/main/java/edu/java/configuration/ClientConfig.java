@@ -4,9 +4,11 @@ import edu.java.client.github.GitHubClientImpl;
 import edu.java.client.stackoverflow.StackoverflowClientImpl;
 import jakarta.validation.constraints.NotNull;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
 @ConfigurationProperties(prefix = "client", ignoreUnknownFields = false)
@@ -17,6 +19,9 @@ public class ClientConfig {
 
     @NotNull
     String baseUrlStackoverflow;
+
+    @NotNull
+    String baseUrlBot;
 
     @Bean
     String baseUrlGit() {
@@ -30,11 +35,16 @@ public class ClientConfig {
 
     @Bean
     public GitHubClientImpl gitHubClient() {
-        return new GitHubClientImpl(baseUrlGit());
+        return new GitHubClientImpl(baseUrlGit);
     }
 
     @Bean
     public StackoverflowClientImpl stackOverFlowClient() {
         return new StackoverflowClientImpl(baseUrlStackoverflow);
+    }
+
+    @Bean
+    public WebClient botClient() {
+        return WebClient.builder().baseUrl(baseUrlBot).build();
     }
 }
