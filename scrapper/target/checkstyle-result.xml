@@ -1,50 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="10.12.7">
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\botClient\BotWebClient.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\github\dto\GitResponseDTO.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\github\GitHubClient.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\github\GitHubClientImpl.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\stackoverflow\dto\StackoverflowResponseDTO.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\stackoverflow\StackoverflowClient.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\stackoverflow\StackoverflowClientImpl.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\configuration\ApplicationConfig.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\configuration\ClientConfig.java">
-<error line="7" column="8" severity="error" message="Unused import - org.springframework.beans.factory.annotation.Qualifier." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\request\AddLinkRequest.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\request\RemoveLinkRequest.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\response\ApiErrorResponse.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\response\LinkResponse.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\response\ListLinksResponse.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\exception\ChatAlreadyExistsException.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\exception\ChatIdNotFoundException.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\exception\HandleControllerException.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\exception\IncorrectParametersException.java">
-</file>
 <file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\LinksController.java">
-<error line="5" column="8" severity="error" message="Unused import - edu.java.controller.dto.response.ListLinksResponse." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
-<error line="27" severity="error" message="Line is longer than 120 characters (found 133)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\TelegramChatController.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\scheduler\LinkUpdaterScheduler.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\ScrapperApplication.java">
 </file>
 </checkstyle>

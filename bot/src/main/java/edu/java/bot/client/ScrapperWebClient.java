@@ -10,9 +10,9 @@ public class ScrapperWebClient {
 
     private final WebClient webClient;
 
-    private final String TG_CHAT_URI = "/tg-chat/";
-    private final String LINKS_URI = "/links/";
-    private final String HEADER = "Tg-Chat-Id";
+    private final static String TG_CHAT_URI = "/tg-chat/";
+    private final static String LINKS_URI = "/links/";
+    private final static String HEADER = "Tg-Chat-Id";
 
     public String registerChat(Long id) {
         return webClient

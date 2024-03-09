@@ -2,7 +2,6 @@ package edu.java.controller;
 
 import edu.java.controller.dto.request.AddLinkRequest;
 import edu.java.controller.dto.response.LinkResponse;
-import edu.java.controller.dto.response.ListLinksResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +23,9 @@ public class LinksController {
 
 
     @PostMapping
-    public ResponseEntity<LinkResponse> trackLink(@RequestHeader("Tg-Chat-Id") Long id, @RequestBody AddLinkRequest addLinkRequest) {
+    public ResponseEntity<LinkResponse> trackLink(
+            @RequestHeader("Tg-Chat-Id") Long id,
+            @RequestBody AddLinkRequest addLinkRequest) {
         return ResponseEntity.ok().build();
     }
 
