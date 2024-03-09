@@ -2,30 +2,41 @@
 
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
+import edu.java.bot.ApplicationContextProvider;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.stereotype.Component;
 
 @Component
-<span class="fc" id="L8">public class HelpCommand implements Command {</span>
+<span class="fc" id="L11">public class HelpCommand implements Command {</span>
     @Override
     public String command() {
-<span class="nc" id="L11">        return &quot;/help&quot;;</span>
+<span class="fc" id="L14">        return &quot;/help&quot;;</span>
     }
 
     @Override
     public String description() {
-<span class="nc" id="L16">        String helpDesc = &quot;&quot;&quot;</span>
-                Список команд, которые знает этот бот:
-                /start -- зарегистрировать пользователя
-                /help -- вывести окно с командами
-                /track -- начать отслеживание ссылки
-                /untrack -- прекратить отслеживание ссылки
-                /list -- показать список отслеживаемых ссылок&quot;&quot;&quot;;
-<span class="nc" id="L23">        return helpDesc;</span>
+<span class="fc" id="L19">        return &quot;вывести окно с командами&quot;;</span>
+    }
+
+    public List&lt;Command&gt; getListCommands() {
+<span class="fc" id="L23">        var mapOfCommands = ApplicationContextProvider.getApplicationContext().getBeansOfType(Command.class);</span>
+<span class="fc" id="L24">        return new ArrayList&lt;&gt;(mapOfCommands.values());</span>
+    }
+
+    @Override
+    public String post() {
+<span class="fc" id="L29">        var listCommands = getListCommands();</span>
+<span class="fc" id="L30">        StringBuilder builder = new StringBuilder(&quot;Список команд, которые знает этот бот:&quot;);</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        for (Command value : listCommands) {</span>
+<span class="fc" id="L32">            builder.append(String.format(&quot;\n%s - %s&quot;, value.command(), value.description()));</span>
+<span class="fc" id="L33">        }</span>
+<span class="fc" id="L34">        return builder.toString();</span>
     }
 
     @Override
     public SendMessage handle(Update update) {
-<span class="nc" id="L28">        return new SendMessage(update.message().chat().id(), description());</span>
+<span class="fc" id="L39">        return new SendMessage(update.message().chat().id(), post());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

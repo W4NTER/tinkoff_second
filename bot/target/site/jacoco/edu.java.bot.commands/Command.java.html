@@ -11,10 +11,12 @@ public interface Command {
 
     String description();
 
+    String post();
+
     SendMessage handle(Update update);
 
     default BotCommand toApiCommand() {
-<span class="nc" id="L17">        return new BotCommand(command(), description());</span>
+<span class="nc" id="L19">        return new BotCommand(command(), post());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
