@@ -1,8 +1,10 @@
 package edu.java.bot.client;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 @Component
 @AllArgsConstructor
@@ -25,8 +27,9 @@ public class ScrapperWebClient {
 
     public String deleteChat(Long id) {
         return webClient
-                .delete()
+                .method(HttpMethod.DELETE)
                 .uri(TG_CHAT_URI + id)
+                .body(Mono.just(id), Long.class)
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
@@ -43,7 +46,7 @@ public class ScrapperWebClient {
     }
 
     public String trackLink(Long id) { //Должно быть больше входных данных
-        return webClient
+        return webClient // Не разобрался как передавать данные, которые фильтруются dto другого приложения, возможно просто String?
                 .post()
                 .uri(LINKS_URI)
                 .header(HEADER, String.valueOf(id))
@@ -54,9 +57,10 @@ public class ScrapperWebClient {
 
     public String untrackLink(Long id) {
         return webClient
-                .delete()
+                .method(HttpMethod.DELETE)
                 .uri(LINKS_URI)
                 .header(HEADER, String.valueOf(id))
+                .body(Mono.just(id), Long.class)
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
