@@ -1,4 +1,4 @@
-#Sat Mar 09 16:14:28 UTC 2024
+#Mon Mar 11 07:50:24 UTC 2024
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\ScrapperApplication.java=1709977702595
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\client\\botClient\\BotWebClient.java=1709997603611
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\client\\github\\GitHubClient.java=1709977702596
@@ -10,7 +10,7 @@ C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\configuration\\ApplicationConfig.java=1709977702599
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\configuration\\ClientConfig.java=1710000811521
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\controller\\LinksController.java=1710000865312
-C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\controller\\TelegramChatController.java=1709977702600
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\controller\\TelegramChatController.java=1710143137340
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\controller\\dto\\request\\AddLinkRequest.java=1709977702601
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\controller\\dto\\request\\RemoveLinkRequest.java=1709977702601
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\controller\\dto\\response\\ApiErrorResponse.java=1709977702602

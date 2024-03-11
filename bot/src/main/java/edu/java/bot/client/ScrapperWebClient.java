@@ -46,7 +46,8 @@ public class ScrapperWebClient {
     }
 
     public String trackLink(Long id) { //Должно быть больше входных данных
-        return webClient // Не разобрался как передавать данные, которые фильтруются dto другого приложения, возможно просто String?
+        return webClient // Не разобрался как передавать данные,
+                // которые фильтруются dto другого приложения, возможно просто String?
                 .post()
                 .uri(LINKS_URI)
                 .header(HEADER, String.valueOf(id))

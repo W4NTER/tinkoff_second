@@ -8,10 +8,10 @@ spring:
     time-zone: UTC
 
 client:
-  port: 8090
+  base-url-sceapper: http://localhost:8080
 
 server:
-  base-url-sceapper: http://localhost:8089
+  port: 8090
 
 # swagger-ui custom path
 springdoc:

@@ -1,5 +1,6 @@
 app:
   telegram-token: ${TELEGRAM_API_KEY}
+  base-url-scrapper: http://localhost:8080
 
 spring:
   application:
@@ -7,11 +8,11 @@ spring:
   jackson:
     time-zone: UTC
 
-client:
-  port: 8090
+#client:
+#  base-url-scrapper: http://localhost:8080
 
 server:
-  base-url-sceapper: http://localhost:8089
+  port: 8090
 
 # swagger-ui custom path
 springdoc:
