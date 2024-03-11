@@ -2,4 +2,8 @@
 <checkstyle version="10.12.7">
 <file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\client\ScrapperWebClient.java">
 </file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\configuration\ApplicationConfig.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\configuration\ClientConfig.java">
+</file>
 </checkstyle>
