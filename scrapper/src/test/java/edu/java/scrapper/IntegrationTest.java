@@ -39,6 +39,7 @@ public abstract class IntegrationTest {
             Database database =
                     DatabaseFactory.getInstance().findCorrectDatabaseImplementation(
                             new JdbcConnection(connection));
+
             var changelogPath =
                     new File(".")
                             .toPath()
@@ -46,6 +47,7 @@ public abstract class IntegrationTest {
                             .getParent()
                             .getParent()
                             .resolve("migrations");
+
             Liquibase liquibase =
                     new liquibase
                             .Liquibase("master.xml",
