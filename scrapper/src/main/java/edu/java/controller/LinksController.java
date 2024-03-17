@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LinksController {
 
     @GetMapping
-    public ResponseEntity<Void> getAllTrackedLinks(@RequestHeader("Tg-Chat-Id") Long id) {
+    public ResponseEntity<Void> getAllTrackedLinks() {
         return ResponseEntity.ok().build();
     }
 
