@@ -1,14 +1,12 @@
 app:
   telegram-token: ${TELEGRAM_API_KEY}
+  base-url-scrapper: http://localhost:8080
 
 spring:
   application:
     name: bot
   jackson:
     time-zone: UTC
-
-client:
-  base-url-sceapper: http://localhost:8080
 
 server:
   port: 8090
