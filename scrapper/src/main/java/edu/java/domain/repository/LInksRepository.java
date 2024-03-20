@@ -1,13 +1,13 @@
 package edu.java.domain.repository;
 
-import edu.java.controller.dto.request.AddLinkRequest;
 import edu.java.domain.dto.LinksDTO;
+import java.net.URI;
 import java.util.List;
 
 public interface LInksRepository {
-    void add(AddLinkRequest link, Long chatId);
+    void add(URI link, Long chatId);
 
-    void remove(Long id);
+    void remove(URI link, Long chatId);
 
-    List<LinksDTO> findAll();
+    List<LinksDTO> findAll(Long tgChatId);
 }

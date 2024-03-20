@@ -7,35 +7,44 @@ import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
 @ConfigurationProperties(prefix = &quot;client&quot;, ignoreUnknownFields = false)
-<span class="fc" id="L13">@Setter</span>
-<span class="fc" id="L14">public class ClientConfig {</span>
+<span class="fc" id="L14">@Setter</span>
+<span class="fc" id="L15">public class ClientConfig {</span>
     @NotNull
     String baseUrlGit;
 
     @NotNull
     String baseUrlStackoverflow;
 
+    @NotNull
+    String baseUrlBot;
+
     @Bean
     String baseUrlGit() {
-<span class="fc" id="L23">        return baseUrlGit;</span>
+<span class="fc" id="L27">        return baseUrlGit;</span>
     }
 
     @Bean
     String baseUrlStackoverflow() {
-<span class="fc" id="L28">        return baseUrlStackoverflow;</span>
+<span class="fc" id="L32">        return baseUrlStackoverflow;</span>
     }
 
     @Bean
     public GitHubClientImpl gitHubClient() {
-<span class="fc" id="L33">        return new GitHubClientImpl(baseUrlGit());</span>
+<span class="fc" id="L37">        return new GitHubClientImpl(baseUrlGit);</span>
     }
 
     @Bean
     public StackoverflowClientImpl stackOverFlowClient() {
-<span class="fc" id="L38">        return new StackoverflowClientImpl(baseUrlStackoverflow);</span>
+<span class="fc" id="L42">        return new StackoverflowClientImpl(baseUrlStackoverflow);</span>
+    }
+
+    @Bean
+    public WebClient botClient() {
+<span class="fc" id="L47">        return WebClient.builder().baseUrl(baseUrlBot).build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

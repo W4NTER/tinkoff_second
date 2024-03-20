@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JdbcChatRepository.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scrapper</a> &gt; <a href="index.source.html" class="el_package">edu.java.domain.repository</a> &gt; <span class="el_source">JdbcChatRepository.java</span></div><h1>JdbcChatRepository.java</h1><pre class="source lang-java linenums">package edu.java.domain.repository;
+
+import edu.java.domain.dto.ChatDTO;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import java.util.List;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+@Repository
+public class JdbcChatRepository implements ChatRepository {
+
+    private final JdbcTemplate jdbcTemplate;
+
+<span class="fc" id="L16">    public JdbcChatRepository(JdbcTemplate jdbcTemplate) {</span>
+<span class="fc" id="L17">        this.jdbcTemplate = jdbcTemplate;</span>
+<span class="fc" id="L18">    }</span>
+
+    @Override
+    @Transactional
+    public void add() {
+<span class="fc" id="L23">        jdbcTemplate.update(&quot;insert into chat (created_at, edited_at) values (?, ?)&quot;,</span>
+<span class="fc" id="L24">                OffsetDateTime.now(), OffsetDateTime.now());</span>
+<span class="fc" id="L25">    }</span>
+
+    @Override
+    @Transactional
+    public void remove(Long id) {
+<span class="fc" id="L30">        jdbcTemplate.update(&quot;DELETE from chat where chat_id = ?&quot;, id);</span>
+<span class="fc" id="L31">    }</span>
+
+    @Override
+    @Transactional
+    public List&lt;ChatDTO&gt; findAll() {
+<span class="fc" id="L36">        return jdbcTemplate.query(&quot;select chat_id, created_at, edited_at from chat&quot;, (resultSet, rowNum) -&gt; {</span>
+<span class="fc" id="L37">            return new ChatDTO(</span>
+<span class="fc" id="L38">                    resultSet.getLong(&quot;chat_id&quot;),</span>
+<span class="fc" id="L39">                    resultSet.getTimestamp(&quot;created_at&quot;)</span>
+<span class="fc" id="L40">                            .toInstant().atZone(ZoneOffset.systemDefault()).toOffsetDateTime(),</span>
+<span class="fc" id="L41">                    resultSet.getTimestamp(&quot;edited_at&quot;)</span>
+<span class="fc" id="L42">                            .toInstant().atZone(ZoneOffset.systemDefault()).toOffsetDateTime());</span>
+        });
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

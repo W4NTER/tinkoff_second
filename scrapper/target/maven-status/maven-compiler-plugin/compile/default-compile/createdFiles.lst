@@ -1,5 +1,5 @@
-edu\java\configuration\ApplicationConfig$Scheduler.class
 edu\java\configuration\ApplicationConfig.class
 META-INF\spring-configuration-metadata.json
 edu\java\configuration\ClientConfig.class
 edu\java\ScrapperApplication.class
+edu\java\configuration\ApplicationConfig$Scheduler.class

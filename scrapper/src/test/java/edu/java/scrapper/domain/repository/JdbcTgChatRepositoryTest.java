@@ -1,6 +1,7 @@
 package edu.java.scrapper.domain.repository;
 
-import edu.java.domain.repository.JdbcChatRepository;
+import edu.java.domain.repository.jdbc.JdbcTgChatRepository;
+import edu.java.scrapper.IntegrationTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,18 +11,16 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.junit.Assert.assertEquals;
 
 @SpringBootTest
-public class JdbcChatRepositoryTest {
 
-
+public class JdbcTgChatRepositoryTest extends IntegrationTest {
     @Autowired
-    private JdbcChatRepository jdbcChatRepository;
-
+    private JdbcTgChatRepository jdbcChatRepository;
 
     @Test
     @Transactional
     @Rollback
     void addTest() {
-        jdbcChatRepository.add();
+        jdbcChatRepository.add(1L);
         var obj = jdbcChatRepository.findAll();
         System.out.println(obj);
         assertEquals(obj.size(), 1);
@@ -31,7 +30,7 @@ public class JdbcChatRepositoryTest {
     @Transactional
     @Rollback
     void deleteTest() {
-        jdbcChatRepository.add();
+        jdbcChatRepository.add(1L);
         var chat = jdbcChatRepository.findAll();
         var id = chat.get(0).id();
 
@@ -45,9 +44,9 @@ public class JdbcChatRepositoryTest {
     @Transactional
     @Rollback
     void findAll() {
-        jdbcChatRepository.add();
-        jdbcChatRepository.add();
-        jdbcChatRepository.add();
+        jdbcChatRepository.add(1L);
+        jdbcChatRepository.add(2L);
+        jdbcChatRepository.add(3L);
         var allVal = jdbcChatRepository.findAll();
         assertEquals(allVal.size(), 3); //использовалось раньше, даже не знаю как его отдельно проверить
     }

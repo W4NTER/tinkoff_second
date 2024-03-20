@@ -1,6 +1,7 @@
-package edu.java.domain.repository;
+package edu.java.domain.repository.jdbc;
 
 import edu.java.domain.dto.ChatDTO;
+import edu.java.domain.repository.TgChatRepository;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.List;
@@ -9,19 +10,19 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public class JdbcChatRepository implements ChatRepository {
+public class JdbcTgChatRepository implements TgChatRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public JdbcChatRepository(JdbcTemplate jdbcTemplate) {
+    public JdbcTgChatRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
     @Transactional
-    public void add() {
-        jdbcTemplate.update("insert into chat (created_at, edited_at) values (?, ?)",
-                OffsetDateTime.now(), OffsetDateTime.now());
+    public void add(Long chatId) {
+        jdbcTemplate.update("insert into chat (chat_id, created_at, edited_at) values (?, ?, ?)",
+                chatId, OffsetDateTime.now(), OffsetDateTime.now());
     }
 
     @Override

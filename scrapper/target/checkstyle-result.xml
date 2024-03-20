@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="10.12.7">
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\JdbcLinksRepository.java">
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\jdbc\JdbcLinksRepository.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\jdbc\JdbcTgChatRepository.java">
 </file>
 </checkstyle>

@@ -1,8 +1,8 @@
 package edu.java.scrapper.domain.repository;
 
-import edu.java.controller.dto.request.AddLinkRequest;
-import edu.java.domain.repository.JdbcChatRepository;
-import edu.java.domain.repository.JdbcLinksRepository;
+import edu.java.domain.repository.jdbc.JdbcLinksRepository;
+import edu.java.domain.repository.jdbc.JdbcTgChatRepository;
+import edu.java.scrapper.IntegrationTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,24 +14,24 @@ import java.net.URI;
 import static org.junit.Assert.assertEquals;
 
 @SpringBootTest
-public class JdbcLinksRepositoryTest {
+public class JdbcLinksRepositoryTest extends IntegrationTest {
 
     @Autowired
     private JdbcLinksRepository jdbcLinksRepository;
 
     @Autowired
-    private JdbcChatRepository jdbcChatRepository;
+    private JdbcTgChatRepository jdbcChatRepository;
+
+    private final static Long CHAT_ID = 1L;
+    private final static URI URL = URI.create("https://github.com/");
 
     @Test
     @Transactional
     @Rollback
     void addTest() {
-        jdbcChatRepository.add();
-        var chat_id = jdbcChatRepository.findAll().get(0).id();
-        jdbcLinksRepository.add(
-                new AddLinkRequest(URI.create("https://github.com/")),
-                chat_id);
-        var obj = jdbcLinksRepository.findAll();
+        jdbcChatRepository.add(CHAT_ID);
+        jdbcLinksRepository.add(URL, CHAT_ID);
+        var obj = jdbcLinksRepository.findAll(CHAT_ID);
         System.out.println(obj);
         assertEquals(obj.size(), 1);
     }
@@ -40,17 +40,14 @@ public class JdbcLinksRepositoryTest {
     @Transactional
     @Rollback
     void deleteTest() {
-        jdbcChatRepository.add();
-        var chat_id = jdbcChatRepository.findAll().get(0).id();
-        jdbcLinksRepository.add(
-                new AddLinkRequest(URI.create("https://github.com/")),
-                chat_id);
-        var chat = jdbcLinksRepository.findAll();
+        jdbcChatRepository.add(CHAT_ID);
+        jdbcLinksRepository.add(URL, CHAT_ID);
+        var chat = jdbcLinksRepository.findAll(CHAT_ID);
         var id = chat.get(0).id();
 
         assertEquals(chat.size(), 1); // проверяем что запись была добавлена
-        jdbcLinksRepository.remove(id);
-        var sizeAfterRemove = jdbcLinksRepository.findAll().size();
+        jdbcLinksRepository.remove(URL, CHAT_ID);
+        var sizeAfterRemove = jdbcLinksRepository.findAll(CHAT_ID).size();
         assertEquals(sizeAfterRemove, 0); // проверяем что запись была удалена
     }
 
@@ -58,12 +55,9 @@ public class JdbcLinksRepositoryTest {
     @Transactional
     @Rollback
     void findAll() {
-        jdbcChatRepository.add();
-        var chat_id = jdbcChatRepository.findAll().get(0).id();
-        jdbcLinksRepository.add(
-                new AddLinkRequest(URI.create("https://github.com/")),
-                chat_id);
-        var allVal = jdbcLinksRepository.findAll();
+        jdbcChatRepository.add(CHAT_ID);
+        jdbcLinksRepository.add(URL, CHAT_ID);
+        var allVal = jdbcLinksRepository.findAll(CHAT_ID);
         assertEquals(allVal.size(), 1);
     }
 }
