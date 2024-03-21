@@ -22,6 +22,11 @@ public class TrackCommand implements Command {
     }
 
     @Override
+    public boolean supports() {
+        return true;
+    }
+
+    @Override
     public SendMessage handle(Update update) {
         return new SendMessage(update.message().chat().id(), post());
     }

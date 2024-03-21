@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ListCommand implements Command {
+    private List<String> trackedLinks = new ArrayList<>();
+
     @Override
     public String command() {
         return "/list";
@@ -21,7 +23,7 @@ public class ListCommand implements Command {
 
 
     public String post() {
-        List<String> trackedLinks = new ArrayList<>(); //List of links
+        //List of links
         if (!trackedLinks.isEmpty()) {
             return String.join("\n", trackedLinks);
         } else {

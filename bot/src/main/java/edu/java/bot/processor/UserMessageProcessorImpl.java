@@ -6,11 +6,13 @@ import edu.java.bot.ApplicationContextProvider;
 import edu.java.bot.commands.Command;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Component;
 
 
 @Component
 public class UserMessageProcessorImpl implements UserMessageProcessor {
+    private boolean supportsInput;
 
     @Override
     public List<? extends Command> commands() {
@@ -21,11 +23,25 @@ public class UserMessageProcessorImpl implements UserMessageProcessor {
 
     @Override
     public SendMessage process(Update update) {
-        var res = commands().stream().filter(cmd ->
-                cmd.command().equals(update.message().text())).findFirst();
-        if (res.isEmpty()) {
+        var command = getCommand(update);
+        if (command.isEmpty()) {
             return new SendMessage(update.message().chat().id(), "Такой команды не существует");
         }
-        return res.get().handle(update);
+        return command.get().handle(update);
+    }
+
+    public Optional<? extends Command> getCommand(Update update) {
+        return commands().stream().filter(cmd ->
+                cmd.command().equals(update.message().text())).findFirst();
+    }
+
+    public void setSupportsInput(Update update) {
+        var command = getCommand(update);
+        command.ifPresent(value -> this.supportsInput = value.supports());
+    }
+
+    public boolean isSupportsInput(Update update) {
+        setSupportsInput(update);
+        return supportsInput;
     }
 }

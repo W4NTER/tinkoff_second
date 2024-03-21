@@ -40,4 +40,19 @@ public class UserMessageProcessorImplTest {
         String expectedValue = "Такой команды не существует";
         Assertions.assertEquals(res.getParameters().get("text"), expectedValue);
     }
+
+    @Test
+    @DisplayName("Проверка правильеого вывода существующей команды")
+    void testThatProcessExpectedCommandReturnedSucceed() {
+        Mockito.when(update.message()).thenReturn(message);
+        Mockito.when(message.chat()).thenReturn(chat);
+        Mockito.when(message.text()).thenReturn("/start");
+        Mockito.when(chat.id()).thenReturn(1L);
+
+        UserMessageProcessorImpl processor = new UserMessageProcessorImpl();
+        var res = processor.process(update);
+
+        String expectedValue = "Этот бот призван стать вашим единым центром уведомлений, чтобы узнать все команды, введите /help";
+        Assertions.assertEquals(res.getParameters().get("text"), expectedValue);
+    }
 }
