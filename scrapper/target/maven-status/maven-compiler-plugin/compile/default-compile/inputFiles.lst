@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\scrapper\client\github\dto\GitResponseDTO.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\scrapper\client\github\GitHubClient.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\scrapper\client\github\GitHubClientImpl.java
@@ -7,4 +8,7 @@ C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\scrap
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\scrapper\configuration\ApplicationConfig.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\scrapper\configuration\ClientConfig.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\scrapper\scheduler\LinkUpdaterScheduler.java
+=======
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\configuration\ApplicationConfig.java
+>>>>>>> hw1
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\ScrapperApplication.java
