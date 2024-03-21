@@ -1,0 +1,12 @@
+C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\ApplicationContextProvider.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\Bot.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\BotApplication.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\commands\Command.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\commands\HelpCommand.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\commands\ListCommand.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\commands\StartCommand.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\commands\TrackCommand.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\commands\UntrackCommand.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\configuration\ApplicationConfig.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\processor\UserMessageProcessor.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\processor\UserMessageProcessorImpl.java
