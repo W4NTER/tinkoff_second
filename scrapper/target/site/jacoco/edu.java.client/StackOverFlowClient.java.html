@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StackOverFlowClient.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scrapper</a> &gt; <a href="index.source.html" class="el_package">edu.java.client</a> &gt; <span class="el_source">StackOverFlowClient.java</span></div><h1>StackOverFlowClient.java</h1><pre class="source lang-java linenums">package edu.java.client;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import edu.java.client.dto.StackOverFlowResponseDTO;
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.reactive.function.client.WebClient;
+
+@Controller
+public class StackOverFlowClient {
+    private final WebClient webClient;
+    private static final int MAX_BUFFER = 16 * 1024 * 1024;
+
+<span class="fc" id="L18">    public StackOverFlowClient(String baseUrlStackOverFlow) {</span>
+<span class="fc" id="L19">        this.webClient = WebClient.builder().baseUrl(baseUrlStackOverFlow).build();</span>
+<span class="fc" id="L20">    }</span>
+
+
+    public StackOverFlowResponseDTO getLastActivity(String userLink) {
+<span class="nc" id="L24">        return parse(webClient.get().uri(getResponseUrl(getId(userLink)))</span>
+<span class="nc" id="L25">                .retrieve().bodyToMono(String.class).block());</span>
+    }
+
+    private String getId(String link) {
+<span class="nc" id="L29">        String[] parts = link.split(&quot;/&quot;);</span>
+<span class="nc" id="L30">        return parts[parts.length - 2];</span>
+    }
+
+    private String getResponseUrl(String id) {
+<span class="nc" id="L34">        String searchQuery = &quot;order=desc&amp;sort=activity&amp;site=stackoverflow&amp;filter=withbody&quot;;</span>
+<span class="nc" id="L35">        return &quot;/&quot; + id + &quot;?&quot; + searchQuery;</span>
+
+    }
+
+    private StackOverFlowResponseDTO parse(String response) {
+<span class="nc" id="L40">        ObjectMapper objectMapper = new ObjectMapper();</span>
+<span class="nc" id="L41">        objectMapper.registerModule(new JavaTimeModule());</span>
+
+        try {
+<span class="nc" id="L44">            JsonNode node = objectMapper.readTree(response).get(&quot;items&quot;).get(0);</span>
+<span class="nc" id="L45">            var instant = Instant.ofEpochSecond(node.get(&quot;last_activity_date&quot;).asLong());</span>
+<span class="nc" id="L46">            OffsetDateTime date = OffsetDateTime.ofInstant(instant, ZoneId.of(&quot;UTC&quot;));</span>
+
+<span class="nc" id="L48">            return new StackOverFlowResponseDTO(node.get(&quot;question_id&quot;).asLong(), node.get(&quot;title&quot;).asText(), date);</span>
+<span class="nc" id="L49">        } catch (Exception e) {</span>
+<span class="nc" id="L50">            return null;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

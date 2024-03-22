@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StackoverflowClientImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scrapper</a> &gt; <a href="index.source.html" class="el_package">edu.java.scrapper.client.stackoverflow</a> &gt; <span class="el_source">StackoverflowClientImpl.java</span></div><h1>StackoverflowClientImpl.java</h1><pre class="source lang-java linenums">package edu.java.scrapper.client.stackoverflow;
+
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import edu.java.scrapper.client.stackoverflow.dto.StackoverflowResponseDTO;
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.reactive.function.client.WebClient;
+
+@Controller
+<span class="fc" id="L17">@RequiredArgsConstructor</span>
+public class StackoverflowClientImpl implements StackoverflowClient {
+<span class="fc" id="L19">    private final static Logger LOGGER = LogManager.getLogger();</span>
+    private static final int DEFAULT_LENGTH = 6;
+    private final WebClient stackOverFlowClient;
+    private final static String SEARCH_QUERY = &quot;order=desc&amp;sort=activity&amp;site=stackoverflow&amp;filter=withbody&quot;;
+
+    public StackoverflowResponseDTO getLastActivity(String userLink) {
+<span class="fc" id="L25">        return parse(stackOverFlowClient.get().uri(getResponseUrl(getId(userLink)))</span>
+<span class="fc" id="L26">                .retrieve().bodyToMono(String.class).block());</span>
+    }
+
+    private String getId(String link) {
+<span class="fc" id="L30">        String[] parts = link.split(&quot;/&quot;);</span>
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">        if (parts.length == DEFAULT_LENGTH) {</span>
+<span class="fc" id="L32">            return parts[parts.length - 2];</span>
+        } else {
+<span class="nc" id="L34">            return null;</span>
+        }
+    }
+
+    private String getResponseUrl(String id) {
+<span class="fc" id="L39">        return &quot;/&quot; + id + &quot;?&quot; + SEARCH_QUERY;</span>
+    }
+
+    private StackoverflowResponseDTO parse(String response) {
+<span class="fc" id="L43">        ObjectMapper objectMapper = new ObjectMapper();</span>
+<span class="fc" id="L44">        objectMapper.registerModule(new JavaTimeModule());</span>
+
+        try {
+<span class="fc" id="L47">            var node = objectMapper.readTree(response);</span>
+<span class="fc" id="L48">            var arrayItems = &quot;items&quot;;</span>
+<span class="pc bpc" id="L49" title="3 of 6 branches missed.">            if (!node.isEmpty() &amp;&amp; node.has(arrayItems) &amp;&amp; node.get(arrayItems).isArray()) {</span>
+<span class="fc" id="L50">                node = node.get(arrayItems).get(0);</span>
+
+<span class="fc" id="L52">            var instant = Instant.ofEpochSecond(node.get(&quot;last_activity_date&quot;).asLong());</span>
+<span class="fc" id="L53">            OffsetDateTime lastActivityDate = instant.atZone(ZoneOffset.systemDefault()).toOffsetDateTime();</span>
+
+<span class="fc" id="L55">            return new StackoverflowResponseDTO(</span>
+<span class="fc" id="L56">                    node.get(&quot;question_id&quot;).asLong(),</span>
+<span class="fc" id="L57">                    node.get(&quot;title&quot;).asText(),</span>
+                    lastActivityDate);
+            }
+<span class="nc" id="L60">        } catch (Exception e) {</span>
+<span class="nc" id="L61">            return null;</span>
+<span class="nc" id="L62">        }</span>
+<span class="nc" id="L63">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
