@@ -10,14 +10,19 @@
       "type": "edu.java.scrapper.configuration.ApplicationConfig$Scheduler",
       "sourceType": "edu.java.scrapper.configuration.ApplicationConfig",
       "sourceMethod": "scheduler()"
-    },
-    {
-      "name": "client",
-      "type": "edu.java.scrapper.configuration.ClientConfig",
-      "sourceType": "edu.java.scrapper.configuration.ClientConfig"
     }
   ],
   "properties": [
+    {
+      "name": "app.base-url-git",
+      "type": "java.lang.String",
+      "sourceType": "edu.java.scrapper.configuration.ApplicationConfig"
+    },
+    {
+      "name": "app.base-url-stackoverflow",
+      "type": "java.lang.String",
+      "sourceType": "edu.java.scrapper.configuration.ApplicationConfig"
+    },
     {
       "name": "app.scheduler.enable",
       "type": "java.lang.Boolean",

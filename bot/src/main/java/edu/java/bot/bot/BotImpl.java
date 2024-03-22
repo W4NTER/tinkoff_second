@@ -23,6 +23,9 @@ public class BotImpl implements Bot {
         for (Update update : updates) {
             if (user.isSupportsInput(update)) {
                 linkCommand = true;
+                customerId = update.message().chat().id();
+                bot.execute(user.process(update));
+                continue;
             }
             if (linkCommand && update.message().chat().id().equals(customerId)) {
                 String link = update.message().text();
@@ -31,7 +34,6 @@ public class BotImpl implements Bot {
             } else {
                 bot.execute(user.process(update));
             }
-            customerId = update.message().chat().id();
         }
         return UpdatesListener.CONFIRMED_UPDATES_ALL;
     }

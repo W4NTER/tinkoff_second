@@ -3,6 +3,7 @@ package edu.java.scrapper.client;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import com.github.tomakehurst.wiremock.matching.UrlPattern;
+import edu.java.scrapper.client.github.GitHubClient;
 import edu.java.scrapper.client.github.GitHubClientImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
@@ -21,6 +23,7 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 @SpringBootTest
 @TestPropertySource(locations = "classpath:test")
 public class GitHubClientTest {
+    private GitHubClient client;
     private final static String USER_NAME = "Owner";
     private final static String REPO = "Repo";
     private final static String RESPONSE_BODY = "{\"id\": 123,\"name\":\"testRepo\",\"full_name\":\"Owner/Repo\", " +
@@ -43,6 +46,8 @@ public class GitHubClientTest {
                         .withBody(RESPONSE_BODY)
                 )
         );
+        client = new GitHubClientImpl(WebClient.builder().baseUrl("http://localhost:8089").build());
+
     }
 
 
@@ -52,7 +57,6 @@ public class GitHubClientTest {
         Long expectedId = 123L;
         String expectedName = "Owner/Repo";
 
-        var client = new GitHubClientImpl("http://localhost:8089");
         var dto = client.getLastUpdate(USER_NAME, REPO);
 
         Assertions.assertEquals(dto.id(), expectedId);
