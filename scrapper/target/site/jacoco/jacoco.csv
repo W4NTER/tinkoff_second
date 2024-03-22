@@ -1,10 +1,10 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-scrapper,edu.java.scrapper.scheduler,LinkUpdaterScheduler,16,6,0,0,4,2,2,2,2,2
-scrapper,edu.java.scrapper.client.github,GitHubClientImpl,0,29,0,0,0,6,0,3,0,3
+scrapper,edu.java.scrapper.scheduler,LinkUpdaterScheduler,0,22,0,0,0,6,0,4,0,4
+scrapper,edu.java.scrapper.client.github,GitHubClientImpl,0,26,0,0,0,4,0,3,0,3
 scrapper,edu.java.scrapper.client.stackoverflow.dto,StackoverflowResponseDTO,0,12,0,0,0,1,0,1,0,1
-scrapper,edu.java.scrapper.client.stackoverflow,StackoverflowClientImpl,3,88,0,0,2,17,0,5,0,5
+scrapper,edu.java.scrapper.client.stackoverflow,StackoverflowClientImpl,8,105,4,4,5,19,4,6,0,6
 scrapper,edu.java.scrapper.client.github.dto,GitResponseDTO,0,12,0,0,0,1,0,1,0,1
-scrapper,edu.java.scrapper.configuration,ClientConfig,0,29,0,0,0,6,0,7,0,7
+scrapper,edu.java.scrapper.configuration,ClientConfig,0,17,0,0,0,3,0,3,0,3
 scrapper,edu.java.scrapper.configuration,ApplicationConfig.Scheduler,0,12,0,0,0,1,0,1,0,1
-scrapper,edu.java.scrapper.configuration,ApplicationConfig,0,6,0,0,0,1,0,1,0,1
+scrapper,edu.java.scrapper.configuration,ApplicationConfig,0,12,0,0,0,1,0,1,0,1
 scrapper,edu.java,ScrapperApplication,5,3,0,0,2,1,1,1,1,1

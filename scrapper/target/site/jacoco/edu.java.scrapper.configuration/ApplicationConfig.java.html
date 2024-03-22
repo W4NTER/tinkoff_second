@@ -13,9 +13,14 @@ import org.springframework.validation.annotation.Validated;
 <span class="fc" id="L13">public record ApplicationConfig(</span>
         @Bean
         @NotNull
-        Scheduler scheduler
+        Scheduler scheduler,
+        @NotNull
+        String baseUrlGit,
+        @NotNull
+        String baseUrlStackoverflow
 ) {
-<span class="fc" id="L18">    public record Scheduler(boolean enable, @NotNull Duration interval, @NotNull Duration forceCheckDelay) {</span>
+
+<span class="fc" id="L23">    public record Scheduler(boolean enable, @NotNull Duration interval, @NotNull Duration forceCheckDelay) {</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
