@@ -1,4 +1,5 @@
-C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\test\java\edu\java\scrapper\client\GitHubClientTest.java
-C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\test\java\edu\java\scrapper\client\StackoverflowTest.java
-C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\test\java\edu\java\scrapper\client\StackoverflowTestParseJson.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\test\java\edu\java\scrapper\client\botClient\BotClientTest.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\test\java\edu\java\scrapper\client\gitgub\GitHubClientTest.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\test\java\edu\java\scrapper\client\stackoverflow\StackoverflowTest.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\test\java\edu\java\scrapper\client\stackoverflow\StackoverflowTestParseJson.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\test\java\edu\java\scrapper\IntegrationTest.java
