@@ -2,6 +2,7 @@
 
 import edu.java.controller.dto.request.AddLinkRequest;
 import edu.java.controller.dto.response.LinkResponse;
+import java.net.URI;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,16 +12,14 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.net.URI;
-
 
 @RestController
 @RequestMapping(&quot;/links&quot;)
-<span class="fc" id="L19">public class LinksController {</span>
+<span class="fc" id="L18">public class LinksController {</span>
 
     @GetMapping
     public ResponseEntity&lt;Void&gt; getAllTrackedLinks(@RequestHeader(&quot;Tg-Chat-Id&quot;) Long chatId) {
-<span class="nc" id="L23">        return ResponseEntity.ok().build();</span>
+<span class="nc" id="L22">        return ResponseEntity.ok().build();</span>
     }
 
 
@@ -28,14 +27,14 @@ import java.net.URI;
     public ResponseEntity&lt;LinkResponse&gt; trackLink(
             @RequestHeader(&quot;Tg-Chat-Id&quot;) Long chatId,
             @RequestBody AddLinkRequest addLinkRequest) {
-<span class="nc" id="L31">        return ResponseEntity.ok().build();</span>
+<span class="nc" id="L30">        return ResponseEntity.ok().build();</span>
     }
 
     @DeleteMapping
     public ResponseEntity&lt;LinkResponse&gt; untrackLink(
             @RequestHeader(&quot;Tg-Chat-Id&quot;) Long chatId,
             @RequestBody URI url) {
-<span class="nc" id="L38">        return ResponseEntity.ok().build();</span>
+<span class="nc" id="L37">        return ResponseEntity.ok().build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

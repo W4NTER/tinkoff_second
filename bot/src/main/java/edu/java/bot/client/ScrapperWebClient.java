@@ -1,12 +1,11 @@
 package edu.java.bot.client;
 
+import java.net.URI;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-
-import java.net.URI;
 
 @Component
 @AllArgsConstructor

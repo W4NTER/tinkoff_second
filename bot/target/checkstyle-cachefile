@@ -1,10 +1,10 @@
-#Sun Mar 24 10:01:51 UTC 2024
+#Sun Mar 24 14:13:25 UTC 2024
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\ApplicationContextProvider.java=1711274380981
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\Bot.java=1711274372658
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\BotApplication.java=1711274380982
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\bot\\Bot.java=1711274380982
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\bot\\BotImpl.java=1711274380983
-C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\client\\ScrapperWebClient.java=1711274372660
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\client\\ScrapperWebClient.java=1711289602483
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\commands\\Command.java=1711274380983
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\commands\\HelpCommand.java=1711274380984
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\commands\\ListCommand.java=1711274380984
@@ -14,7 +14,7 @@ C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\configuration\\ApplicationConfig.java=1711274372663
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\configuration\\ClientConfig.java=1711274372663
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\controller\\BotController.java=1711273584040
-C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\controller\\dto\\request\\LinkUpdateRequest.java=1711273584041
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\controller\\dto\\request\\LinkUpdateRequest.java=1711289585301
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\controller\\dto\\response\\ApiErrorResponse.java=1711273584042
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\controller\\exception\\HandleControllerException.java=1711273584042
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\bot\\src\\main\\java\\edu\\java\\bot\\controller\\exception\\IdNotFoundException.java=1711273584043
