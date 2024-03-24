@@ -1,5 +1,7 @@
 package edu.java.bot;
 
+import edu.java.bot.bot.Bot;
+import edu.java.bot.bot.BotImpl;
 import edu.java.bot.configuration.ApplicationConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +13,7 @@ public class BotApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(BotApplication.class, args);
-        Bot bot = new Bot();
+        Bot bot = new BotImpl();
         bot.start();
     }
 }

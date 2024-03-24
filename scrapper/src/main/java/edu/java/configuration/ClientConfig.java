@@ -1,49 +1,30 @@
 package edu.java.configuration;
 
-import edu.java.client.github.GitHubClientImpl;
-import edu.java.client.stackoverflow.StackoverflowClientImpl;
-import jakarta.validation.constraints.NotNull;
-import lombok.Setter;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import edu.java.configuration.ApplicationConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
-@ConfigurationProperties(prefix = "client", ignoreUnknownFields = false)
-@Setter
+@EnableScheduling
 public class ClientConfig {
-    @NotNull
-    String baseUrlGit;
-
-    @NotNull
-    String baseUrlStackoverflow;
-
-    @NotNull
-    String baseUrlBot;
+    @Autowired
+    ApplicationConfig applicationConfig;
 
     @Bean
-    String baseUrlGit() {
-        return baseUrlGit;
+    public WebClient gitHubClient() {
+        return WebClient.builder().baseUrl(applicationConfig.baseUrlGit()).build();
     }
 
     @Bean
-    String baseUrlStackoverflow() {
-        return baseUrlStackoverflow;
-    }
-
-    @Bean
-    public GitHubClientImpl gitHubClient() {
-        return new GitHubClientImpl(baseUrlGit);
-    }
-
-    @Bean
-    public StackoverflowClientImpl stackOverFlowClient() {
-        return new StackoverflowClientImpl(baseUrlStackoverflow);
+    public WebClient stackOverFlowClient() {
+        return WebClient.builder().baseUrl(applicationConfig.baseUrlStackoverflow()).build();
     }
 
     @Bean
     public WebClient botClient() {
-        return WebClient.builder().baseUrl(baseUrlBot).build();
+        return WebClient.builder().baseUrl(applicationConfig.baseUrlBot()).build();
     }
 }

@@ -11,26 +11,30 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URI;
+
 
 @RestController
 @RequestMapping("/links")
 public class LinksController {
 
     @GetMapping
-    public ResponseEntity<Void> getAllTrackedLinks() {
+    public ResponseEntity<Void> getAllTrackedLinks(@RequestHeader("Tg-Chat-Id") Long chatId) {
         return ResponseEntity.ok().build();
     }
 
 
     @PostMapping
     public ResponseEntity<LinkResponse> trackLink(
-            @RequestHeader("Tg-Chat-Id") Long id,
+            @RequestHeader("Tg-Chat-Id") Long chatId,
             @RequestBody AddLinkRequest addLinkRequest) {
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping
-    public ResponseEntity<LinkResponse> untrackLink(@RequestHeader("Tg-Chat-Id") Long id) {
+    public ResponseEntity<LinkResponse> untrackLink(
+            @RequestHeader("Tg-Chat-Id") Long chatId,
+            @RequestBody URI url) {
         return ResponseEntity.ok().build();
     }
 }

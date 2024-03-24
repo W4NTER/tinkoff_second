@@ -35,10 +35,8 @@ class StartCommandTest {
         StartCommand command = new StartCommand();
         String result = (String) command.handle(update).getParameters().get("text");
 
-        String EXPECTED_VALUE = (String) new SendMessage(1,
-                "Этот бот призван стать вашим единым центром уведомлений, чтобы узнать все команды, введите \"help\"")
-                .getParameters().get("text");
-        assertEquals(result, EXPECTED_VALUE);
+        String expectedValue =
+                "Этот бот призван стать вашим единым центром уведомлений, чтобы узнать все команды, введите /help";
+        assertEquals(result, expectedValue);
     }
-
 }
