@@ -2,4 +2,6 @@ C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\test\java\edu\java\scrap
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\test\java\edu\java\scrapper\client\gitgub\GitHubClientTest.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\test\java\edu\java\scrapper\client\stackoverflow\StackoverflowTest.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\test\java\edu\java\scrapper\client\stackoverflow\StackoverflowTestParseJson.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\test\java\edu\java\scrapper\domain\repository\JdbcLinksRepositoryTest.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\test\java\edu\java\scrapper\domain\repository\JdbcTgChatRepositoryTest.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\test\java\edu\java\scrapper\IntegrationTest.java

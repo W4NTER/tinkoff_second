@@ -1,5 +1,5 @@
 create table if not exists chat (
-    chat_id bigint generated always as identity,
+    chat_id bigint not null,
     created_at timestamp with time zone not null,
     edited_at timestamp with time zone not null,
 

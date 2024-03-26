@@ -18,5 +18,17 @@ C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\contr
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\exception\IncorrectParametersException.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\LinksController.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\TelegramChatController.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\dto\ChatDTO.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\dto\LinksDTO.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\model\ChatEntity.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\jdbc\JdbcLinksRepository.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\jdbc\JdbcTgChatRepository.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\LInksRepository.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\TgChatRepository.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\jdbc\JdbcLinksService.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\jdbc\JdbcTgChatService.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\LinksService.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\LinkUpdater.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\TgChatService.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\scheduler\LinkUpdaterScheduler.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\ScrapperApplication.java
