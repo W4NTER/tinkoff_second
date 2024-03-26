@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BotWebClient.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scrapper</a> &gt; <a href="index.source.html" class="el_package">edu.java.client.botClient</a> &gt; <span class="el_source">BotWebClient.java</span></div><h1>BotWebClient.java</h1><pre class="source lang-java linenums">package edu.java.client.botClient;
 
-import edu.java.controller.dto.response.ListLinksResponse;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Component
 <span class="fc" id="L10">@AllArgsConstructor</span>
 public class BotWebClient {
 
-    private final WebClient webClient;
+    private final WebClient botClient;
 
-    public String sendUpdates(ListLinksResponse listLinksResponse) {
-<span class="nc" id="L16">        return webClient</span>
-<span class="nc" id="L17">                .post()</span>
-<span class="nc" id="L18">                .uri(&quot;/updates&quot;)</span>
-<span class="nc" id="L19">                .body(BodyInserters.fromValue(listLinksResponse))</span>
-<span class="nc" id="L20">                .retrieve()</span>
-<span class="nc" id="L21">                .bodyToMono(String.class)</span>
-<span class="nc" id="L22">                .block();</span>
+    public String sendUpdates(Long linkId, String url, String description, Long chatId) {
+<span class="fc" id="L16">        ObjectMapper objectMapper = new ObjectMapper();</span>
+<span class="fc" id="L17">        String body = String.format(&quot;{\&quot;id\&quot;:%d, \&quot;url\&quot;:\&quot;%s\&quot;, \&quot;description\&quot;:\&quot;%s\&quot;, \&quot;tgChatId\&quot;:%d}&quot;,</span>
+                linkId, url, description, chatId);
+<span class="fc" id="L19">        return botClient</span>
+<span class="fc" id="L20">                .post()</span>
+<span class="fc" id="L21">                .uri(&quot;/updates&quot;)</span>
+<span class="fc" id="L22">                .contentType(MediaType.APPLICATION_JSON)</span>
+<span class="fc" id="L23">                .bodyValue(body)</span>
+<span class="fc" id="L24">                .retrieve()</span>
+<span class="fc" id="L25">                .bodyToMono(String.class)</span>
+<span class="fc" id="L26">                .block();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

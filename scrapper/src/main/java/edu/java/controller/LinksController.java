@@ -28,20 +28,19 @@ public class LinksController {
         return new ResponseEntity<>(jdbcLinksService.listAll(id), HttpStatus.OK);
     }
 
-
     @PostMapping
     public ResponseEntity<LinkResponse> trackLink(
-            @RequestHeader("Tg-Chat-Id") Long id,
+            @RequestHeader("Tg-Chat-Id") Long chatId,
             @RequestBody AddLinkRequest addLinkRequest) {
-        LinksDTO linksDTO = jdbcLinksService.addLink(id, addLinkRequest.link());
+        LinksDTO linksDTO = jdbcLinksService.addLink(chatId, addLinkRequest.link());
         return new ResponseEntity<>(new LinkResponse(linksDTO.id(), linksDTO.link()), HttpStatus.OK);
     }
 
     @DeleteMapping
     public ResponseEntity<LinkResponse> untrackLink(
-            @RequestHeader("Tg-Chat-Id") Long id,
+            @RequestHeader("Tg-Chat-Id") Long chatId,
             @RequestBody RemoveLinkRequest url) {
-        LinksDTO linksDTO = jdbcLinksService.deleteLink(id, url.link());
+        LinksDTO linksDTO = jdbcLinksService.deleteLink(chatId, url.link());
         return new ResponseEntity<>(new LinkResponse(linksDTO.id(), linksDTO.link()), HttpStatus.OK);
     }
 }

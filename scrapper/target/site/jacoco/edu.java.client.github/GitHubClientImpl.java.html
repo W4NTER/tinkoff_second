@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GitHubClientImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scrapper</a> &gt; <a href="index.source.html" class="el_package">edu.java.client.github</a> &gt; <span class="el_source">GitHubClientImpl.java</span></div><h1>GitHubClientImpl.java</h1><pre class="source lang-java linenums">package edu.java.client.github;
 
 import edu.java.client.github.dto.GitResponseDTO;
-import org.springframework.beans.factory.annotation.Qualifier;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 @Controller
+<span class="fc" id="L10">@RequiredArgsConstructor</span>
 public class GitHubClientImpl implements GitHubClient {
-    private final WebClient webClient;
 
-<span class="fc" id="L13">    public GitHubClientImpl(@Qualifier(&quot;baseUrlGit&quot;) String baseUtlGit) {</span>
-<span class="fc" id="L14">        this.webClient = WebClient.builder().baseUrl(baseUtlGit).build();</span>
-<span class="fc" id="L15">    }</span>
+    private final WebClient gitHubClient;
 
     private Mono&lt;GitResponseDTO&gt; getLastUpdateMono(String username, String repo) {
-<span class="fc" id="L18">        return webClient.get().uri(&quot;/repos/&quot; + username + &quot;/&quot; + repo)</span>
-<span class="fc" id="L19">                .retrieve().bodyToMono(GitResponseDTO.class);</span>
+<span class="fc" id="L16">        return gitHubClient.get().uri(&quot;/repos/&quot; + username + &quot;/&quot; + repo)</span>
+<span class="fc" id="L17">                .retrieve().bodyToMono(GitResponseDTO.class);</span>
     }
 
     @Override
     public GitResponseDTO getLastUpdate(String username, String repo) {
-<span class="fc" id="L24">        return getLastUpdateMono(username, repo).block();</span>
+<span class="fc" id="L22">        return getLastUpdateMono(username, repo).block();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

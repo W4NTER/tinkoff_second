@@ -13,8 +13,15 @@ import org.springframework.validation.annotation.Validated;
 public record ApplicationConfig(
         @Bean
         @NotNull
-        Scheduler scheduler
+        Scheduler scheduler,
+        @NotNull
+        String baseUrlGit,
+        @NotNull
+        String baseUrlStackoverflow,
+        @NotNull
+        String baseUrlBot
 ) {
+
     public record Scheduler(boolean enable, @NotNull Duration interval, @NotNull Duration forceCheckDelay) {
     }
 }

@@ -1,22 +1,17 @@
-package edu.java.scrapper.client;
+package edu.java.scrapper.client.stackoverflow;
 
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import com.github.tomakehurst.wiremock.junit5.WireMockTest;
 import com.github.tomakehurst.wiremock.matching.UrlPattern;
 import edu.java.client.stackoverflow.StackoverflowClientImpl;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
-
-import java.time.Instant;
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
@@ -24,9 +19,9 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 @SpringBootTest
 @TestPropertySource(locations = "classpath:test")
 @WireMockTest
-public class StackoverflowTest {
-    private final static Logger LOGGER = LogManager.getLogger();
-    private final static int ID = 12345;
+public class StackoverflowTestParseJson {
+
+    private StackoverflowClientImpl client;
 
     @RegisterExtension
     static WireMockExtension extension = new WireMockExtension.Builder()
@@ -35,7 +30,7 @@ public class StackoverflowTest {
 
     @BeforeEach
     void configure() {
-        String responseBody = "{\"items\":[{\"last_activity_date\":1709579044,\"question_id\":12345,\"title\":\"question\"}]}";
+        String responseBody = "{}";
         UrlPattern externalUrl = urlEqualTo("/12345?order=desc&sort=activity&site=stackoverflow&filter=withbody");
 
         extension.stubFor(WireMock.get(externalUrl)
@@ -45,19 +40,16 @@ public class StackoverflowTest {
                         .withBody(responseBody)
                 )
         );
+        client = new StackoverflowClientImpl(WebClient.builder().baseUrl("http://localhost:8089").build());
     }
 
     @Test
-    void testThatStackoverflowClientReturnedSucceed() {
+    void testThatParseJsonThrowsExceptionReturnedSucceed() {
         String link = "https://stackoverflow.com/questions/12345/question";
-        int expectedQuestionId = 12345;
-        String expectedTitle = "question";
-        OffsetDateTime expectedLastActivityDate = OffsetDateTime.ofInstant(Instant.ofEpochSecond(1709579044L), ZoneId.of("UTC"));
 
-        var client = new StackoverflowClientImpl("http://localhost:8089");
-        var data = client.getLastActivity(link);
-        Assertions.assertEquals(data.questionId(), expectedQuestionId);
-        Assertions.assertEquals(data.questionTitle(), expectedTitle);
-        Assertions.assertEquals(data.lastActivityDate(), expectedLastActivityDate);
+       var data = client.getLastActivity(link);
+
+       String expectedValue = null;
+        Assertions.assertEquals(expectedValue, data);
     }
 }

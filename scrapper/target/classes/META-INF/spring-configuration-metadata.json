@@ -10,14 +10,24 @@
       "type": "edu.java.configuration.ApplicationConfig$Scheduler",
       "sourceType": "edu.java.configuration.ApplicationConfig",
       "sourceMethod": "scheduler()"
-    },
-    {
-      "name": "client",
-      "type": "edu.java.configuration.ClientConfig",
-      "sourceType": "edu.java.configuration.ClientConfig"
     }
   ],
   "properties": [
+    {
+      "name": "app.base-url-bot",
+      "type": "java.lang.String",
+      "sourceType": "edu.java.configuration.ApplicationConfig"
+    },
+    {
+      "name": "app.base-url-git",
+      "type": "java.lang.String",
+      "sourceType": "edu.java.configuration.ApplicationConfig"
+    },
+    {
+      "name": "app.base-url-stackoverflow",
+      "type": "java.lang.String",
+      "sourceType": "edu.java.configuration.ApplicationConfig"
+    },
     {
       "name": "app.scheduler.enable",
       "type": "java.lang.Boolean",

@@ -13,11 +13,16 @@ public class StartCommand implements Command {
 
     @Override
     public String description() {
-        return "Этот бот призван стать вашим единым центром уведомлений, чтобы узнать все команды, введите \"help\"";
+        return "зарегистрировать пользователя";
+    }
+
+    @Override
+    public String post() {
+        return "Этот бот призван стать вашим единым центром уведомлений, чтобы узнать все команды, введите /help";
     }
 
     @Override
     public SendMessage handle(Update update) {
-        return new SendMessage(update.message().chat().id(), description());
+        return new SendMessage(update.message().chat().id(), post());
     }
 }

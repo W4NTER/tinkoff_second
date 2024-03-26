@@ -8,6 +8,12 @@ spring:
   jackson:
     time-zone: UTC
 
+<<<<<<< HEAD
+=======
+#client:
+#  base-url-scrapper: http://localhost:8080
+
+>>>>>>> hw4
 server:
   port: 8090
 

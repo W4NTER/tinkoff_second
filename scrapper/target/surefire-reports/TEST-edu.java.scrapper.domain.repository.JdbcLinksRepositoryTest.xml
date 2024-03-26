@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="edu.java.scrapper.domain.repository.JdbcLinksRepositoryTest" time="4.317" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="edu.java.scrapper.domain.repository.JdbcLinksRepositoryTest" time="5.439" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="git.tags" value=""/>
     <property name="java.specification.version" value="21"/>
@@ -10,13 +10,13 @@
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
     <property name="user.country.format" value="RU"/>
     <property name="sun.boot.library.path" value="C:\Users\Vadim\.jdks\openjdk-21.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\Vadim\AppData\Local\Temp\surefire14435298795644937652\surefirebooter-20240320105930685_3.jar C:\Users\Vadim\AppData\Local\Temp\surefire14435298795644937652 2024-03-20T10-59-30_551-jvmRun1 surefire-20240320105930685_1tmp surefire_0-20240320105930685_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Vadim\AppData\Local\Temp\surefire12648059441339493294\surefirebooter-20240326093107326_3.jar C:\Users\Vadim\AppData\Local\Temp\surefire12648059441339493294 2024-03-26T09-31-07_175-jvmRun1 surefire-20240326093107326_1tmp surefire_0-20240326093107326_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="git.closest.tag.commit.count" value=""/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="java.version.date" value="2024-01-16"/>
     <property name="java.home" value="C:\Users\Vadim\.jdks\openjdk-21.0.2"/>
-    <property name="git.total.commit.count" value="40"/>
+    <property name="git.total.commit.count" value="42"/>
     <property name="file.separator" value="\"/>
     <property name="basedir" value="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
@@ -24,8 +24,8 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="git.closest.tag.name" value=""/>
-    <property name="git.build.time" value="2024-03-20T10:59:29+0000"/>
-    <property name="git.commit.message.full" value="add_repository"/>
+    <property name="git.build.time" value="2024-03-26T09:31:03+0000"/>
+    <property name="git.commit.message.full" value="nothing"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="org.slf4j.simpleLogger.dateTimeFormat" value="HH:mm:ss"/>
@@ -40,12 +40,12 @@
     <property name="com.zaxxer.hikari.pool_number" value="1"/>
     <property name="java.version" value="21.0.2"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="12124"/>
+    <property name="PID" value="40048"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
-    <property name="git.commit.id.describe" value="1806bf2-dirty"/>
+    <property name="git.commit.id.describe" value="7980165-dirty"/>
     <property name="native.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Users\Vadim\.jdks\openjdk-21.0.2\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Vadim\AppData\Local\Microsoft\WindowsApps;C:\Users\Vadim\AppData\Local\JetBrains\Toolbox\scripts;;D:\Liquibase\liquibase;."/>
+    <property name="java.library.path" value="C:\Users\Vadim\.jdks\openjdk-21.0.2\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Vadim\AppData\Local\Microsoft\WindowsApps;C:\Users\Vadim\AppData\Local\JetBrains\Toolbox\scripts;;D:\Liquibase\liquibase;."/>
     <property name="stderr.encoding" value="Cp1252"/>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
@@ -57,11 +57,11 @@
     <property name="git.branch" value="hw5"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
-    <property name="git.commit.id" value="1806bf2fcba4d241c3f4da697f781406e0d5151e"/>
+    <property name="git.commit.id" value="7980165a916f071156efa1ea317fe067c9036b25"/>
     <property name="user.timezone" value="UTC"/>
     <property name="java.vm.specification.version" value="21"/>
     <property name="os.name" value="Windows 10"/>
-    <property name="git.commit.author.time" value="2024-03-17T20:19:59+0000"/>
+    <property name="git.commit.author.time" value="2024-03-20T11:34:49+0000"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="git.build.user.name" value="Vadim"/>
@@ -69,13 +69,13 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\Vadim"/>
     <property name="user.language" value="en"/>
-    <property name="git.commit.committer.time" value="2024-03-17T20:19:59+0000"/>
+    <property name="git.commit.committer.time" value="2024-03-20T11:34:49+0000"/>
     <property name="git.build.user.email" value="vadimka.kashapov.02@mail.ru"/>
     <property name="FILE_LOG_CHARSET" value="UTF-8"/>
     <property name="java.awt.headless" value="true"/>
-    <property name="git.local.branch.ahead" value="0"/>
+    <property name="git.local.branch.ahead" value="1"/>
     <property name="org.slf4j.simpleLogger.showDateTime" value="true"/>
-    <property name="surefire.real.class.path" value="C:\Users\Vadim\AppData\Local\Temp\surefire14435298795644937652\surefirebooter-20240320105930685_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Vadim\AppData\Local\Temp\surefire12648059441339493294\surefirebooter-20240326093107326_3.jar"/>
     <property name="stdout.encoding" value="Cp1252"/>
     <property name="path.separator" value=";"/>
     <property name="os.version" value="10.0"/>
@@ -89,45 +89,45 @@
     <property name="user.dir" value="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper"/>
     <property name="os.arch" value="amd64"/>
     <property name="git.commit.user.name" value="Vadim"/>
-    <property name="git.commit.id.abbrev" value="1806bf2"/>
+    <property name="git.commit.id.abbrev" value="7980165"/>
     <property name="user.language.format" value="ru"/>
-    <property name="git.commit.id.describe-short" value="1806bf2-dirty"/>
-    <property name="git.commit.message.short" value="add_repository"/>
+    <property name="git.commit.id.describe-short" value="7980165-dirty"/>
+    <property name="git.commit.message.short" value="nothing"/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="java.vm.version" value="21.0.2+13-58"/>
     <property name="java.class.version" value="65.0"/>
-    <property name="git.commit.time" value="2024-03-17T20:19:59+0000"/>
+    <property name="git.commit.time" value="2024-03-20T11:34:49+0000"/>
   </properties>
   <testcase name="testThatContainerIsCreatedReturnedSucceed" classname="edu.java.scrapper.domain.repository.JdbcLinksRepositoryTest" time="0.019">
-    <system-out><![CDATA[10:59:38.150 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m tainers.images.PullPolicy -- &amp#27;[32mImage pull policy will be performed by: DefaultPullPolicy()&amp#27;[m 
-10:59:38.153 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m lity.ImageNameSubstitutor -- &amp#27;[32mImage name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')&amp#27;[m 
-10:59:38.387 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m kerClientProviderStrategy -- &amp#27;[32mLoaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first&amp#27;[m 
-10:59:38.660 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m kerClientProviderStrategy -- &amp#27;[32mFound Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)&amp#27;[m 
-10:59:38.662 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m iners.DockerClientFactory -- &amp#27;[32mDocker host IP address is localhost&amp#27;[m 
-10:59:38.678 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m iners.DockerClientFactory -- &amp#27;[32mConnected to docker: 
+    <system-out><![CDATA[09:31:15.376 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m tainers.images.PullPolicy -- &amp#27;[32mImage pull policy will be performed by: DefaultPullPolicy()&amp#27;[m 
+09:31:15.379 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m lity.ImageNameSubstitutor -- &amp#27;[32mImage name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')&amp#27;[m 
+09:31:15.666 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m kerClientProviderStrategy -- &amp#27;[32mLoaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first&amp#27;[m 
+09:31:16.020 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m kerClientProviderStrategy -- &amp#27;[32mFound Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)&amp#27;[m 
+09:31:16.022 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m iners.DockerClientFactory -- &amp#27;[32mDocker host IP address is localhost&amp#27;[m 
+09:31:16.039 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m iners.DockerClientFactory -- &amp#27;[32mConnected to docker: 
   Server Version: 25.0.3
   API Version: 1.44
   Operating System: Docker Desktop
   Total Memory: 15958 MB&amp#27;[m 
-10:59:38.703 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m testcontainers/ryuk:0.6.0 -- &amp#27;[32mCreating container for image: testcontainers/ryuk:0.6.0&amp#27;[m 
-10:59:38.962 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m testcontainers/ryuk:0.6.0 -- &amp#27;[32mContainer testcontainers/ryuk:0.6.0 is starting: 830d160aea142b3a328464ccc39a8dc66078ed67756cbd1b894a3e4adc98fe15&amp#27;[m 
-10:59:39.319 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m testcontainers/ryuk:0.6.0 -- &amp#27;[32mContainer testcontainers/ryuk:0.6.0 started in PT0.6155591S&amp#27;[m 
-10:59:39.323 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m tility.RyukResourceReaper -- &amp#27;[32mRyuk started - will monitor and terminate Testcontainers containers on JVM exit&amp#27;[m 
-10:59:39.323 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m iners.DockerClientFactory -- &amp#27;[32mChecking the system...&amp#27;[m 
-10:59:39.324 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m iners.DockerClientFactory -- &amp#27;[32m✔︎ Docker server version should be at least 1.6.0&amp#27;[m 
-10:59:39.325 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m tc.postgres:15            -- &amp#27;[32mCreating container for image: postgres:15&amp#27;[m 
-10:59:39.402 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m tc.postgres:15            -- &amp#27;[32mContainer postgres:15 is starting: 99b4e18dde37eb73239ba5c5dd414e5bca7721179f589e993f61248f14d48e90&amp#27;[m 
-10:59:41.195 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m tc.postgres:15            -- &amp#27;[32mContainer postgres:15 started in PT1.8703582S&amp#27;[m 
-10:59:41.195 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m tc.postgres:15            -- &amp#27;[32mContainer is started (JDBC URL: jdbc:postgresql://localhost:53096/scrapper?loggerLevel=OFF)&amp#27;[m 
-10:59:41.508 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.database        -- &amp#27;[32mSet default schema name to public&amp#27;[m 
-10:59:41.859 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.changelog       -- &amp#27;[32mCreating database history table with name: public.databasechangelog&amp#27;[m 
-10:59:41.887 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.changelog       -- &amp#27;[32mReading from public.databasechangelog&amp#27;[m 
-10:59:41.935 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.lockservice     -- &amp#27;[32mSuccessfully acquired change log lock&amp#27;[m 
-10:59:41.936 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.command         -- &amp#27;[32mUsing deploymentId: 0932381936&amp#27;[m 
-10:59:41.938 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.changelog       -- &amp#27;[32mReading from public.databasechangelog&amp#27;[m 
+09:31:16.068 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m testcontainers/ryuk:0.6.0 -- &amp#27;[32mCreating container for image: testcontainers/ryuk:0.6.0&amp#27;[m 
+09:31:16.477 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m testcontainers/ryuk:0.6.0 -- &amp#27;[32mContainer testcontainers/ryuk:0.6.0 is starting: 5e69d1b4b7bdf6dd045c8b173e4ac21d8950d38093d5b8df1fa47269f3bd26ac&amp#27;[m 
+09:31:17.214 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m testcontainers/ryuk:0.6.0 -- &amp#27;[32mContainer testcontainers/ryuk:0.6.0 started in PT1.1450114S&amp#27;[m 
+09:31:17.225 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m tility.RyukResourceReaper -- &amp#27;[32mRyuk started - will monitor and terminate Testcontainers containers on JVM exit&amp#27;[m 
+09:31:17.226 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m iners.DockerClientFactory -- &amp#27;[32mChecking the system...&amp#27;[m 
+09:31:17.226 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m iners.DockerClientFactory -- &amp#27;[32m✔︎ Docker server version should be at least 1.6.0&amp#27;[m 
+09:31:17.227 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m tc.postgres:15            -- &amp#27;[32mCreating container for image: postgres:15&amp#27;[m 
+09:31:17.323 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m tc.postgres:15            -- &amp#27;[32mContainer postgres:15 is starting: d5cff646404366c1c0fa47c976dba90639a5e735f03c22898c4fcfa7a2d25ada&amp#27;[m 
+09:31:19.478 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m tc.postgres:15            -- &amp#27;[32mContainer postgres:15 started in PT2.251145S&amp#27;[m 
+09:31:19.478 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m tc.postgres:15            -- &amp#27;[32mContainer is started (JDBC URL: jdbc:postgresql://localhost:50665/scrapper?loggerLevel=OFF)&amp#27;[m 
+09:31:19.806 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.database        -- &amp#27;[32mSet default schema name to public&amp#27;[m 
+09:31:20.207 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.changelog       -- &amp#27;[32mCreating database history table with name: public.databasechangelog&amp#27;[m 
+09:31:20.235 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.changelog       -- &amp#27;[32mReading from public.databasechangelog&amp#27;[m 
+09:31:20.285 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.lockservice     -- &amp#27;[32mSuccessfully acquired change log lock&amp#27;[m 
+09:31:20.286 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.command         -- &amp#27;[32mUsing deploymentId: 1445480286&amp#27;[m 
+09:31:20.288 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.changelog       -- &amp#27;[32mReading from public.databasechangelog&amp#27;[m 
 Running Changeset: changelog-sql.xml::init_tables::Vadim
-10:59:41.966 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.changelog       -- &amp#27;[32mSQL in file sql/create_tables.sql executed&amp#27;[m 
-10:59:41.968 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.changelog       -- &amp#27;[32mChangeSet changelog-sql.xml::init_tables::Vadim ran successfully in 22ms&amp#27;[m 
+09:31:20.321 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.changelog       -- &amp#27;[32mSQL in file sql/create_tables.sql executed&amp#27;[m 
+09:31:20.323 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.changelog       -- &amp#27;[32mChangeSet changelog-sql.xml::init_tables::Vadim ran successfully in 27ms&amp#27;[m 
 
 UPDATE SUMMARY
 Run:                          1
@@ -136,17 +136,17 @@ Filtered out:                 0
 -------------------------------
 Total change sets:            1
 
-10:59:41.975 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.util            -- &amp#27;[32mUPDATE SUMMARY&amp#27;[m 
-10:59:41.975 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.util            -- &amp#27;[32mRun:                          1&amp#27;[m 
-10:59:41.976 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.util            -- &amp#27;[32mPreviously run:               0&amp#27;[m 
-10:59:41.976 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.util            -- &amp#27;[32mFiltered out:                 0&amp#27;[m 
-10:59:41.976 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.util            -- &amp#27;[32m-------------------------------&amp#27;[m 
-10:59:41.976 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.util            -- &amp#27;[32mTotal change sets:            1&amp#27;[m 
-10:59:41.977 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.util            -- &amp#27;[32mUpdate summary generated&amp#27;[m 
-10:59:41.979 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.command         -- &amp#27;[32mUpdate command completed successfully.&amp#27;[m 
+09:31:20.332 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.util            -- &amp#27;[32mUPDATE SUMMARY&amp#27;[m 
+09:31:20.332 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.util            -- &amp#27;[32mRun:                          1&amp#27;[m 
+09:31:20.332 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.util            -- &amp#27;[32mPreviously run:               0&amp#27;[m 
+09:31:20.332 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.util            -- &amp#27;[32mFiltered out:                 0&amp#27;[m 
+09:31:20.332 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.util            -- &amp#27;[32m-------------------------------&amp#27;[m 
+09:31:20.332 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.util            -- &amp#27;[32mTotal change sets:            1&amp#27;[m 
+09:31:20.332 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.util            -- &amp#27;[32mUpdate summary generated&amp#27;[m 
+09:31:20.334 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.command         -- &amp#27;[32mUpdate command completed successfully.&amp#27;[m 
 Liquibase: Update has been successful. Rows affected: 1
-10:59:41.982 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.lockservice     -- &amp#27;[32mSuccessfully released change log lock&amp#27;[m 
-10:59:41.983 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.command         -- &amp#27;[32mCommand execution complete&amp#27;[m 
+09:31:20.338 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.lockservice     -- &amp#27;[32mSuccessfully released change log lock&amp#27;[m 
+09:31:20.339 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m liquibase.command         -- &amp#27;[32mCommand execution complete&amp#27;[m 
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -156,21 +156,22 @@ Liquibase: Update has been successful. Rows affected: 1
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.2)
 
-10:59:42.006 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m y.JdbcLinksRepositoryTest -- &amp#27;[32mStarting JdbcLinksRepositoryTest using Java 21.0.2 with PID 12124 (started by Vadim in C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper)&amp#27;[m 
-10:59:42.007 &amp#27;[36mDEBUG&amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m y.JdbcLinksRepositoryTest -- &amp#27;[36mRunning with Spring Boot v3.2.2, Spring v6.1.3&amp#27;[m 
-10:59:42.007 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m y.JdbcLinksRepositoryTest -- &amp#27;[32mNo active profile set, falling back to 1 default profile: "default"&amp#27;[m 
-10:59:42.009 &amp#27;[36mDEBUG&amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m ericWebApplicationContext -- &amp#27;[36mRefreshing org.springframework.web.context.support.GenericWebApplicationContext@4012652a&amp#27;[m 
-10:59:42.264 &amp#27;[36mDEBUG&amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m uestMappingHandlerMapping -- &amp#27;[36m11 mappings in 'requestMappingHandlerMapping'&amp#27;[m 
-10:59:42.271 &amp#27;[36mDEBUG&amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m r.SimpleUrlHandlerMapping -- &amp#27;[36mPatterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'&amp#27;[m 
-10:59:42.274 &amp#27;[36mDEBUG&amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m uestMappingHandlerAdapter -- &amp#27;[36mControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice&amp#27;[m 
-10:59:42.276 &amp#27;[36mDEBUG&amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m nHandlerExceptionResolver -- &amp#27;[36mControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice&amp#27;[m 
-10:59:42.308 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m y.JdbcLinksRepositoryTest -- &amp#27;[32mStarted JdbcLinksRepositoryTest in 0.322 seconds (process running for 11.497)&amp#27;[m 
+09:31:20.359 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m y.JdbcLinksRepositoryTest -- &amp#27;[32mStarting JdbcLinksRepositoryTest using Java 21.0.2 with PID 40048 (started by Vadim in C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper)&amp#27;[m 
+09:31:20.360 &amp#27;[36mDEBUG&amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m y.JdbcLinksRepositoryTest -- &amp#27;[36mRunning with Spring Boot v3.2.2, Spring v6.1.3&amp#27;[m 
+09:31:20.360 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m y.JdbcLinksRepositoryTest -- &amp#27;[32mNo active profile set, falling back to 1 default profile: "default"&amp#27;[m 
+09:31:20.362 &amp#27;[36mDEBUG&amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m ericWebApplicationContext -- &amp#27;[36mRefreshing org.springframework.web.context.support.GenericWebApplicationContext@7c000414&amp#27;[m 
+09:31:20.596 &amp#27;[36mDEBUG&amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m uestMappingHandlerMapping -- &amp#27;[36m11 mappings in 'requestMappingHandlerMapping'&amp#27;[m 
+09:31:20.603 &amp#27;[36mDEBUG&amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m r.SimpleUrlHandlerMapping -- &amp#27;[36mPatterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'&amp#27;[m 
+09:31:20.606 &amp#27;[36mDEBUG&amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m uestMappingHandlerAdapter -- &amp#27;[36mControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice&amp#27;[m 
+09:31:20.608 &amp#27;[36mDEBUG&amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m nHandlerExceptionResolver -- &amp#27;[36mControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice&amp#27;[m 
+09:31:20.641 &amp#27;[32mINFO &amp#27;[m [scheduling-1                  ] &amp#27;[m{}&amp#27;[m uler.LinkUpdaterScheduler -- &amp#27;[32mupdate method called1&amp#27;[m 
+09:31:20.642 &amp#27;[32mINFO &amp#27;[m [main                          ] &amp#27;[m{}&amp#27;[m y.JdbcLinksRepositoryTest -- &amp#27;[32mStarted JdbcLinksRepositoryTest in 0.299 seconds (process running for 13.198)&amp#27;[m 
 ]]></system-out>
   </testcase>
-  <testcase name="addTest" classname="edu.java.scrapper.domain.repository.JdbcLinksRepositoryTest" time="0.068">
-    <system-out><![CDATA[[LinksDTO[id=1, link=https://github.com/, chatId=1, createdAt=2024-03-20T10:59:42.383138Z, editedAt=2024-03-20T10:59:42.383138Z]]
+  <testcase name="addTest" classname="edu.java.scrapper.domain.repository.JdbcLinksRepositoryTest" time="0.07">
+    <system-out><![CDATA[[LinksDTO[id=1, link=https://github.com/, chatId=1, createdAt=2024-03-26T09:31:20.716661Z, editedAt=2024-03-26T09:31:20.716661Z]]
 ]]></system-out>
   </testcase>
-  <testcase name="findAll" classname="edu.java.scrapper.domain.repository.JdbcLinksRepositoryTest" time="0.007"/>
-  <testcase name="deleteTest" classname="edu.java.scrapper.domain.repository.JdbcLinksRepositoryTest" time="0.007"/>
+  <testcase name="findAll" classname="edu.java.scrapper.domain.repository.JdbcLinksRepositoryTest" time="0.008"/>
+  <testcase name="deleteTest" classname="edu.java.scrapper.domain.repository.JdbcLinksRepositoryTest" time="0.01"/>
 </testsuite>

@@ -28,21 +28,20 @@ import org.springframework.web.bind.annotation.RestController;
 <span class="nc" id="L28">        return new ResponseEntity&lt;&gt;(jdbcLinksService.listAll(id), HttpStatus.OK);</span>
     }
 
-
     @PostMapping
     public ResponseEntity&lt;LinkResponse&gt; trackLink(
-            @RequestHeader(&quot;Tg-Chat-Id&quot;) Long id,
+            @RequestHeader(&quot;Tg-Chat-Id&quot;) Long chatId,
             @RequestBody AddLinkRequest addLinkRequest) {
-<span class="nc" id="L36">        LinksDTO linksDTO = jdbcLinksService.addLink(id, addLinkRequest.link());</span>
-<span class="nc" id="L37">        return new ResponseEntity&lt;&gt;(new LinkResponse(linksDTO.id(), linksDTO.link()), HttpStatus.OK);</span>
+<span class="nc" id="L35">        LinksDTO linksDTO = jdbcLinksService.addLink(chatId, addLinkRequest.link());</span>
+<span class="nc" id="L36">        return new ResponseEntity&lt;&gt;(new LinkResponse(linksDTO.id(), linksDTO.link()), HttpStatus.OK);</span>
     }
 
     @DeleteMapping
     public ResponseEntity&lt;LinkResponse&gt; untrackLink(
-            @RequestHeader(&quot;Tg-Chat-Id&quot;) Long id,
+            @RequestHeader(&quot;Tg-Chat-Id&quot;) Long chatId,
             @RequestBody RemoveLinkRequest url) {
-<span class="nc" id="L44">        LinksDTO linksDTO = jdbcLinksService.deleteLink(id, url.link());</span>
-<span class="nc" id="L45">        return new ResponseEntity&lt;&gt;(new LinkResponse(linksDTO.id(), linksDTO.link()), HttpStatus.OK);</span>
+<span class="nc" id="L43">        LinksDTO linksDTO = jdbcLinksService.deleteLink(chatId, url.link());</span>
+<span class="nc" id="L44">        return new ResponseEntity&lt;&gt;(new LinkResponse(linksDTO.id(), linksDTO.link()), HttpStatus.OK);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
