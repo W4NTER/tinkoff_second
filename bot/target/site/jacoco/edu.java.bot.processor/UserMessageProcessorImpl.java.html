@@ -6,6 +6,7 @@ import edu.java.bot.ApplicationContextProvider;
 import edu.java.bot.commands.Command;
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Map;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,29 @@ import org.springframework.stereotype.Service;
 <span class="nc" id="L27">            return res.get().handle(update);</span>
         } else {
 <span class="nc" id="L29">            return new SendMessage(update.message().chat().id(), &quot;Такой команды не существует&quot;);</span>
+=======
+import org.springframework.stereotype.Component;
+
+
+@Component
+<span class="fc" id="L13">public class UserMessageProcessorImpl implements UserMessageProcessor {</span>
+
+    @Override
+    public List&lt;? extends Command&gt; commands() {
+<span class="fc" id="L17">        var mapOfCommands = ApplicationContextProvider.getApplicationContext().getBeansOfType(Command.class);</span>
+<span class="fc" id="L18">        return new ArrayList&lt;&gt;(mapOfCommands.values());</span>
+
+    }
+
+    @Override
+    public SendMessage process(Update update) {
+<span class="fc" id="L24">        var res = commands().stream().filter(cmd -&gt;</span>
+<span class="fc" id="L25">                cmd.command().equals(update.message().text())).findFirst();</span>
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">        if (res.isPresent()) {</span>
+<span class="nc" id="L27">            return res.get().handle(update);</span>
+        } else {
+<span class="fc" id="L29">            return new SendMessage(update.message().chat().id(), &quot;Такой команды не существует&quot;);</span>
+>>>>>>> hw2
         }
     }
 }

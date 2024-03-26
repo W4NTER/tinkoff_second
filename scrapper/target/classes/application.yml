@@ -3,22 +3,20 @@ app:
     enable: true
     interval: 15s
     force-check-delay: 10s
-
-client:
-    base-url-git: https://api.github.com
-    base-url-stackoverflow: https://api.stackexchange.com/2.3/questions
-    base-url-bot: http://localhost:8090
+  base-url-git: https://api.github.com
+  base-url-stackoverflow: https://api.stackexchange.com/2.3/questions
+  base-url-bot: http://localhost:8090
 
 spring:
   application:
     name: scrapper
-#  liquibase:
-#    enabled: false
-#    change-log: liquibase/master.xml
-#  datasource:
-#    url: jdbc:postgresql://localhost:5432/scrapper
-#    username: postgres
-#    password: postgres
+  liquibase:
+    enabled: false
+    change-log: liquibase/master.xml
+  datasource:
+    url: jdbc:postgresql://localhost:5432/scrapper
+    username: postgres
+    password: postgres
 
 # swagger-ui custom path
 springdoc:

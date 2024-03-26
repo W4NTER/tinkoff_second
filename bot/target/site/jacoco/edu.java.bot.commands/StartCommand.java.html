@@ -8,17 +8,34 @@ import org.springframework.stereotype.Component;
 <span class="fc" id="L8">public class StartCommand implements Command {</span>
     @Override
     public String command() {
+<<<<<<< HEAD
 <span class="nc" id="L11">        return &quot;/start&quot;;</span>
+=======
+<span class="fc" id="L11">        return &quot;/start&quot;;</span>
+>>>>>>> hw2
     }
 
     @Override
     public String description() {
+<<<<<<< HEAD
 <span class="fc" id="L16">        return &quot;Этот бот призван стать вашим единым центром уведомлений, чтобы узнать все команды, введите \&quot;help\&quot;&quot;;</span>
+=======
+<span class="fc" id="L16">        return &quot;зарегистрировать пользователя&quot;;</span>
+    }
+
+    @Override
+    public String post() {
+<span class="fc" id="L21">        return &quot;Этот бот призван стать вашим единым центром уведомлений, чтобы узнать все команды, введите /help&quot;;</span>
+>>>>>>> hw2
     }
 
     @Override
     public SendMessage handle(Update update) {
+<<<<<<< HEAD
 <span class="fc" id="L21">        return new SendMessage(update.message().chat().id(), description());</span>
+=======
+<span class="fc" id="L26">        return new SendMessage(update.message().chat().id(), post());</span>
+>>>>>>> hw2
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

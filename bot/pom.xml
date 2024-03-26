@@ -98,8 +98,7 @@
         </dependency>
         <dependency>
             <groupId>org.wiremock</groupId>
-            <artifactId>wiremock</artifactId>
-            <version>3.3.1</version>
+            <artifactId>wiremock-standalone</artifactId>
             <scope>test</scope>
         </dependency>
 
