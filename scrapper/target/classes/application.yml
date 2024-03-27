@@ -10,6 +10,13 @@ app:
 spring:
   application:
     name: scrapper
+  liquibase:
+    enabled: false
+    change-log: liquibase/master.xml
+  datasource:
+    url: jdbc:postgresql://localhost:5432/scrapper
+    username: postgres
+    password: postgres
 
 # swagger-ui custom path
 springdoc:
