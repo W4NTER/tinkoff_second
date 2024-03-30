@@ -22,7 +22,6 @@ public class JdbcLinksRepositoryTest extends IntegrationTest {
     @Test
     @Transactional
     @Rollback
-    @DirtiesContext
     void addTest() {
         int linksSize = jdbcLinksRepository.findAll().size();
         jdbcLinksRepository.add(URL, TIME_NOW);
@@ -33,7 +32,6 @@ public class JdbcLinksRepositoryTest extends IntegrationTest {
     @Test
     @Transactional
     @Rollback
-    @DirtiesContext
     void deleteTest() {
         int linksSize = jdbcLinksRepository.findAll().size();
         jdbcLinksRepository.add(URL, TIME_NOW);
@@ -50,7 +48,6 @@ public class JdbcLinksRepositoryTest extends IntegrationTest {
     @Test
     @Transactional
     @Rollback
-    @DirtiesContext
     void findAll() {
         int linksSize = jdbcLinksRepository.findAll().size();
         jdbcLinksRepository.add(URL, TIME_NOW);

@@ -22,7 +22,7 @@ scrapper,edu.java.controller.dto.request,RemoveLinkRequest,6,0,0,0,1,0,1,0,1,0
 scrapper,edu.java.controller.dto.request,AddLinkRequest,0,6,0,0,0,1,0,1,0,1
 scrapper,edu.java.configuration,ApplicationConfig.Scheduler,0,12,0,0,0,1,0,1,0,1
 scrapper,edu.java.configuration,ClientConfig,0,34,0,0,0,7,0,4,0,4
-scrapper,edu.java.configuration,JdbcConfig,0,33,0,0,0,9,0,4,0,4
+scrapper,edu.java.configuration,JdbcConfig,0,27,0,0,0,8,0,3,0,3
 scrapper,edu.java.configuration,ApplicationConfig,0,18,0,0,0,1,0,1,0,1
 scrapper,edu.java.domain.dto,CommunicationsDTO,9,0,0,0,1,0,1,0,1,0
 scrapper,edu.java.domain.dto,LinksDTO,0,18,0,0,0,1,0,1,0,1
