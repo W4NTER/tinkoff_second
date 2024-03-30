@@ -1,4 +1,4 @@
-#Sat Mar 30 13:24:12 UTC 2024
+#Sat Mar 30 14:52:22 UTC 2024
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\ScrapperApplication.java=1711637066587
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\client\\botClient\\BotWebClient.java=1711724728084
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\client\\botClient\\dto\\BotClientDTO.java=1711724858766
@@ -10,6 +10,7 @@ C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\client\\stackoverflow\\dto\\StackoverflowResponseDTO.java=1711276139193
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\configuration\\ApplicationConfig.java=1711707293131
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\configuration\\ClientConfig.java=1711793324436
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\configuration\\JdbcConfig.java=1711809916334
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\controller\\LinksController.java=1711790335860
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\controller\\TelegramChatController.java=1711524209415
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\controller\\dto\\request\\AddLinkRequest.java=1711273584045
@@ -26,7 +27,6 @@ C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\dto\\LinksDTO.java=1711528586591
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\model\\ChatEntity.java=1711524209416
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\repository\\CommunicationsRepository.java=1711793324433
-C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\repository\\LInksRepository.java=1711524858258
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\repository\\LinksRepository.java=1711793192566
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\repository\\TgChatRepository.java=1711524209417
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\repository\\jdbc\\JdbcCommunicationsRepository.java=1711793192574

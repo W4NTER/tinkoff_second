@@ -21,24 +21,24 @@ public class JdbcTgChatRepository implements TgChatRepository {
     @Override
     @Transactional
     public void add(Long chatId) {
-<span class="fc" id="L24">        jdbcTemplate.update(&quot;insert into chat (chat_id, created_at) values (?, ?)&quot;,</span>
-<span class="fc" id="L25">                chatId, OffsetDateTime.now());</span>
-<span class="fc" id="L26">    }</span>
+<span class="nc" id="L24">        jdbcTemplate.update(&quot;insert into chat (chat_id, created_at) values (?, ?)&quot;,</span>
+<span class="nc" id="L25">                chatId, OffsetDateTime.now());</span>
+<span class="nc" id="L26">    }</span>
 
     @Override
     @Transactional
     public void remove(Long id) {
-<span class="fc" id="L31">        jdbcTemplate.update(&quot;DELETE from chat where chat_id = ?&quot;, id);</span>
-<span class="fc" id="L32">    }</span>
+<span class="nc" id="L31">        jdbcTemplate.update(&quot;DELETE from chat where chat_id = ?&quot;, id);</span>
+<span class="nc" id="L32">    }</span>
 
     @Override
     @Transactional
     public List&lt;ChatDTO&gt; findAll() {
-<span class="fc" id="L37">        return jdbcTemplate.query(&quot;select chat_id, created_at from chat&quot;, (resultSet, rowNum) -&gt; {</span>
-<span class="fc" id="L38">            return new ChatDTO(</span>
-<span class="fc" id="L39">                    resultSet.getLong(&quot;chat_id&quot;),</span>
-<span class="fc" id="L40">                    resultSet.getTimestamp(&quot;created_at&quot;)</span>
-<span class="fc" id="L41">                            .toInstant().atZone(ZoneOffset.systemDefault()).toOffsetDateTime());</span>
+<span class="nc" id="L37">        return jdbcTemplate.query(&quot;select chat_id, created_at from chat&quot;, (resultSet, rowNum) -&gt; {</span>
+<span class="nc" id="L38">            return new ChatDTO(</span>
+<span class="nc" id="L39">                    resultSet.getLong(&quot;chat_id&quot;),</span>
+<span class="nc" id="L40">                    resultSet.getTimestamp(&quot;created_at&quot;)</span>
+<span class="nc" id="L41">                            .toInstant().atZone(ZoneOffset.systemDefault()).toOffsetDateTime());</span>
         });
     }
 }

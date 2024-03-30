@@ -25,29 +25,29 @@ public class JdbcLinksRepository implements LinksRepository {
     @Override
     @Transactional
     public void add(URI link, OffsetDateTime lastUpdate) {
-<span class="fc" id="L28">        var timeNow = OffsetDateTime.now();</span>
-<span class="fc" id="L29">        int rowUpdate = jdbcTemplate.update(</span>
+<span class="nc" id="L28">        var timeNow = OffsetDateTime.now();</span>
+<span class="nc" id="L29">        int rowUpdate = jdbcTemplate.update(</span>
                 &quot;update links set last_update = ?, last_check = ? where link = ?&quot;,
-<span class="fc" id="L31">                lastUpdate, timeNow, link.toString());</span>
-<span class="pc bpc" id="L32" title="1 of 2 branches missed.">        if (rowUpdate == 0) {</span>
-<span class="fc" id="L33">            jdbcTemplate.update(</span>
+<span class="nc" id="L31">                lastUpdate, timeNow, link.toString());</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (rowUpdate == 0) {</span>
+<span class="nc" id="L33">            jdbcTemplate.update(</span>
                     &quot;insert  into links (link, created_at, last_update, last_check) VALUES (?, ?, ?, ?)&quot;,
-<span class="fc" id="L35">                    link.toString(), timeNow, lastUpdate, timeNow);</span>
+<span class="nc" id="L35">                    link.toString(), timeNow, lastUpdate, timeNow);</span>
         }
-<span class="fc" id="L37">    }</span>
+<span class="nc" id="L37">    }</span>
 
     @Override
     @Transactional
     public void remove(URI link) {
-<span class="fc" id="L42">        jdbcTemplate.update(</span>
-<span class="fc" id="L43">                &quot;delete from links where link = ?&quot;, link.toString());</span>
-<span class="fc" id="L44">    }</span>
+<span class="nc" id="L42">        jdbcTemplate.update(</span>
+<span class="nc" id="L43">                &quot;delete from links where link = ?&quot;, link.toString());</span>
+<span class="nc" id="L44">    }</span>
 
     @Override
     @Transactional
     public List&lt;LinksDTO&gt; findAll() {
-<span class="fc" id="L49">        return jdbcTemplate.query(&quot;select link_id, link, created_at, last_update, last_check from links&quot;,</span>
-<span class="fc" id="L50">                (resultSet, rowNum) -&gt; createLinksDTO(resultSet));</span>
+<span class="nc" id="L49">        return jdbcTemplate.query(&quot;select link_id, link, created_at, last_update, last_check from links&quot;,</span>
+<span class="nc" id="L50">                (resultSet, rowNum) -&gt; createLinksDTO(resultSet));</span>
     }
 
     @Override

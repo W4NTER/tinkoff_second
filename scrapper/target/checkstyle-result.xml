@@ -1,9 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="10.12.7">
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\botClient\BotWebClient.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\botClient\dto\BotClientDTO.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\github\dto\GitResponseDTO.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\github\GitHubClient.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\github\GitHubClientImpl.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\stackoverflow\dto\StackoverflowResponseDTO.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\stackoverflow\StackoverflowClient.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\stackoverflow\StackoverflowClientImpl.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\configuration\ApplicationConfig.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\configuration\ClientConfig.java">
+</file>
 <file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\configuration\JdbcConfig.java">
-<error line="5" column="1" severity="error" message="Extra separation in import group before &apos;org.springframework.beans.factory.annotation.Autowired&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
-<error line="5" column="8" severity="error" message="Unused import - org.springframework.beans.factory.annotation.Autowired." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
-<error line="10" column="8" severity="error" message="Unused import - org.springframework.jdbc.datasource.DataSourceTransactionManager." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
-<error line="12" column="8" severity="error" message="Unused import - org.springframework.transaction.PlatformTransactionManager." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\request\AddLinkRequest.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\request\RemoveLinkRequest.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\response\ApiErrorResponse.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\response\LinkResponse.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\response\ListLinksResponse.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\exception\ChatAlreadyExistsException.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\exception\ChatIdNotFoundException.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\exception\HandleControllerException.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\exception\IncorrectParametersException.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\LinksController.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\TelegramChatController.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\dto\ChatDTO.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\dto\CommunicationsDTO.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\dto\LinksDTO.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\model\ChatEntity.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\CommunicationsRepository.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\jdbc\JdbcCommunicationsRepository.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\jdbc\JdbcLinksRepository.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\jdbc\JdbcTgChatRepository.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\LinksRepository.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\TgChatRepository.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\jdbc\JdbcLinksService.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\jdbc\JdbcTgChatService.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\LinksService.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\LinkUpdater.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\TgChatService.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\scheduler\LinkUpdaterScheduler.java">
+</file>
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\ScrapperApplication.java">
 </file>
 </checkstyle>
