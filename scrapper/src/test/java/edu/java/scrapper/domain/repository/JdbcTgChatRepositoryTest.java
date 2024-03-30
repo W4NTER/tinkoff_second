@@ -5,6 +5,7 @@ import edu.java.scrapper.IntegrationTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +19,7 @@ public class JdbcTgChatRepositoryTest extends IntegrationTest {
     @Test
     @Transactional
     @Rollback
+    @DirtiesContext
     void addTest() {
         int sizeChatTable = jdbcChatRepository.findAll().size();
         jdbcChatRepository.add(1L);
@@ -29,6 +31,7 @@ public class JdbcTgChatRepositoryTest extends IntegrationTest {
     @Test
     @Transactional
     @Rollback
+    @DirtiesContext
     void deleteTest() {
         int sizeChatTable = jdbcChatRepository.findAll().size();
         jdbcChatRepository.add(1L);
@@ -44,6 +47,7 @@ public class JdbcTgChatRepositoryTest extends IntegrationTest {
     @Test
     @Transactional
     @Rollback
+    @DirtiesContext
     void findAll() {
         int sizeChatTable = jdbcChatRepository.findAll().size();
         jdbcChatRepository.add(1L);

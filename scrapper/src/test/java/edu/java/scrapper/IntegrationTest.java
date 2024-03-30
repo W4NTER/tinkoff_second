@@ -7,12 +7,11 @@ import liquibase.database.Database;
 import liquibase.database.DatabaseFactory;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.resource.DirectoryResourceAccessor;
-import org.junit.jupiter.api.BeforeAll;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.containers.JdbcDatabaseContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
@@ -24,7 +23,6 @@ import static org.junit.Assert.assertTrue;
 @Testcontainers
 public abstract class IntegrationTest {
     public static PostgreSQLContainer<?> POSTGRES;
-    private static final JdbcDatabaseContainer<?> c;
 
     static {
         POSTGRES = new PostgreSQLContainer<>("postgres:15")
@@ -33,12 +31,10 @@ public abstract class IntegrationTest {
                 .withPassword("postgres");
         POSTGRES.start();
 
-        c = POSTGRES;
-        runMigrations();
+        runMigrations(POSTGRES);
     }
 
-    @BeforeAll
-    public static void runMigrations()  {
+    public static void runMigrations(PostgreSQLContainer<?> c)  {
         try (var connection = DriverManager.getConnection(c.getJdbcUrl(), c.getUsername(), c.getPassword())) {
             Database database =
                     DatabaseFactory.getInstance().findCorrectDatabaseImplementation(
@@ -65,7 +61,6 @@ public abstract class IntegrationTest {
     }
 
     @DynamicPropertySource
-    @DirtiesContext
     static void jdbcProperties(DynamicPropertyRegistry registry) {
         registry.add("spring.datasource.url", POSTGRES::getJdbcUrl);
         registry.add("spring.datasource.username", POSTGRES::getUsername);

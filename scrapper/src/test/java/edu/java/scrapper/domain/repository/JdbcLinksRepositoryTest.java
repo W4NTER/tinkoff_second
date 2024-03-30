@@ -5,6 +5,7 @@ import edu.java.scrapper.IntegrationTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 import java.net.URI;
@@ -21,6 +22,7 @@ public class JdbcLinksRepositoryTest extends IntegrationTest {
     @Test
     @Transactional
     @Rollback
+    @DirtiesContext
     void addTest() {
         int linksSize = jdbcLinksRepository.findAll().size();
         jdbcLinksRepository.add(URL, TIME_NOW);
@@ -31,6 +33,7 @@ public class JdbcLinksRepositoryTest extends IntegrationTest {
     @Test
     @Transactional
     @Rollback
+    @DirtiesContext
     void deleteTest() {
         int linksSize = jdbcLinksRepository.findAll().size();
         jdbcLinksRepository.add(URL, TIME_NOW);
@@ -47,6 +50,7 @@ public class JdbcLinksRepositoryTest extends IntegrationTest {
     @Test
     @Transactional
     @Rollback
+    @DirtiesContext
     void findAll() {
         int linksSize = jdbcLinksRepository.findAll().size();
         jdbcLinksRepository.add(URL, TIME_NOW);
