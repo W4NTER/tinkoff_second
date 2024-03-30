@@ -23,6 +23,7 @@ import static org.junit.Assert.assertTrue;
 @Testcontainers
 public abstract class IntegrationTest {
     public static PostgreSQLContainer<?> POSTGRES;
+    private static final JdbcDatabaseContainer<?> c;
 
     static {
         POSTGRES = new PostgreSQLContainer<>("postgres:15")
@@ -31,10 +32,12 @@ public abstract class IntegrationTest {
                 .withPassword("postgres");
         POSTGRES.start();
 
-        runMigrations(POSTGRES);
+        c = POSTGRES;
+        runMigrations();
     }
 
-    private static void runMigrations(JdbcDatabaseContainer<?> c)  {
+    @BeforeAll
+    public static void runMigrations()  {
         try (var connection = DriverManager.getConnection(c.getJdbcUrl(), c.getUsername(), c.getPassword())) {
             Database database =
                     DatabaseFactory.getInstance().findCorrectDatabaseImplementation(
