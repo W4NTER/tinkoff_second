@@ -1,18 +1,14 @@
 package edu.java.scrapper.domain.repository;
 
 import edu.java.domain.repository.jdbc.JdbcLinksRepository;
-import edu.java.domain.repository.jdbc.JdbcTgChatRepository;
 import edu.java.scrapper.IntegrationTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.net.URI;
 import java.time.OffsetDateTime;
-
 import static org.junit.Assert.assertEquals;
 
 @SpringBootTest

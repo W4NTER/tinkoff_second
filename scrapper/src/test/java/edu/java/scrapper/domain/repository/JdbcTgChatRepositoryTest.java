@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.junit.Assert.assertEquals;
 
 @SpringBootTest
-
 public class JdbcTgChatRepositoryTest extends IntegrationTest {
     @Autowired
     private JdbcTgChatRepository jdbcChatRepository;
