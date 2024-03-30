@@ -21,8 +21,8 @@ public class JdbcTgChatRepository implements TgChatRepository {
     @Override
     @Transactional
     public void add(Long chatId) {
-        jdbcTemplate.update("insert into chat (chat_id, created_at, edited_at) values (?, ?, ?)",
-                chatId, OffsetDateTime.now(), OffsetDateTime.now());
+        jdbcTemplate.update("insert into chat (chat_id, created_at) values (?, ?)",
+                chatId, OffsetDateTime.now());
     }
 
     @Override
@@ -34,12 +34,10 @@ public class JdbcTgChatRepository implements TgChatRepository {
     @Override
     @Transactional
     public List<ChatDTO> findAll() {
-        return jdbcTemplate.query("select chat_id, created_at, edited_at from chat", (resultSet, rowNum) -> {
+        return jdbcTemplate.query("select chat_id, created_at from chat", (resultSet, rowNum) -> {
             return new ChatDTO(
                     resultSet.getLong("chat_id"),
                     resultSet.getTimestamp("created_at")
-                            .toInstant().atZone(ZoneOffset.systemDefault()).toOffsetDateTime(),
-                    resultSet.getTimestamp("edited_at")
                             .toInstant().atZone(ZoneOffset.systemDefault()).toOffsetDateTime());
         });
     }

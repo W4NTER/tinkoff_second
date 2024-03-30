@@ -37,7 +37,7 @@ public class BotClientTest {
     }
     @Test
     void testThatClientUpdateIsWorkingReturnedSucceed() {
-        var response = client.sendUpdates(1L, "https://gist.github.com", "description", 1L);
+        var response = client.sendUpdates(1L, "https://gist.github.com", "description", new Long[]{1L});
 
         String expectedResponse = "link: https://gist.github.com";
         assertEquals(response, expectedResponse);

@@ -32,7 +32,7 @@ public class UserMessageProcessorImpl implements UserMessageProcessor {
 
     public Optional<? extends Command> getCommand(Update update) {
         return commands().stream().filter(cmd ->
-                cmd.command().equals(update.message().text())).findFirst();
+                cmd.command().equals(update.message().text().split(" ")[0])).findFirst();
     }
 
     public void setSupportsInput(Update update) {

@@ -3,6 +3,7 @@ package edu.java.configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpHeaders;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -14,7 +15,10 @@ public class ClientConfig {
 
     @Bean
     public WebClient gitHubClient() {
-        return WebClient.builder().baseUrl(applicationConfig.baseUrlGit()).build();
+        return WebClient.builder()
+                .baseUrl(applicationConfig.baseUrlGit())
+                .defaultHeader(HttpHeaders.AUTHORIZATION, "Bearer " + System.getenv("GIT_TOKEN"))
+                .build();
     }
 
     @Bean

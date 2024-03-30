@@ -32,6 +32,9 @@ public class LinksController {
     public ResponseEntity<LinkResponse> trackLink(
             @RequestHeader("Tg-Chat-Id") Long chatId,
             @RequestBody AddLinkRequest addLinkRequest) {
+        if (addLinkRequest.link() == null) {
+            throw new IllegalArgumentException("Ссылка равна null");
+        }
         LinksDTO linksDTO = jdbcLinksService.addLink(chatId, addLinkRequest.link());
         return new ResponseEntity<>(new LinkResponse(linksDTO.id(), linksDTO.link()), HttpStatus.OK);
     }

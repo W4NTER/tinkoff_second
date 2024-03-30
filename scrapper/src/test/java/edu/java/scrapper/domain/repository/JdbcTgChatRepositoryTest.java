@@ -20,35 +20,38 @@ public class JdbcTgChatRepositoryTest extends IntegrationTest {
     @Transactional
     @Rollback
     void addTest() {
+        int sizeChatTable = jdbcChatRepository.findAll().size();
         jdbcChatRepository.add(1L);
         var obj = jdbcChatRepository.findAll();
         System.out.println(obj);
-        assertEquals(obj.size(), 1);
+        assertEquals(obj.size(), sizeChatTable + 1);
     }
 
     @Test
     @Transactional
     @Rollback
     void deleteTest() {
+        int sizeChatTable = jdbcChatRepository.findAll().size();
         jdbcChatRepository.add(1L);
         var chat = jdbcChatRepository.findAll();
         var id = chat.get(0).id();
 
-        assertEquals(chat.size(), 1); // проверяем что запись была добавлена
+        assertEquals(sizeChatTable + 1, chat.size()); // проверяем что запись была добавлена
         jdbcChatRepository.remove(id);
         var sizeAfterRemove = jdbcChatRepository.findAll().size();
-        assertEquals(sizeAfterRemove, 0); // проверяем что запись была удалена
+        assertEquals(sizeChatTable, sizeAfterRemove ); // проверяем что запись была удалена
     }
 
     @Test
     @Transactional
     @Rollback
     void findAll() {
+        int sizeChatTable = jdbcChatRepository.findAll().size();
         jdbcChatRepository.add(1L);
         jdbcChatRepository.add(2L);
         jdbcChatRepository.add(3L);
         var allVal = jdbcChatRepository.findAll();
-        assertEquals(allVal.size(), 3); //использовалось раньше, даже не знаю как его отдельно проверить
+        assertEquals(allVal.size(), sizeChatTable + 3); //использовалось раньше, даже не знаю как его отдельно проверить
     }
 
 }

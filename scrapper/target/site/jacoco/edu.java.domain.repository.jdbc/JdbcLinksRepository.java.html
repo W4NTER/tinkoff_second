@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JdbcLinksRepository.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scrapper</a> &gt; <a href="index.source.html" class="el_package">edu.java.domain.repository.jdbc</a> &gt; <span class="el_source">JdbcLinksRepository.java</span></div><h1>JdbcLinksRepository.java</h1><pre class="source lang-java linenums">package edu.java.domain.repository.jdbc;
 
 import edu.java.domain.dto.LinksDTO;
-import edu.java.domain.repository.LInksRepository;
+import edu.java.domain.repository.LinksRepository;
 import java.net.URI;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,9 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 @Repository
-public class JdbcLinksRepository implements LInksRepository {
-
+public class JdbcLinksRepository implements LinksRepository {
     private final JdbcTemplate jdbcTemplate;
+    private final static int TIME_IN_MINUTES_TO_OUTDATED_LINK = 5;
 
 <span class="fc" id="L21">    public JdbcLinksRepository(JdbcTemplate jdbcTemplate) {</span>
 <span class="fc" id="L22">        this.jdbcTemplate = jdbcTemplate;</span>
@@ -24,42 +24,64 @@ public class JdbcLinksRepository implements LInksRepository {
 
     @Override
     @Transactional
-    public void add(URI link, Long chatId) {
+    public void add(URI link, OffsetDateTime lastUpdate) {
 <span class="fc" id="L28">        var timeNow = OffsetDateTime.now();</span>
-<span class="fc" id="L29">        jdbcTemplate.update(&quot;insert into links (link, chat_id, created_at, edited_at) values (?, ?, ?, ?)&quot;,</span>
-<span class="fc" id="L30">                link.toString(), chatId, timeNow, timeNow);</span>
-<span class="fc" id="L31">    }</span>
-
-    @Override
-    @Transactional
-    public void remove(URI link, Long chatId) {
-<span class="fc" id="L36">        jdbcTemplate.update(&quot;delete from links where link = ? and chat_id = ?&quot;, link.toString(), chatId);</span>
+<span class="fc" id="L29">        int rowUpdate = jdbcTemplate.update(</span>
+                &quot;update links set last_update = ?, last_check = ? where link = ?&quot;,
+<span class="fc" id="L31">                lastUpdate, timeNow, link.toString());</span>
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">        if (rowUpdate == 0) {</span>
+<span class="fc" id="L33">            jdbcTemplate.update(</span>
+                    &quot;insert  into links (link, created_at, last_update, last_check) VALUES (?, ?, ?, ?)&quot;,
+<span class="fc" id="L35">                    link.toString(), timeNow, lastUpdate, timeNow);</span>
+        }
 <span class="fc" id="L37">    }</span>
 
     @Override
     @Transactional
-    public List&lt;LinksDTO&gt; findAll(Long thChatId) {
-<span class="fc" id="L42">        return jdbcTemplate.query(&quot;select link_id, link, chat_id, created_at, edited_at from links where chat_id = ?&quot;,</span>
-<span class="fc" id="L43">                (resultSet, rowNum) -&gt; createLinksDTO(resultSet), thChatId);</span>
+    public void remove(URI link) {
+<span class="fc" id="L42">        jdbcTemplate.update(</span>
+<span class="fc" id="L43">                &quot;delete from links where link = ?&quot;, link.toString());</span>
+<span class="fc" id="L44">    }</span>
+
+    @Override
+    @Transactional
+    public List&lt;LinksDTO&gt; findAll() {
+<span class="fc" id="L49">        return jdbcTemplate.query(&quot;select link_id, link, created_at, last_update, last_check from links&quot;,</span>
+<span class="fc" id="L50">                (resultSet, rowNum) -&gt; createLinksDTO(resultSet));</span>
     }
 
-    public LinksDTO getLink(URI url, Long chatId) {
-<span class="nc" id="L47">        return jdbcTemplate.queryForObject(</span>
-                &quot;select link_id, link, chat_id, created_at, edited_at from links where chat_id = ? and link = ?&quot;,
-<span class="nc" id="L49">                (resultSet, rowNum) -&gt; createLinksDTO(resultSet), chatId, url.toString());</span>
+    @Override
+    @Transactional
+    public List&lt;LinksDTO&gt; findAllOutdatedLinks() {
+<span class="fc" id="L56">        OffsetDateTime thresholdTime = OffsetDateTime.now().minusMinutes(TIME_IN_MINUTES_TO_OUTDATED_LINK);</span>
+<span class="fc" id="L57">        return jdbcTemplate.query(</span>
+                &quot;select link_id, link, created_at, last_update, last_check from links where last_check &lt;= ?&quot;,
+<span class="nc" id="L59">                (resultSet, rowNum) -&gt; createLinksDTO(resultSet), thresholdTime);</span>
+    }
+
+    @Transactional
+    public LinksDTO getLink(URI url) {
+<span class="nc" id="L64">        int linkId = jdbcTemplate.queryForObject(</span>
+                &quot;select link_id from links where link = ?&quot;,
+<span class="nc" id="L66">                Integer.class, url.toString()).intValue();</span>
+<span class="nc" id="L67">        return jdbcTemplate.queryForObject(</span>
+                &quot;select link_id, link, created_at, last_update, last_check from links where link_id = ?&quot;,
+<span class="nc" id="L69">                (resultSet, rowNum) -&gt; createLinksDTO(resultSet), linkId);</span>
     }
 
     private LinksDTO createLinksDTO(ResultSet resultSet) throws SQLException {
-<span class="fc" id="L53">        return new LinksDTO(</span>
-<span class="fc" id="L54">                resultSet.getLong(&quot;link_id&quot;),</span>
-<span class="fc" id="L55">                URI.create(resultSet.getString(&quot;link&quot;)),</span>
-<span class="fc" id="L56">                resultSet.getLong(&quot;chat_id&quot;),</span>
-<span class="fc" id="L57">                resultSet.getTimestamp(&quot;created_at&quot;)</span>
-<span class="fc" id="L58">                        .toInstant().atZone(ZoneOffset.systemDefault())</span>
-<span class="fc" id="L59">                        .toOffsetDateTime(),</span>
-<span class="fc" id="L60">                resultSet.getTimestamp(&quot;edited_at&quot;)</span>
-<span class="fc" id="L61">                        .toInstant().atZone(ZoneOffset.systemDefault())</span>
-<span class="fc" id="L62">                        .toOffsetDateTime());</span>
+<span class="fc" id="L73">        return new LinksDTO(</span>
+<span class="fc" id="L74">                resultSet.getLong(&quot;link_id&quot;),</span>
+<span class="fc" id="L75">                URI.create(resultSet.getString(&quot;link&quot;)),</span>
+<span class="fc" id="L76">                resultSet.getTimestamp(&quot;created_at&quot;)</span>
+<span class="fc" id="L77">                        .toInstant().atZone(ZoneOffset.systemDefault())</span>
+<span class="fc" id="L78">                        .toOffsetDateTime(),</span>
+<span class="fc" id="L79">                resultSet.getTimestamp(&quot;last_update&quot;)</span>
+<span class="fc" id="L80">                        .toInstant().atZone(ZoneOffset.systemDefault())</span>
+<span class="fc" id="L81">                        .toOffsetDateTime(),</span>
+<span class="fc" id="L82">                resultSet.getTimestamp(&quot;last_check&quot;)</span>
+<span class="fc" id="L83">                        .toInstant().atZone(ZoneOffset.systemDefault())</span>
+<span class="fc" id="L84">                        .toOffsetDateTime());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

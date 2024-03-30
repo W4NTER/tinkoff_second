@@ -21,8 +21,8 @@ public class JdbcTgChatRepository implements TgChatRepository {
     @Override
     @Transactional
     public void add(Long chatId) {
-<span class="fc" id="L24">        jdbcTemplate.update(&quot;insert into chat (chat_id, created_at, edited_at) values (?, ?, ?)&quot;,</span>
-<span class="fc" id="L25">                chatId, OffsetDateTime.now(), OffsetDateTime.now());</span>
+<span class="fc" id="L24">        jdbcTemplate.update(&quot;insert into chat (chat_id, created_at) values (?, ?)&quot;,</span>
+<span class="fc" id="L25">                chatId, OffsetDateTime.now());</span>
 <span class="fc" id="L26">    }</span>
 
     @Override
@@ -34,13 +34,11 @@ public class JdbcTgChatRepository implements TgChatRepository {
     @Override
     @Transactional
     public List&lt;ChatDTO&gt; findAll() {
-<span class="fc" id="L37">        return jdbcTemplate.query(&quot;select chat_id, created_at, edited_at from chat&quot;, (resultSet, rowNum) -&gt; {</span>
+<span class="fc" id="L37">        return jdbcTemplate.query(&quot;select chat_id, created_at from chat&quot;, (resultSet, rowNum) -&gt; {</span>
 <span class="fc" id="L38">            return new ChatDTO(</span>
 <span class="fc" id="L39">                    resultSet.getLong(&quot;chat_id&quot;),</span>
 <span class="fc" id="L40">                    resultSet.getTimestamp(&quot;created_at&quot;)</span>
-<span class="fc" id="L41">                            .toInstant().atZone(ZoneOffset.systemDefault()).toOffsetDateTime(),</span>
-<span class="fc" id="L42">                    resultSet.getTimestamp(&quot;edited_at&quot;)</span>
-<span class="fc" id="L43">                            .toInstant().atZone(ZoneOffset.systemDefault()).toOffsetDateTime());</span>
+<span class="fc" id="L41">                            .toInstant().atZone(ZoneOffset.systemDefault()).toOffsetDateTime());</span>
         });
     }
 }

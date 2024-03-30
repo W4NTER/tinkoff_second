@@ -3,28 +3,32 @@
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpHeaders;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
 @EnableScheduling
-<span class="fc" id="L11">public class ClientConfig {</span>
+<span class="fc" id="L12">public class ClientConfig {</span>
     @Autowired
     ApplicationConfig applicationConfig;
 
     @Bean
     public WebClient gitHubClient() {
-<span class="fc" id="L17">        return WebClient.builder().baseUrl(applicationConfig.baseUrlGit()).build();</span>
+<span class="fc" id="L18">        return WebClient.builder()</span>
+<span class="fc" id="L19">                .baseUrl(applicationConfig.baseUrlGit())</span>
+<span class="fc" id="L20">                .defaultHeader(HttpHeaders.AUTHORIZATION, &quot;Bearer &quot; + System.getenv(&quot;GIT_TOKEN&quot;))</span>
+<span class="fc" id="L21">                .build();</span>
     }
 
     @Bean
     public WebClient stackOverFlowClient() {
-<span class="fc" id="L22">        return WebClient.builder().baseUrl(applicationConfig.baseUrlStackoverflow()).build();</span>
+<span class="fc" id="L26">        return WebClient.builder().baseUrl(applicationConfig.baseUrlStackoverflow()).build();</span>
     }
 
     @Bean
     public WebClient botClient() {
-<span class="fc" id="L27">        return WebClient.builder().baseUrl(applicationConfig.baseUrlBot()).build();</span>
+<span class="fc" id="L31">        return WebClient.builder().baseUrl(applicationConfig.baseUrlBot()).build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

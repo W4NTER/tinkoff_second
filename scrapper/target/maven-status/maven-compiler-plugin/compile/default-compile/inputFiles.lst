@@ -1,4 +1,5 @@
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\botClient\BotWebClient.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\botClient\dto\BotClientDTO.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\github\dto\GitResponseDTO.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\github\GitHubClient.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\github\GitHubClientImpl.java
@@ -7,6 +8,7 @@ C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\clien
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\stackoverflow\StackoverflowClientImpl.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\configuration\ApplicationConfig.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\configuration\ClientConfig.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\configuration\JdbcConfig.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\request\AddLinkRequest.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\request\RemoveLinkRequest.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\response\ApiErrorResponse.java
@@ -19,11 +21,14 @@ C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\contr
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\LinksController.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\TelegramChatController.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\dto\ChatDTO.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\dto\CommunicationsDTO.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\dto\LinksDTO.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\model\ChatEntity.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\CommunicationsRepository.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\jdbc\JdbcCommunicationsRepository.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\jdbc\JdbcLinksRepository.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\jdbc\JdbcTgChatRepository.java
-C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\LInksRepository.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\LinksRepository.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\TgChatRepository.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\jdbc\JdbcLinksService.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\jdbc\JdbcTgChatService.java

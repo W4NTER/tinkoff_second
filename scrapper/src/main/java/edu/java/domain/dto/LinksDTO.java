@@ -6,7 +6,7 @@ import java.time.OffsetDateTime;
 public record LinksDTO(
         Long id,
         URI link,
-        Long chatId,
         OffsetDateTime createdAt,
-        OffsetDateTime editedAt
+        OffsetDateTime lastUpdate,
+        OffsetDateTime lastCheck
 ){}

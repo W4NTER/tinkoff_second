@@ -6,58 +6,55 @@ import edu.java.scrapper.IntegrationTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.net.URI;
+import java.time.OffsetDateTime;
 
 import static org.junit.Assert.assertEquals;
 
 @SpringBootTest
 public class JdbcLinksRepositoryTest extends IntegrationTest {
-
     @Autowired
     private JdbcLinksRepository jdbcLinksRepository;
-
-    @Autowired
-    private JdbcTgChatRepository jdbcChatRepository;
-
-    private final static Long CHAT_ID = 1L;
     private final static URI URL = URI.create("https://github.com/");
+    private final static OffsetDateTime TIME_NOW = OffsetDateTime.now();
 
     @Test
     @Transactional
     @Rollback
     void addTest() {
-        jdbcChatRepository.add(CHAT_ID);
-        jdbcLinksRepository.add(URL, CHAT_ID);
-        var obj = jdbcLinksRepository.findAll(CHAT_ID);
-        System.out.println(obj);
-        assertEquals(obj.size(), 1);
+        int linksSize = jdbcLinksRepository.findAll().size();
+        jdbcLinksRepository.add(URL, TIME_NOW);
+        var obj = jdbcLinksRepository.findAll();
+        assertEquals(obj.size(), linksSize + 1);
     }
 
     @Test
     @Transactional
     @Rollback
     void deleteTest() {
-        jdbcChatRepository.add(CHAT_ID);
-        jdbcLinksRepository.add(URL, CHAT_ID);
-        var chat = jdbcLinksRepository.findAll(CHAT_ID);
-        var id = chat.get(0).id();
+        int linksSize = jdbcLinksRepository.findAll().size();
+        jdbcLinksRepository.add(URL, TIME_NOW);
 
-        assertEquals(chat.size(), 1); // проверяем что запись была добавлена
-        jdbcLinksRepository.remove(URL, CHAT_ID);
-        var sizeAfterRemove = jdbcLinksRepository.findAll(CHAT_ID).size();
-        assertEquals(sizeAfterRemove, 0); // проверяем что запись была удалена
+        var links = jdbcLinksRepository.findAll();
+        assertEquals(links.size(), linksSize + 1); // проверяем что запись была добавлена
+
+
+        jdbcLinksRepository.remove(URL);// проверяем что запись была удалена
+        var afterDel = jdbcLinksRepository.findAll();
+        assertEquals(afterDel.size(), linksSize);
     }
 
     @Test
     @Transactional
     @Rollback
     void findAll() {
-        jdbcChatRepository.add(CHAT_ID);
-        jdbcLinksRepository.add(URL, CHAT_ID);
-        var allVal = jdbcLinksRepository.findAll(CHAT_ID);
-        assertEquals(allVal.size(), 1);
+        int linksSize = jdbcLinksRepository.findAll().size();
+        jdbcLinksRepository.add(URL, TIME_NOW);
+        var allVal = jdbcLinksRepository.findAll();
+        assertEquals(allVal.size(), linksSize + 1);
     }
 }
