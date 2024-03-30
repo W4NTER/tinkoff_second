@@ -38,7 +38,7 @@ import org.springframework.stereotype.Component;
     @Scheduled(fixedDelayString = &quot;#{@scheduler.interval()}&quot;)
     public void update() {
 <span class="fc" id="L40">        var linksNotUpdatedLongTime = linksRepository.findAllOutdatedLinks();</span>
-<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        for (LinksDTO link : linksNotUpdatedLongTime) {</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        for (LinksDTO link : linksNotUpdatedLongTime) {</span>
 <span class="nc" id="L42">            var lastUpdateFromClient = getLastUpdate(link);</span>
 <span class="nc bnc" id="L43" title="All 2 branches missed.">            if (!link.lastUpdate().isEqual(lastUpdateFromClient)) {</span>
 <span class="nc" id="L44">                Long[] chatIds = communicationsRepository.findAll().stream()</span>
@@ -55,7 +55,7 @@ import org.springframework.stereotype.Component;
 
     private OffsetDateTime getLastUpdate(LinksDTO linksDTO) {
         OffsetDateTime lastUpdate;
-<span class="nc bnc" id="L58" title="All 2 branches missed.">        if (linkToArray(linksDTO)[2].equals(gitUrl)) {</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if (linkToArray(linksDTO)[2].equals(gitUrl)) {</span>
 <span class="nc" id="L59">            lastUpdate = gitHubClient.getLastUpdate(linksDTO.link().toString()).updatedAt();</span>
 <span class="nc bnc" id="L60" title="All 2 branches missed.">        } else if (linkToArray(linksDTO)[2].equals(stackoverflowUrl)) {</span>
 <span class="nc" id="L61">            lastUpdate = stackoverflowClient.getLastActivity(linksDTO.link().toString()).lastActivityDate();</span>
@@ -66,7 +66,7 @@ import org.springframework.stereotype.Component;
     }
 
     private String[] linkToArray(LinksDTO linksDTO) {
-<span class="nc" id="L69">        return linksDTO.link().toString().split(&quot;/&quot;);</span>
+<span class="fc" id="L69">        return linksDTO.link().toString().split(&quot;/&quot;);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

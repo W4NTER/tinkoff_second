@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan
 @SuppressWarnings({&quot;MultipleStringLiterals&quot;})
 <span class="fc" id="L17">public class JdbcConfig {</span>
-    @Bean
+    @Bean(name = &quot;entityManagerFactory&quot;)
     public DataSource dataSource() {
 <span class="fc" id="L20">        DriverManagerDataSource dataSource = new DriverManagerDataSource();</span>
 <span class="fc" id="L21">        dataSource.setDriverClassName(&quot;org.postgresql.Driver&quot;);</span>

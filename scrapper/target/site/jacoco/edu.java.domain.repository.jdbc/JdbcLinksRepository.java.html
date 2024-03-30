@@ -56,7 +56,7 @@ public class JdbcLinksRepository implements LinksRepository {
 <span class="fc" id="L56">        OffsetDateTime thresholdTime = OffsetDateTime.now().minusMinutes(TIME_IN_MINUTES_TO_OUTDATED_LINK);</span>
 <span class="fc" id="L57">        return jdbcTemplate.query(</span>
                 &quot;select link_id, link, created_at, last_update, last_check from links where last_check &lt;= ?&quot;,
-<span class="nc" id="L59">                (resultSet, rowNum) -&gt; createLinksDTO(resultSet), thresholdTime);</span>
+<span class="fc" id="L59">                (resultSet, rowNum) -&gt; createLinksDTO(resultSet), thresholdTime);</span>
     }
 
     @Transactional

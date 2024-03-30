@@ -11,11 +11,11 @@ scrapper,edu.java.controller.exception,IncorrectParametersException,4,0,0,0,2,0,
 scrapper,edu.java.domain.model,ChatEntity,3,0,0,0,1,0,1,0,1,0
 scrapper,edu.java.domain.service.jdbc,JdbcTgChatService,10,3,0,0,4,1,2,1,2,1
 scrapper,edu.java.domain.service.jdbc,JdbcLinksService,89,21,6,0,17,8,8,1,5,1
-scrapper,edu.java.domain.repository.jdbc,JdbcLinksRepository,38,129,1,1,5,29,4,7,3,7
+scrapper,edu.java.domain.repository.jdbc,JdbcLinksRepository,34,133,1,1,4,30,3,8,2,8
 scrapper,edu.java.domain.repository.jdbc,JdbcTgChatRepository,0,55,0,0,0,13,0,5,0,5
 scrapper,edu.java.domain.repository.jdbc,JdbcCommunicationsRepository,55,3,0,0,9,1,5,1,5,1
 scrapper,edu.java.client.botClient.dto,BotClientDTO,0,15,0,0,0,1,0,1,0,1
-scrapper,edu.java.scheduler,LinkUpdaterScheduler,117,38,7,1,15,10,13,4,9,4
+scrapper,edu.java.scheduler,LinkUpdaterScheduler,99,56,5,3,13,12,10,7,7,6
 scrapper,edu.java,ScrapperApplication,5,3,0,0,2,1,1,1,1,1
 scrapper,edu.java.client.stackoverflow,StackoverflowClientImpl,8,105,4,4,5,19,4,6,0,6
 scrapper,edu.java.controller.dto.request,RemoveLinkRequest,6,0,0,0,1,0,1,0,1,0

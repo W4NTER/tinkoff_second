@@ -2,43 +2,40 @@
 
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
+import edu.java.bot.client.ScrapperWebClient;
+import java.net.URI;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-<<<<<<< HEAD
-<span class="nc" id="L8">public class TrackCommand implements Command {</span>
+<span class="fc" id="L11">public class TrackCommand implements Command {</span>
+    @Autowired
+    ScrapperWebClient scrapperWebClient;
+
     @Override
     public String command() {
-<span class="nc" id="L11">        return &quot;/track&quot;;</span>
-=======
-<span class="fc" id="L8">public class TrackCommand implements Command {</span>
-    @Override
-    public String command() {
-<span class="fc" id="L11">        return &quot;/track&quot;;</span>
->>>>>>> hw2
+<span class="fc" id="L17">        return &quot;/track&quot;;</span>
     }
 
     @Override
     public String description() {
-<<<<<<< HEAD
-<span class="nc" id="L16">        return &quot;начать отслеживание ссылки&quot;;</span>
-=======
-<span class="fc" id="L16">        return &quot;начать отслеживание ссылки&quot;;</span>
+<span class="fc" id="L22">        return &quot;начать отслеживание ссылки&quot;;</span>
     }
 
     @Override
     public String post() {
-<span class="nc" id="L21">        return description();</span>
->>>>>>> hw2
+<span class="nc" id="L27">        return description();</span>
+    }
+
+    @Override
+    public boolean supports() {
+<span class="nc" id="L32">        return true;</span>
     }
 
     @Override
     public SendMessage handle(Update update) {
-<<<<<<< HEAD
-<span class="nc" id="L21">        return new SendMessage(update.message().chat().id(), description());</span>
-=======
-<span class="nc" id="L26">        return new SendMessage(update.message().chat().id(), post());</span>
->>>>>>> hw2
+<span class="nc" id="L37">        scrapperWebClient.trackLink(update.message().chat().id(), URI.create(update.message().text().split(&quot; &quot;)[1]));</span>
+<span class="nc" id="L38">        return new SendMessage(update.message().chat().id(), post());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
