@@ -1,11 +1,15 @@
 package edu.java.bot.client;
 
 import java.net.URI;
+import java.util.HashMap;
+import java.util.Map;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
+
 
 @Component
 @AllArgsConstructor
@@ -47,11 +51,15 @@ public class ScrapperWebClient {
     }
 
     public String trackLink(Long chatId, URI link) {
+        Map<String, String> requestPayload = new HashMap<>();
+        requestPayload.put("link", link.toString());
+
         return webClient
                 .post()
                 .uri(LINKS_URI)
                 .header(HEADER, String.valueOf(chatId))
-                .body(Mono.just(link), URI.class)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(Mono.just(requestPayload), Map.class)
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();

@@ -26,8 +26,9 @@ public class GitHubClientTest {
     private GitHubClient client;
     private final static String USER_NAME = "Owner";
     private final static String REPO = "Repo";
+    private final static String USER_URL = "https://github.com/Owner/Repo";
     private final static String RESPONSE_BODY = "{\"id\": 123,\"name\":\"testRepo\",\"full_name\":\"Owner/Repo\", " +
-            "\"html_url\":\"https://github.com/testOwner/testRepo\",\"updated_at\":\"2024-02-06T19:19:01Z\"}";
+            "\"html_url\":\"https://github.com/testOwner/testRepo\",\"pushed_at\":\"2024-02-06T19:19:01Z\"}";
 
     @RegisterExtension
     static WireMockExtension extension = new WireMockExtension.Builder()
@@ -57,7 +58,7 @@ public class GitHubClientTest {
         Long expectedId = 123L;
         String expectedName = "Owner/Repo";
 
-        var dto = client.getLastUpdate(USER_NAME, REPO);
+        var dto = client.getLastUpdate(USER_URL);
 
         Assertions.assertEquals(dto.id(), expectedId);
         Assertions.assertEquals(dto.name(), expectedName);

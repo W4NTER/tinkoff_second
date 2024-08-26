@@ -6,12 +6,12 @@ import liquibase.Liquibase;
 import liquibase.database.Database;
 import liquibase.database.DatabaseFactory;
 import liquibase.database.jvm.JdbcConnection;
-import liquibase.resource.ClassLoaderResourceAccessor;
 import liquibase.resource.DirectoryResourceAccessor;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.containers.JdbcDatabaseContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
@@ -34,7 +34,7 @@ public abstract class IntegrationTest {
         runMigrations(POSTGRES);
     }
 
-    private static void runMigrations(JdbcDatabaseContainer<?> c)  {
+    public static void runMigrations(PostgreSQLContainer<?> c)  {
         try (var connection = DriverManager.getConnection(c.getJdbcUrl(), c.getUsername(), c.getPassword())) {
             Database database =
                     DatabaseFactory.getInstance().findCorrectDatabaseImplementation(

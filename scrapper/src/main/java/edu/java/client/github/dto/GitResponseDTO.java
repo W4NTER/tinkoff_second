@@ -10,7 +10,7 @@ public record GitResponseDTO(
     @JsonProperty("full_name")
     String name,
 
-    @JsonProperty("updated_at")
+    @JsonProperty("pushed_at")
     OffsetDateTime updatedAt
 ) {}
 

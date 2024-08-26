@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LinksController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scrapper</a> &gt; <a href="index.source.html" class="el_package">edu.java.controller</a> &gt; <span class="el_source">LinksController.java</span></div><h1>LinksController.java</h1><pre class="source lang-java linenums">package edu.java.controller;
 
 import edu.java.controller.dto.request.AddLinkRequest;
+import edu.java.controller.dto.request.RemoveLinkRequest;
 import edu.java.controller.dto.response.LinkResponse;
-import java.net.URI;
+import edu.java.domain.dto.LinksDTO;
+import edu.java.domain.service.jdbc.JdbcLinksService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,29 +17,34 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping(&quot;/links&quot;)
-<span class="fc" id="L18">public class LinksController {</span>
+<span class="fc" id="L22">public class LinksController {</span>
+    @Autowired
+    private JdbcLinksService jdbcLinksService;
 
     @GetMapping
-    public ResponseEntity&lt;Void&gt; getAllTrackedLinks(@RequestHeader(&quot;Tg-Chat-Id&quot;) Long chatId) {
-<span class="nc" id="L22">        return ResponseEntity.ok().build();</span>
+    public ResponseEntity&lt;List&lt;LinksDTO&gt;&gt; getAllTrackedLinks(@RequestHeader(&quot;Tg-Chat-Id&quot;) Long id) {
+<span class="nc" id="L28">        return new ResponseEntity&lt;&gt;(jdbcLinksService.listAll(id), HttpStatus.OK);</span>
     }
-
 
     @PostMapping
     public ResponseEntity&lt;LinkResponse&gt; trackLink(
             @RequestHeader(&quot;Tg-Chat-Id&quot;) Long chatId,
             @RequestBody AddLinkRequest addLinkRequest) {
-<span class="nc" id="L30">        return ResponseEntity.ok().build();</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        if (addLinkRequest.link() == null) {</span>
+<span class="nc" id="L36">            throw new IllegalArgumentException(&quot;Ссылка равна null&quot;);</span>
+        }
+<span class="nc" id="L38">        LinksDTO linksDTO = jdbcLinksService.addLink(chatId, addLinkRequest.link());</span>
+<span class="nc" id="L39">        return new ResponseEntity&lt;&gt;(new LinkResponse(linksDTO.id(), linksDTO.link()), HttpStatus.OK);</span>
     }
 
     @DeleteMapping
     public ResponseEntity&lt;LinkResponse&gt; untrackLink(
             @RequestHeader(&quot;Tg-Chat-Id&quot;) Long chatId,
-            @RequestBody URI url) {
-<span class="nc" id="L37">        return ResponseEntity.ok().build();</span>
+            @RequestBody RemoveLinkRequest url) {
+<span class="nc" id="L46">        LinksDTO linksDTO = jdbcLinksService.deleteLink(chatId, url.link());</span>
+<span class="nc" id="L47">        return new ResponseEntity&lt;&gt;(new LinkResponse(linksDTO.id(), linksDTO.link()), HttpStatus.OK);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

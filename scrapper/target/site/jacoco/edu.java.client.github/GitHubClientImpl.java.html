@@ -2,24 +2,43 @@
 
 import edu.java.client.github.dto.GitResponseDTO;
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 @Controller
-<span class="fc" id="L10">@RequiredArgsConstructor</span>
+<span class="fc" id="L12">@RequiredArgsConstructor</span>
 public class GitHubClientImpl implements GitHubClient {
 
     private final WebClient gitHubClient;
+    private final static int DEFAULT_LENGTH = 5;
+    private final static int NAME_POSITION_PARTS = 3;
+    private final static int REPO_POSITION_PARTS = 4;
+<span class="fc" id="L19">    private final static Logger LOGGER = LogManager.getLogger();</span>
 
     private Mono&lt;GitResponseDTO&gt; getLastUpdateMono(String username, String repo) {
-<span class="fc" id="L16">        return gitHubClient.get().uri(&quot;/repos/&quot; + username + &quot;/&quot; + repo)</span>
-<span class="fc" id="L17">                .retrieve().bodyToMono(GitResponseDTO.class);</span>
+<span class="fc" id="L22">        return gitHubClient.get().uri(&quot;/repos/&quot; + username + &quot;/&quot; + repo)</span>
+<span class="fc" id="L23">                .retrieve().bodyToMono(GitResponseDTO.class);</span>
     }
 
     @Override
-    public GitResponseDTO getLastUpdate(String username, String repo) {
-<span class="fc" id="L22">        return getLastUpdateMono(username, repo).block();</span>
+    public GitResponseDTO getLastUpdate(String url) {
+<span class="fc" id="L28">        String[] parts = parseUrl(url);</span>
+<span class="pc bpc" id="L29" title="3 of 4 branches missed.">        if (parts.length != DEFAULT_LENGTH</span>
+                &amp;&amp; parts.length != DEFAULT_LENGTH + 1) {
+<span class="nc" id="L31">            LOGGER.info(&quot;Неправильно введена ссылка&quot;);</span>
+<span class="nc" id="L32">            return null;</span>
+        }
+<span class="fc" id="L34">        return getLastUpdateMono(</span>
+                parts[NAME_POSITION_PARTS],
+                parts[REPO_POSITION_PARTS]
+<span class="fc" id="L37">        ).block();</span>
+    }
+
+    private String[] parseUrl(String url) {
+<span class="fc" id="L41">        return url.split(&quot;/&quot;);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

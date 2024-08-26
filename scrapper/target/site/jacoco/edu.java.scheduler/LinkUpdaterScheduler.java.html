@@ -1,21 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LinkUpdaterScheduler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scrapper</a> &gt; <a href="index.source.html" class="el_package">edu.java.scheduler</a> &gt; <span class="el_source">LinkUpdaterScheduler.java</span></div><h1>LinkUpdaterScheduler.java</h1><pre class="source lang-java linenums">package edu.java.scheduler;
 
+import edu.java.client.botClient.BotWebClient;
+import edu.java.client.github.GitHubClientImpl;
+import edu.java.client.stackoverflow.StackoverflowClientImpl;
+import edu.java.domain.dto.CommunicationsDTO;
+import edu.java.domain.dto.LinksDTO;
+import edu.java.domain.repository.CommunicationsRepository;
+import edu.java.domain.repository.LinksRepository;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 import lombok.Setter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+
 @Component
-<span class="fc" id="L10">@Setter</span>
-<span class="fc" id="L11">public class LinkUpdaterScheduler {</span>
-<span class="fc" id="L12">    private final static Logger LOGGER = LogManager.getLogger();</span>
+<span class="nc" id="L21">@Setter</span>
+<span class="fc" id="L22">public class LinkUpdaterScheduler {</span>
+<span class="fc" id="L23">    private final static Logger LOGGER = LogManager.getLogger();</span>
     private int counter;
+    @Autowired
+    private LinksRepository linksRepository;
+    @Autowired
+    private CommunicationsRepository communicationsRepository;
+<span class="fc" id="L29">    private final String gitUrl = &quot;github.com&quot;;</span>
+<span class="fc" id="L30">    private final String stackoverflowUrl = &quot;stackoverflow.com&quot;;</span>
+    @Autowired
+    private GitHubClientImpl gitHubClient;
+    @Autowired
+    private BotWebClient botWebClient;
+    @Autowired
+    private StackoverflowClientImpl stackoverflowClient;
 
     @Scheduled(fixedDelayString = &quot;#{@scheduler.interval()}&quot;)
     public void update() {
-<span class="fc" id="L17">        setCounter(1 + counter);</span>
-<span class="fc" id="L18">        LOGGER.info(&quot;update method called&quot; + counter);</span>
-<span class="fc" id="L19">    }</span>
+<span class="fc" id="L40">        var linksNotUpdatedLongTime = linksRepository.findAllOutdatedLinks();</span>
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        for (LinksDTO link : linksNotUpdatedLongTime) {</span>
+<span class="nc" id="L42">            var lastUpdateFromClient = getLastUpdate(link);</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">            if (!link.lastUpdate().isEqual(lastUpdateFromClient)) {</span>
+<span class="nc" id="L44">                Long[] chatIds = communicationsRepository.findAll().stream()</span>
+<span class="nc" id="L45">                        .filter(obj -&gt; Objects.equals(obj.linkId(), link.id()))</span>
+<span class="nc" id="L46">                        .map(CommunicationsDTO::chatId).toArray(Long[]::new);</span>
+<span class="nc" id="L47">                botWebClient.sendUpdates(link.id(), link.link().toString(), &quot;Есть изменения &quot;, chatIds);</span>
+            }
+<span class="nc" id="L49">                linksRepository.add(link.link(), lastUpdateFromClient);</span>
+<span class="nc" id="L50">        }</span>
+<span class="nc" id="L51">        setCounter(1 + counter);</span>
+<span class="nc" id="L52">        LOGGER.info(&quot;update method called &quot; + counter + &quot; time(s)&quot;);</span>
+<span class="nc" id="L53">    }</span>
+
+
+    private OffsetDateTime getLastUpdate(LinksDTO linksDTO) {
+        OffsetDateTime lastUpdate;
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if (linkToArray(linksDTO)[2].equals(gitUrl)) {</span>
+<span class="nc" id="L59">            lastUpdate = gitHubClient.getLastUpdate(linksDTO.link().toString()).updatedAt();</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">        } else if (linkToArray(linksDTO)[2].equals(stackoverflowUrl)) {</span>
+<span class="nc" id="L61">            lastUpdate = stackoverflowClient.getLastActivity(linksDTO.link().toString()).lastActivityDate();</span>
+        } else {
+<span class="nc" id="L63">            lastUpdate = null;</span>
+        }
+<span class="nc" id="L65">        return lastUpdate;</span>
+    }
+
+    private String[] linkToArray(LinksDTO linksDTO) {
+<span class="fc" id="L69">        return linksDTO.link().toString().split(&quot;/&quot;);</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

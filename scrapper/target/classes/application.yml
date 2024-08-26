@@ -6,6 +6,7 @@ app:
   base-url-git: https://api.github.com
   base-url-stackoverflow: https://api.stackexchange.com/2.3/questions
   base-url-bot: http://localhost:8090
+  git-token: ${GIT_TOKEN}
 
 spring:
   application:

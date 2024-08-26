@@ -8,9 +8,6 @@ spring:
   jackson:
     time-zone: UTC
 
-#client:
-#  base-url-scrapper: http://localhost:8080
-
 server:
   port: 8090
 

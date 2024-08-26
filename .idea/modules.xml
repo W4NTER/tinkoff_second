@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/bot/bot.iml" filepath="$PROJECT_DIR$/bot/bot.iml" />
-      <module fileurl="file://$PROJECT_DIR$/scrapper/scrapper.iml" filepath="$PROJECT_DIR$/scrapper/scrapper.iml" />
     </modules>
   </component>
 </project>
