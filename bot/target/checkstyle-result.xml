@@ -1,7 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="10.12.7">
-<file name="D:\tinkoffSecondHalf\bot\src\main\java\edu\java\bot\BotApplication.java">
-</file>
-<file name="D:\tinkoffSecondHalf\bot\src\main\java\edu\java\bot\configuration\ApplicationConfig.java">
-</file>
 </checkstyle>
