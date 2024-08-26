@@ -1,0 +1,17 @@
+app:
+  scheduler:
+    enable: true
+    interval: 15s
+    force-check-delay: 10s
+  base-url-git: https://api.github.com
+  base-url-stackoverflow: https://api.stackexchange.com/2.3/questions
+
+spring:
+  application:
+    name: scrapper
+
+server:
+  port: 8080
+
+logging:
+  config: classpath:log4j2-plain.xml

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class BotImpl implements Bot {
     private TelegramBot bot;
     private Long customerId;
-    private boolean linkCommand;
+    private boolean linkCommand = false;
     private final static Logger LOGGER = LogManager.getLogger();
 
     @Override
