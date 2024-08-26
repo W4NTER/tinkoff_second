@@ -4,6 +4,24 @@ import edu.java.bot.configuration.ApplicationConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+<<<<<<< HEAD
+import org.springframework.web.reactive.function.client.WebClient;
+
+@SpringBootApplication
+@EnableConfigurationProperties(ApplicationConfig.class)
+<span class="nc" id="L11">public class BotApplication {</span>
+
+
+
+    public static void main(String[] args) {
+<span class="nc" id="L16">        SpringApplication.run(BotApplication.class, args);</span>
+<span class="nc" id="L17">        Bot bot = new Bot();</span>
+<span class="nc" id="L18">        bot.start();</span>
+//        ScrapperWebClient client = new ScrapperWebClient(WebClient.builder().baseUrl(&quot;http://localhost:8089&quot;).build());
+//        var a = client.untrackLink(1L);
+//        System.out.println(a);
+<span class="nc" id="L22">    }</span>
+=======
 
 @SpringBootApplication
 @EnableConfigurationProperties(ApplicationConfig.class)
@@ -14,5 +32,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 <span class="nc" id="L14">        Bot bot = new Bot();</span>
 <span class="nc" id="L15">        bot.start();</span>
 <span class="nc" id="L16">    }</span>
+>>>>>>> hw2
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

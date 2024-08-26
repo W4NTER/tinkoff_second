@@ -5,25 +5,40 @@ import com.pengrad.telegrambot.request.SendMessage;
 import org.springframework.stereotype.Component;
 
 @Component
+<<<<<<< HEAD
+<span class="nc" id="L8">public class UntrackCommand implements Command {</span>
+    @Override
+    public String command() {
+<span class="nc" id="L11">        return &quot;/untrack&quot;;</span>
+=======
 <span class="fc" id="L8">public class UntrackCommand implements Command {</span>
     @Override
     public String command() {
 <span class="fc" id="L11">        return &quot;/untrack&quot;;</span>
+>>>>>>> hw2
     }
 
     @Override
     public String description() {
+<<<<<<< HEAD
+<span class="nc" id="L16">        return &quot;прекратить отслеживание ссылки&quot;;</span>
+=======
 <span class="fc" id="L16">        return &quot;прекратить отслеживание ссылки&quot;;</span>
     }
 
     @Override
     public String post() {
 <span class="nc" id="L21">        return description();</span>
+>>>>>>> hw2
     }
 
     @Override
     public SendMessage handle(Update update) {
+<<<<<<< HEAD
+<span class="nc" id="L21">        return new SendMessage(update.message().chat().id(), description());</span>
+=======
 <span class="nc" id="L26">        return new SendMessage(update.message().chat().id(), post());</span>
+>>>>>>> hw2
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

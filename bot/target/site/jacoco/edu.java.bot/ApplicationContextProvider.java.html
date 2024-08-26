@@ -7,13 +7,25 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 @Component
+<<<<<<< HEAD
+<span class="nc" id="L10">public class ApplicationContextProvider implements ApplicationContextAware {</span>
+<span class="nc" id="L11">    @Getter</span>
+=======
 <span class="fc" id="L10">public class ApplicationContextProvider implements ApplicationContextAware {</span>
 <span class="fc" id="L11">    @Getter</span>
+>>>>>>> hw2
     private static ApplicationContext applicationContext;
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+<<<<<<< HEAD
+<span class="nc" id="L16">        ApplicationContextProvider.applicationContext = applicationContext;</span>
+<span class="nc" id="L17">    }</span>
+}
+
+=======
 <span class="fc" id="L16">        ApplicationContextProvider.applicationContext = applicationContext;</span>
 <span class="fc" id="L17">    }</span>
 }
+>>>>>>> hw2
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

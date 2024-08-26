@@ -1,12 +1,2 @@
-edu\java\scrapper\configuration\ClientConfig.class
-edu\java\scrapper\client\stackoverflow\StackoverflowClientImpl.class
-edu\java\scrapper\configuration\ApplicationConfig$Scheduler.class
 META-INF\spring-configuration-metadata.json
-edu\java\scrapper\client\github\dto\GitResponseDTO.class
-edu\java\scrapper\configuration\ApplicationConfig.class
-edu\java\scrapper\client\stackoverflow\dto\StackoverflowResponseDTO.class
-edu\java\scrapper\client\stackoverflow\StackoverflowClient.class
-edu\java\scrapper\scheduler\LinkUpdaterScheduler.class
-edu\java\scrapper\client\github\GitHubClientImpl.class
-edu\java\scrapper\client\github\GitHubClient.class
 edu\java\ScrapperApplication.class
