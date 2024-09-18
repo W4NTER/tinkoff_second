@@ -1,33 +1,33 @@
 package edu.java.domain.service.jdbc;
 
-import edu.java.client.github.GitHubClientImpl;
-import edu.java.client.stackoverflow.StackoverflowClientImpl;
-import edu.java.configuration.ApplicationConfig;
+import edu.java.client.github.GitHubClient;
+import edu.java.client.stackoverflow.StackoverflowClient;
 import edu.java.domain.dto.LinksDTO;
-import edu.java.domain.repository.jdbc.JdbcCommunicationsRepository;
-import edu.java.domain.repository.jdbc.JdbcLinksRepository;
+import edu.java.domain.repository.CommunicationsRepository;
+import edu.java.domain.repository.LinksRepository;
 import edu.java.domain.service.LinksService;
 import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.List;
-import org.springframework.stereotype.Service;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-@Service
+
 public class JdbcLinksService implements LinksService {
-    private final JdbcLinksRepository jdbcLinksRepository;
-    private final JdbcCommunicationsRepository communicationsRepository;
-    private final GitHubClientImpl gitHubClient;
-    private final StackoverflowClientImpl stackoverflowClient;
-    private final String gitReference = "github.com";
-    private final String stackoverflowReference = "stackoverflow.com";
+    private final LinksRepository linksRepository;
+    private final CommunicationsRepository communicationsRepository;
+    private final GitHubClient gitHubClient;
+    private final StackoverflowClient stackoverflowClient;
+    private final static String GIT_REFERENCE = "github.com";
+    private final static String STACKOVERFLOW_REFERENCE = "stackoverflow.com";
+    private final static Logger LOGGER = LogManager.getLogger();
 
     public JdbcLinksService(
-            ApplicationConfig applicationConfig,
-            JdbcLinksRepository jdbcLinksRepository,
-            GitHubClientImpl gitHubClient,
-            StackoverflowClientImpl stackoverflowClient,
-            JdbcCommunicationsRepository communicationsRepository) {
-        this.jdbcLinksRepository = jdbcLinksRepository;
+            LinksRepository linksRepository,
+            GitHubClient gitHubClient,
+            StackoverflowClient stackoverflowClient,
+            CommunicationsRepository communicationsRepository) {
+        this.linksRepository = linksRepository;
         this.gitHubClient = gitHubClient;
         this.stackoverflowClient = stackoverflowClient;
         this.communicationsRepository = communicationsRepository;
@@ -36,37 +36,54 @@ public class JdbcLinksService implements LinksService {
 
     @Override
     public LinksDTO addLink(Long tgChatId, URI url) {
-        var links = jdbcLinksRepository.findAll();
+        var links = linksRepository.findAll();
         var linksInBD = links.stream().filter(link -> url.equals(link.link())).toList();
         if (!linksInBD.isEmpty()) {
             return linksInBD.getFirst();
         }
 
-        jdbcLinksRepository.add(url, lastUpdate(url));
-        Long linkId = jdbcLinksRepository.getLink(url).id();
+        linksRepository.add(url, lastUpdate(url));
+        Long linkId = linksRepository.getLink(url).id();
         communicationsRepository.add(tgChatId, linkId);
-        return jdbcLinksRepository.getLink(url);
+        return linksRepository.getLink(url);
     }
 
     @Override
     public LinksDTO deleteLink(Long tgChatId, URI url) {
-        LinksDTO link = jdbcLinksRepository.getLink(url);
-        jdbcLinksRepository.remove(url);
+        LinksDTO link = linksRepository.getLink(url);
+        linksRepository.remove(url);
         return link;
     }
 
     @Override
     public List<LinksDTO> listAll(Long tgChatId) {
-        return jdbcLinksRepository.findAll();
+        return linksRepository.findAll();
     }
 
     public OffsetDateTime lastUpdate(URI url) {
-        if (url.toString().contains(gitReference)) {
+        if (url.toString().contains(GIT_REFERENCE)) {
+            LOGGER.info(url.toString());
             return gitHubClient.getLastUpdate(url.toString()).updatedAt();
-        } else if (url.toString().contains(stackoverflowReference)) {
+        } else if (url.toString().contains(STACKOVERFLOW_REFERENCE)) {
             return stackoverflowClient.getLastActivity(url.toString()).lastActivityDate();
         } else {
             throw new IllegalArgumentException();
         }
+    }
+
+    @Override
+    public List<LinksDTO> findAllOutdatedLinks() {
+        return linksRepository.findAllOutdatedLinks();
+    }
+
+    @Override
+    public void add(URI link, OffsetDateTime lastUpdate) {
+        linksRepository.add(link, lastUpdate);
+    }
+
+    @Override
+    public List<Long> findAllChatIdsByLink(URI url) {
+        Long linkId = linksRepository.getLink(url).id();
+        return communicationsRepository.findChatsByLink(linkId);
     }
 }

@@ -1,6 +1,7 @@
 package edu.java.configuration;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
@@ -10,8 +11,12 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 @EnableScheduling
 public class ClientConfig {
-    @Autowired
-    ApplicationConfig applicationConfig;
+    private final static Logger LOGGER = LogManager.getLogger();
+    final ApplicationConfig applicationConfig;
+
+    public ClientConfig(ApplicationConfig applicationConfig) {
+        this.applicationConfig = applicationConfig;
+    }
 
     @Bean
     public WebClient gitHubClient() {

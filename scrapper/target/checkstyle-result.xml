@@ -1,81 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="10.12.7">
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\botClient\BotWebClient.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\botClient\dto\BotClientDTO.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\github\dto\GitResponseDTO.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\github\GitHubClient.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\github\GitHubClientImpl.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\stackoverflow\dto\StackoverflowResponseDTO.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\stackoverflow\StackoverflowClient.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\client\stackoverflow\StackoverflowClientImpl.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\configuration\ApplicationConfig.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\configuration\ClientConfig.java">
-</file>
 <file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\configuration\JdbcConfig.java">
+<error line="4" column="1" severity="error" message="Wrong order for &apos;edu.java.domain.repository.CommunicationsRepository&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="12" column="1" severity="error" message="Wrong order for &apos;edu.java.client.github.GitHubClient&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
 </file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\request\AddLinkRequest.java">
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\entity\Chat.java">
+<error line="6" column="1" severity="error" message="Wrong order for &apos;java.time.OffsetDateTime&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="7" column="1" severity="error" message="Wrong order for &apos;jakarta.persistence.Column&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="11" column="1" severity="error" message="Wrong order for &apos;jakarta.persistence.ManyToMany&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="12" column="1" severity="error" message="Wrong order for &apos;jakarta.persistence.JoinColumn&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="13" column="1" severity="error" message="Wrong order for &apos;jakarta.persistence.CascadeType&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
 </file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\request\RemoveLinkRequest.java">
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\entity\Links.java">
+<error line="7" column="1" severity="error" message="Wrong order for &apos;jakarta.persistence.ManyToMany&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="8" column="1" severity="error" message="Wrong order for &apos;jakarta.persistence.CascadeType&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="14" column="1" severity="error" message="Wrong order for &apos;java.time.OffsetDateTime&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
 </file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\response\ApiErrorResponse.java">
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\jpa\JpaLinksRepository.java">
+<error line="4" column="1" severity="error" message="Wrong order for &apos;java.time.OffsetDateTime&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="5" column="1" severity="error" message="Wrong order for &apos;edu.java.domain.entity.Links&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
 </file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\response\LinkResponse.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\dto\response\ListLinksResponse.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\exception\ChatAlreadyExistsException.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\exception\ChatIdNotFoundException.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\exception\HandleControllerException.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\exception\IncorrectParametersException.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\LinksController.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\controller\TelegramChatController.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\dto\ChatDTO.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\dto\CommunicationsDTO.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\dto\LinksDTO.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\model\ChatEntity.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\CommunicationsRepository.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\jdbc\JdbcCommunicationsRepository.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\jdbc\JdbcLinksRepository.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\jdbc\JdbcTgChatRepository.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\LinksRepository.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\repository\TgChatRepository.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\jdbc\JdbcLinksService.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\jdbc\JdbcTgChatService.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\LinksService.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\LinkUpdater.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\TgChatService.java">
+<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\domain\service\jpa\JpaLinksService.java">
+<error line="6" column="1" severity="error" message="Wrong order for &apos;java.net.URI&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
+<error line="8" column="1" severity="error" message="Wrong order for &apos;edu.java.client.github.GitHubClient&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
 </file>
 <file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\scheduler\LinkUpdaterScheduler.java">
-</file>
-<file name="C:\Users\Vadim\IdeaProjects\tinkoff_second\scrapper\src\main\java\edu\java\ScrapperApplication.java">
+<error line="8" column="1" severity="error" message="Wrong order for &apos;edu.java.domain.service.LinksService&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
 </file>
 </checkstyle>

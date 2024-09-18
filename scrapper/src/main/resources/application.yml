@@ -7,6 +7,7 @@ app:
   base-url-stackoverflow: https://api.stackexchange.com/2.3/questions
   base-url-bot: http://localhost:8090
   git-token: ${GIT_TOKEN}
+  database-access-type: jpa
 
 spring:
   application:
@@ -14,6 +15,10 @@ spring:
   liquibase:
     enabled: false
     change-log: liquibase/master.xml
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
   datasource:
     url: jdbc:postgresql://localhost:5432/scrapper
     username: postgres

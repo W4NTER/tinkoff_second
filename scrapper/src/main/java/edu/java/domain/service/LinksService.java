@@ -2,6 +2,7 @@ package edu.java.domain.service;
 
 import edu.java.domain.dto.LinksDTO;
 import java.net.URI;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 public interface LinksService {
@@ -10,4 +11,12 @@ public interface LinksService {
     LinksDTO deleteLink(Long tgChatId, URI url);
 
     List<LinksDTO> listAll(Long tgChatId);
+
+    OffsetDateTime lastUpdate(URI url);
+
+    List<LinksDTO> findAllOutdatedLinks();
+
+    void add(URI link, OffsetDateTime lastUpdate);
+
+    List<Long> findAllChatIdsByLink(URI url);
 }
