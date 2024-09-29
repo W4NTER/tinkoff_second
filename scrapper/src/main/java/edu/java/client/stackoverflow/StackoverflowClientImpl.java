@@ -49,10 +49,10 @@ public class StackoverflowClientImpl implements StackoverflowClient {
             if (!node.isEmpty() && node.has(arrayItems) && node.get(arrayItems).isArray()) {
                 node = node.get(arrayItems).get(0);
 
-            var instant = Instant.ofEpochSecond(node.get("last_activity_date").asLong());
-            OffsetDateTime lastActivityDate = instant.atZone(ZoneOffset.systemDefault()).toOffsetDateTime();
+                var instant = Instant.ofEpochSecond(node.get("last_activity_date").asLong());
+                OffsetDateTime lastActivityDate = instant.atZone(ZoneOffset.systemDefault()).toOffsetDateTime();
 
-            return new StackoverflowResponseDTO(
+                return new StackoverflowResponseDTO(
                     node.get("question_id").asLong(),
                     node.get("title").asText(),
                     lastActivityDate);

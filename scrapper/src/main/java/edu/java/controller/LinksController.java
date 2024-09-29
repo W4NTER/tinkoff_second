@@ -19,7 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/links")
 public class LinksController {
-    private LinksService linksService;
+    private final LinksService linksService;
+
+    public LinksController(LinksService linksService) {
+        this.linksService = linksService;
+    }
 
     @GetMapping
     public ResponseEntity<List<LinksDTO>> getAllTrackedLinks(@RequestHeader("Tg-Chat-Id") Long id) {

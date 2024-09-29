@@ -19,4 +19,6 @@ public interface LinksService {
     void add(URI link, OffsetDateTime lastUpdate);
 
     List<Long> findAllChatIdsByLink(URI url);
+
+    List<LinksDTO> findAll();
 }

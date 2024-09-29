@@ -15,6 +15,7 @@ import edu.java.domain.repository.jpa.JpaLinksRepository;
 import edu.java.domain.service.LinksService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.transaction.annotation.Transactional;
 
 
@@ -51,7 +52,8 @@ public class JpaLinksService implements LinksService {
             var chat = jpaChatRepository.findById(tgChatId).orElse(null);
             link = jpaLinksRepository.save(new Links(url.toString(), TIME_NOW, TIME_NOW, TIME_NOW));
             if (chat != null) {
-                chat.getFollowingLinks().add(link);
+                var a = chat.getFollowingLinks().add(link);
+                LOGGER.info(a);
             }
             return castLinksToDTO(link);
         }
@@ -62,9 +64,12 @@ public class JpaLinksService implements LinksService {
     public LinksDTO deleteLink(Long tgChatId, URI url) {
         var chat = jpaChatRepository.findById(tgChatId);
         var link = jpaLinksRepository.findByLink(url.toString());
-        if (chat.isPresent() && link != null) {
-            link.getFollowingChats().remove(chat);
-        }
+        chat.ifPresent(value -> {
+            value.getFollowingLinks().remove(link);
+            if (link != null) {
+                link.getFollowingChats().remove(value);
+            }
+        });
 
         return link != null ? castLinksToDTO(link) : null;
     }
@@ -94,6 +99,7 @@ public class JpaLinksService implements LinksService {
     }
 
     @Override
+    @Transactional
     public List<LinksDTO> findAllOutdatedLinks() {
         return jpaLinksRepository.findAllOutdatedLinks(
                 OffsetDateTime.now().minusMinutes(TIME_IN_MINUTES_TO_OUTDATED_LINK))
@@ -101,6 +107,7 @@ public class JpaLinksService implements LinksService {
     }
 
     @Override
+    @Transactional
     public void add(URI link, OffsetDateTime lastUpdate) {
         var linkObj = jpaLinksRepository.findByLink(link.toString());
         if (linkObj != null) {
@@ -116,6 +123,11 @@ public class JpaLinksService implements LinksService {
     public List<Long> findAllChatIdsByLink(URI url) {
         var link = jpaLinksRepository.findByLink(url.toString());
         return link.getFollowingChats().stream().map(Chat::getId).toList();
+    }
+
+    @Override
+    public List<LinksDTO> findAll() {
+        return jpaLinksRepository.findAll().stream().map(this::castLinksToDTO).toList();
     }
 
     private LinksDTO castLinksToDTO(Links links) {

@@ -86,4 +86,9 @@ public class JdbcLinksService implements LinksService {
         Long linkId = linksRepository.getLink(url).id();
         return communicationsRepository.findChatsByLink(linkId);
     }
+
+    @Override
+    public List<LinksDTO> findAll() {
+        return linksRepository.findAll();
+    }
 }
