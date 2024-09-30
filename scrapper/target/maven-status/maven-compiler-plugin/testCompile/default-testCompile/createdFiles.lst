@@ -1,1 +1,5 @@
+edu\java\scrapper\client\botClient\BotClientTest.class
+edu\java\scrapper\client\stackoverflow\StackoverflowTestParseJson.class
+edu\java\scrapper\client\stackoverflow\StackoverflowTest.class
+edu\java\scrapper\client\gitgub\GitHubClientTest.class
 edu\java\scrapper\IntegrationTest.class

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JdbcLinksService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scrapper</a> &gt; <a href="index.source.html" class="el_package">edu.java.domain.service.jdbc</a> &gt; <span class="el_source">JdbcLinksService.java</span></div><h1>JdbcLinksService.java</h1><pre class="source lang-java linenums">package edu.java.domain.service.jdbc;
+
+import edu.java.client.github.GitHubClientImpl;
+import edu.java.client.stackoverflow.StackoverflowClientImpl;
+import edu.java.configuration.ApplicationConfig;
+import edu.java.domain.dto.LinksDTO;
+import edu.java.domain.repository.jdbc.JdbcCommunicationsRepository;
+import edu.java.domain.repository.jdbc.JdbcLinksRepository;
+import edu.java.domain.service.LinksService;
+import java.net.URI;
+import java.time.OffsetDateTime;
+import java.util.List;
+import org.springframework.stereotype.Service;
+
+@Service
+public class JdbcLinksService implements LinksService {
+    private final JdbcLinksRepository jdbcLinksRepository;
+    private final JdbcCommunicationsRepository communicationsRepository;
+    private final GitHubClientImpl gitHubClient;
+    private final StackoverflowClientImpl stackoverflowClient;
+<span class="fc" id="L21">    private final String gitReference = &quot;github.com&quot;;</span>
+<span class="fc" id="L22">    private final String stackoverflowReference = &quot;stackoverflow.com&quot;;</span>
+
+    public JdbcLinksService(
+            ApplicationConfig applicationConfig,
+            JdbcLinksRepository jdbcLinksRepository,
+            GitHubClientImpl gitHubClient,
+            StackoverflowClientImpl stackoverflowClient,
+<span class="fc" id="L29">            JdbcCommunicationsRepository communicationsRepository) {</span>
+<span class="fc" id="L30">        this.jdbcLinksRepository = jdbcLinksRepository;</span>
+<span class="fc" id="L31">        this.gitHubClient = gitHubClient;</span>
+<span class="fc" id="L32">        this.stackoverflowClient = stackoverflowClient;</span>
+<span class="fc" id="L33">        this.communicationsRepository = communicationsRepository;</span>
+<span class="fc" id="L34">    }</span>
+
+
+    @Override
+    public LinksDTO addLink(Long tgChatId, URI url) {
+<span class="nc" id="L39">        var links = jdbcLinksRepository.findAll();</span>
+<span class="nc" id="L40">        var linksInBD = links.stream().filter(link -&gt; url.equals(link.link())).toList();</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (!linksInBD.isEmpty()) {</span>
+<span class="nc" id="L42">            return linksInBD.getFirst();</span>
+        }
+
+<span class="nc" id="L45">        jdbcLinksRepository.add(url, lastUpdate(url));</span>
+<span class="nc" id="L46">        Long linkId = jdbcLinksRepository.getLink(url).id();</span>
+<span class="nc" id="L47">        communicationsRepository.add(tgChatId, linkId);</span>
+<span class="nc" id="L48">        return jdbcLinksRepository.getLink(url);</span>
+    }
+
+    @Override
+    public LinksDTO deleteLink(Long tgChatId, URI url) {
+<span class="nc" id="L53">        LinksDTO link = jdbcLinksRepository.getLink(url);</span>
+<span class="nc" id="L54">        jdbcLinksRepository.remove(url);</span>
+<span class="nc" id="L55">        return link;</span>
+    }
+
+    @Override
+    public List&lt;LinksDTO&gt; listAll(Long tgChatId) {
+<span class="nc" id="L60">        return jdbcLinksRepository.findAll();</span>
+    }
+
+    public OffsetDateTime lastUpdate(URI url) {
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (url.toString().contains(gitReference)) {</span>
+<span class="nc" id="L65">            return gitHubClient.getLastUpdate(url.toString()).updatedAt();</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        } else if (url.toString().contains(stackoverflowReference)) {</span>
+<span class="nc" id="L67">            return stackoverflowClient.getLastActivity(url.toString()).lastActivityDate();</span>
+        } else {
+<span class="nc" id="L69">            throw new IllegalArgumentException();</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
