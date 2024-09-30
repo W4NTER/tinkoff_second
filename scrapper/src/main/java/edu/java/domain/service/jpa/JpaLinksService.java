@@ -1,10 +1,5 @@
 package edu.java.domain.service.jpa;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
-import java.net.URI;
-import java.time.OffsetDateTime;
 import edu.java.client.github.GitHubClient;
 import edu.java.client.stackoverflow.StackoverflowClient;
 import edu.java.domain.dto.LinksDTO;
@@ -13,14 +8,16 @@ import edu.java.domain.entity.Links;
 import edu.java.domain.repository.jpa.JpaChatRepository;
 import edu.java.domain.repository.jpa.JpaLinksRepository;
 import edu.java.domain.service.LinksService;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.data.crossstore.ChangeSetPersister;
+import java.net.URI;
+import java.time.OffsetDateTime;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 import org.springframework.transaction.annotation.Transactional;
 
 
+
 public class JpaLinksService implements LinksService {
-    private final static Logger LOGGER = LogManager.getLogger();
     private static final int TIME_IN_MINUTES_TO_OUTDATED_LINK = 5;
     private final JpaChatRepository jpaChatRepository;
     private final JpaLinksRepository jpaLinksRepository;
@@ -46,17 +43,14 @@ public class JpaLinksService implements LinksService {
     @Transactional
     public LinksDTO addLink(Long tgChatId, URI url) {
         Links link = jpaLinksRepository.findByLink(url.toString());
-        if (link != null && !link.getFollowingChats().isEmpty()) {
-            return castLinksToDTO(link);
-        } else {
+        if (link == null || link.getFollowingChats().isEmpty()) {
             var chat = jpaChatRepository.findById(tgChatId).orElse(null);
             link = jpaLinksRepository.save(new Links(url.toString(), TIME_NOW, TIME_NOW, TIME_NOW));
             if (chat != null) {
-                var a = chat.getFollowingLinks().add(link);
-                LOGGER.info(a);
+                chat.getFollowingLinks().add(link);
             }
-            return castLinksToDTO(link);
         }
+        return castLinksToDTO(link);
     }
 
     @Override

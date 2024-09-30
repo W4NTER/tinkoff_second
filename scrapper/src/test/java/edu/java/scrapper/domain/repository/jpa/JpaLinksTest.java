@@ -41,26 +41,6 @@ public class JpaLinksTest implements IntegrationTest {
         assertEquals(obj.size(), linksSize + 1);
     }
 
-    //Где-то баг, надо его найти
-//    @Test
-//    @Transactional
-//    @Rollback
-//    void deleteLinkFromUserTest() {
-//        long chatId = 2L;
-//        int linksStartSize = linksService.listAll(chatId).size();
-//        tgChatService.register(chatId);
-//        linksService.addLink(chatId, URL);
-//        var a = linksService.findAllChatIdsByLink(URL);
-//
-//        int linksFinalSize = linksService.listAll(chatId).size();
-//        assertEquals(linksStartSize + 1, linksFinalSize); // проверяем что запись была добавлена
-//
-//
-//        linksService.deleteLink(chatId, URL);// проверяем что запись была удалена
-//        var afterDel = linksService.listAll(chatId);
-//        assertEquals(afterDel.size(), linksStartSize);
-//    }
-
     @Test
     @Transactional
     @Rollback

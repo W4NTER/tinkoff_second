@@ -1,6 +1,7 @@
 package edu.java.configuration;
 
-import javax.sql.DataSource;
+import edu.java.client.github.GitHubClient;
+import edu.java.client.stackoverflow.StackoverflowClient;
 import edu.java.domain.repository.CommunicationsRepository;
 import edu.java.domain.repository.LinksRepository;
 import edu.java.domain.repository.TgChatRepository;
@@ -9,8 +10,7 @@ import edu.java.domain.repository.jdbc.JdbcLinksRepository;
 import edu.java.domain.repository.jdbc.JdbcTgChatRepository;
 import edu.java.domain.service.jdbc.JdbcLinksService;
 import edu.java.domain.service.jdbc.JdbcTgChatService;
-import edu.java.client.github.GitHubClient;
-import edu.java.client.stackoverflow.StackoverflowClient;
+import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;

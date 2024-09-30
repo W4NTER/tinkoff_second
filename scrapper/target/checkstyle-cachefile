@@ -1,4 +1,4 @@
-#Sat Sep 28 15:04:50 YEKT 2024
+#Mon Sep 30 17:48:31 UTC 2024
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\ScrapperApplication.java=1723574225389
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\client\\botClient\\BotWebClient.java=1723574225390
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\client\\botClient\\dto\\BotClientDTO.java=1723574225390
@@ -10,6 +10,7 @@ C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\client\\stackoverflow\\dto\\StackoverflowResponseDTO.java=1723574225393
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\configuration\\ApplicationConfig.java=1726078598446
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\configuration\\ClientConfig.java=1726084280693
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\configuration\\JdbcConfig.java=1727718473728
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\configuration\\JpaConfig.java=1726132447413
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\controller\\LinksController.java=1727515168050
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\controller\\TelegramChatController.java=1726132447404
@@ -25,6 +26,8 @@ C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\dto\\ChatDTO.java=1723574225400
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\dto\\CommunicationsDTO.java=1723574225401
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\dto\\LinksDTO.java=1723574225401
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\entity\\Chat.java=1727718507291
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\entity\\Links.java=1727718507254
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\model\\ChatEntity.java=1711524209416
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\repository\\CommunicationsRepository.java=1726123152405
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\repository\\LinksRepository.java=1726084359522
@@ -33,10 +36,13 @@ C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\repository\\jdbc\\JdbcLinksRepository.java=1726087168376
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\repository\\jdbc\\JdbcTgChatRepository.java=1726084280659
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\repository\\jpa\\JpaChatRepository.java=1726085530669
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\repository\\jpa\\JpaLinksRepository.java=1727718451464
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\service\\LinkUpdater.java=1723574225406
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\service\\LinksService.java=1727513418680
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\service\\TgChatService.java=1724673351130
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\service\\jdbc\\JdbcLinksService.java=1727513418669
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\service\\jdbc\\JdbcTgChatService.java=1726084280672
 C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\service\\jpa\\JpaChatService.java=1726132596482
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\domain\\service\\jpa\\JpaLinksService.java=1727718507288
+C\:\\Users\\Vadim\\IdeaProjects\\tinkoff_second\\scrapper\\src\\main\\java\\edu\\java\\scheduler\\LinkUpdaterScheduler.java=1727717640254
 configuration*?=E853A37CAF4EFE9F272F433CD25DC68DC6A178B3
