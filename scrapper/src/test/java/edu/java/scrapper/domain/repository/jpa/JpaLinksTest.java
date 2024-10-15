@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.net.URI;
 import java.time.OffsetDateTime;
 
+import static edu.java.scrapper.IntegrationTest.POSTGRES;
 import static org.junit.Assert.assertEquals;
 
 @SpringBootTest
@@ -23,6 +24,9 @@ public class JpaLinksTest implements IntegrationTest {
 
     @DynamicPropertySource
     static void setJpaProperty(DynamicPropertyRegistry registry) {
+        registry.add("spring.datasource.url", POSTGRES::getJdbcUrl);
+        registry.add("spring.datasource.username", POSTGRES::getUsername);
+        registry.add("spring.datasource.password", POSTGRES::getPassword);
         registry.add("database-access-type", () -> "jpa");
     }
 

@@ -17,6 +17,9 @@ import static org.junit.Assert.assertEquals;
 public class JdbcTgChatRepositoryTest extends IntegrationTest {
     @DynamicPropertySource
     static void setJdbc(DynamicPropertyRegistry registry) {
+        registry.add("spring.datasource.url", POSTGRES::getJdbcUrl);
+        registry.add("spring.datasource.username", POSTGRES::getUsername);
+        registry.add("spring.datasource.password", POSTGRES::getPassword);
         registry.add("database-access-type", () -> "jdbc");
     }
 
