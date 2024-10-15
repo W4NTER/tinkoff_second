@@ -1,7 +1,7 @@
 package edu.java.scrapper.domain.repository.jpa;
 
-import edu.java.domain.service.LinksService;
-import edu.java.domain.service.TgChatService;
+import edu.java.service.LinksService;
+import edu.java.service.TgChatService;
 import org.apache.kafka.test.IntegrationTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

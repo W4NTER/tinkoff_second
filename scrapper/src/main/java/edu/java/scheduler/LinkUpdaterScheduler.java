@@ -4,7 +4,7 @@ import edu.java.client.botClient.BotWebClient;
 import edu.java.client.github.GitHubClient;
 import edu.java.client.stackoverflow.StackoverflowClient;
 import edu.java.domain.dto.LinksDTO;
-import edu.java.domain.service.LinksService;
+import edu.java.service.LinksService;
 import java.time.OffsetDateTime;
 import lombok.Setter;
 import org.apache.logging.log4j.LogManager;

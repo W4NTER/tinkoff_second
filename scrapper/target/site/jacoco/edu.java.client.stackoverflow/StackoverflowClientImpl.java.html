@@ -10,10 +10,10 @@ import java.time.ZoneOffset;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
-@Controller
+@Component
 <span class="fc" id="L17">@RequiredArgsConstructor</span>
 public class StackoverflowClientImpl implements StackoverflowClient {
 <span class="fc" id="L19">    private final static Logger LOGGER = LogManager.getLogger();</span>
@@ -49,10 +49,10 @@ public class StackoverflowClientImpl implements StackoverflowClient {
 <span class="pc bpc" id="L49" title="3 of 6 branches missed.">            if (!node.isEmpty() &amp;&amp; node.has(arrayItems) &amp;&amp; node.get(arrayItems).isArray()) {</span>
 <span class="fc" id="L50">                node = node.get(arrayItems).get(0);</span>
 
-<span class="fc" id="L52">            var instant = Instant.ofEpochSecond(node.get(&quot;last_activity_date&quot;).asLong());</span>
-<span class="fc" id="L53">            OffsetDateTime lastActivityDate = instant.atZone(ZoneOffset.systemDefault()).toOffsetDateTime();</span>
+<span class="fc" id="L52">                var instant = Instant.ofEpochSecond(node.get(&quot;last_activity_date&quot;).asLong());</span>
+<span class="fc" id="L53">                OffsetDateTime lastActivityDate = instant.atZone(ZoneOffset.systemDefault()).toOffsetDateTime();</span>
 
-<span class="fc" id="L55">            return new StackoverflowResponseDTO(</span>
+<span class="fc" id="L55">                return new StackoverflowResponseDTO(</span>
 <span class="fc" id="L56">                    node.get(&quot;question_id&quot;).asLong(),</span>
 <span class="fc" id="L57">                    node.get(&quot;title&quot;).asText(),</span>
                     lastActivityDate);

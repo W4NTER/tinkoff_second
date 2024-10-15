@@ -3,11 +3,11 @@ package edu.java.configuration;
 import edu.java.client.botClient.BotWebClient;
 import edu.java.client.github.GitHubClient;
 import edu.java.client.stackoverflow.StackoverflowClient;
-import edu.java.domain.repository.jpa.JpaChatRepository;
-import edu.java.domain.repository.jpa.JpaLinksRepository;
-import edu.java.domain.service.jpa.JpaChatService;
-import edu.java.domain.service.jpa.JpaLinksService;
+import edu.java.repository.jpa.JpaChatRepository;
+import edu.java.repository.jpa.JpaLinksRepository;
 import edu.java.scheduler.LinkUpdaterScheduler;
+import edu.java.service.jpa.JpaChatService;
+import edu.java.service.jpa.JpaLinksService;
 import jakarta.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +33,7 @@ public class JpaConfig {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/scrapper");
+        dataSource.setUrl("jdbc:postgresql://localhost:5438/scrapper");
         dataSource.setUsername("postgres");
         dataSource.setPassword("postgres");
 
@@ -44,7 +44,7 @@ public class JpaConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("edu.java.domain.entity");
+        em.setPackagesToScan("edu.java.entity");
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         return em;
     }

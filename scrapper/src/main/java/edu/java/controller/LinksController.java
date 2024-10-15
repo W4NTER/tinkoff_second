@@ -4,7 +4,7 @@ import edu.java.controller.dto.request.AddLinkRequest;
 import edu.java.controller.dto.request.RemoveLinkRequest;
 import edu.java.controller.dto.response.LinkResponse;
 import edu.java.domain.dto.LinksDTO;
-import edu.java.domain.service.LinksService;
+import edu.java.service.LinksService;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

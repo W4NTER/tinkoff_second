@@ -22,10 +22,16 @@ import org.springframework.validation.annotation.Validated;
         @NotNull
         String baseUrlBot,
         @NotEmpty
-        String gitToken
+        String gitToken,
+        @NotNull
+        AccessType databaseAccessType
 ) {
 
-<span class="fc" id="L28">    public record Scheduler(boolean enable, @NotNull Duration interval, @NotNull Duration forceCheckDelay) {</span>
+<span class="fc" id="L30">    public record Scheduler(boolean enable, @NotNull Duration interval, @NotNull Duration forceCheckDelay) {</span>
+    }
+
+<span class="fc" id="L33">    public enum AccessType {</span>
+<span class="fc" id="L34">        JDBC, JPA</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

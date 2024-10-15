@@ -1,6 +1,6 @@
 package edu.java.scrapper.domain.repository.jdbc;
 
-import edu.java.domain.repository.TgChatRepository;
+import edu.java.repository.TgChatRepository;
 import edu.java.scrapper.IntegrationTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
