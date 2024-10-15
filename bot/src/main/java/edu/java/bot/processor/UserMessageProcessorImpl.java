@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserMessageProcessorImpl implements UserMessageProcessor {
-    private boolean supportsInput;
 
     @Override
     public List<? extends Command> commands() {
@@ -32,16 +31,6 @@ public class UserMessageProcessorImpl implements UserMessageProcessor {
 
     public Optional<? extends Command> getCommand(Update update) {
         return commands().stream().filter(cmd ->
-                cmd.command().equals(update.message().text())).findFirst();
-    }
-
-    public void setSupportsInput(Update update) {
-        var command = getCommand(update);
-        command.ifPresent(value -> this.supportsInput = value.supports());
-    }
-
-    public boolean isSupportsInput(Update update) {
-        setSupportsInput(update);
-        return supportsInput;
+                cmd.command().equals(update.message().text().split(" ")[0])).findFirst();
     }
 }

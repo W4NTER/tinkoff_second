@@ -2,14 +2,15 @@ package edu.java.bot.commands;
 
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
-import java.util.ArrayList;
-import java.util.List;
+import edu.java.bot.client.ScrapperWebClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
 @Component
 public class ListCommand implements Command {
-    private List<String> trackedLinks = new ArrayList<>();
+    @Autowired
+    private ScrapperWebClient scrapperWebClient;
 
     @Override
     public String command() {
@@ -23,16 +24,20 @@ public class ListCommand implements Command {
 
 
     public String post() {
-        //List of links
-        if (!trackedLinks.isEmpty()) {
-            return String.join("\n", trackedLinks);
-        } else {
-            return "Нет отслеживаемых ссылок";
-        }
+        return "Нет отслеживаемых ссылок";
     }
 
     @Override
     public SendMessage handle(Update update) {
-        return new SendMessage(update.message().chat().id(), post());
+        return new SendMessage(update.message().chat().id(), trackedLinks(update));
+    }
+
+    private String trackedLinks(Update update) {
+        var listOfLinks = scrapperWebClient.getAllTrackedLinks(update.message().chat().id());
+        if (!listOfLinks.isEmpty()) {
+            return String.join("\n", listOfLinks);
+        } else {
+            return post();
+        }
     }
 }
