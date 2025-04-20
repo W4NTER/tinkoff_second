@@ -20,7 +20,7 @@ import java.net.URI;
 import java.sql.SQLException;
 import java.time.OffsetDateTime;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -31,11 +31,6 @@ public class JdbcLinksRepositoryTest extends IntegrationTest {
 
     @DynamicPropertySource
     static void setJdbc(DynamicPropertyRegistry registry) {
-//        registry.add("spring.datasource.url", () -> "jdbc:tc:postgresql:16:///test_db");
-//        registry.add("spring.datasource.driver-class-name",
-//                () -> "org.testcontainers.jdbc.ContainerDatabaseDriver");
-//        registry.add("spring.datasource.username", () -> "");
-//        registry.add("spring.datasource.password", () -> "");
         registry.add("app.database-access-type", () -> "jdbc");
     }
 

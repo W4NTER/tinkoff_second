@@ -12,6 +12,8 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
 public class HelpCommandTest {
@@ -42,6 +44,6 @@ public class HelpCommandTest {
                 /start - зарегистрировать пользователя
                 /track - начать отслеживание ссылки
                 /untrack - прекратить отслеживание ссылки""";
-        Assertions.assertEquals(result, expectedValue);
+        assertEquals(result, expectedValue);
     }
 }

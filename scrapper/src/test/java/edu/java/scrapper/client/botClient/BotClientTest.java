@@ -14,7 +14,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -44,6 +44,5 @@ public class BotClientTest extends IntegrationTest {
 
         String expectedResponse = "link: https://gist.github.com";
         assertEquals(response, expectedResponse);
-
     }
 }

@@ -6,7 +6,6 @@ import com.github.tomakehurst.wiremock.junit5.WireMockTest;
 import com.github.tomakehurst.wiremock.matching.UrlPattern;
 import edu.java.client.stackoverflow.StackoverflowClientImpl;
 import edu.java.scrapper.IntegrationTest;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -21,6 +20,7 @@ import java.time.ZoneId;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @TestPropertySource(locations = "classpath:test")
@@ -57,8 +57,8 @@ public class StackoverflowTest extends IntegrationTest {
         OffsetDateTime expectedLastActivityDate = OffsetDateTime.ofInstant(Instant.ofEpochSecond(1709579044L), ZoneId.systemDefault());
 
         var data = client.getLastActivity(link);
-        Assertions.assertEquals(data.questionId(), expectedQuestionId);
-        Assertions.assertEquals(data.questionTitle(), expectedTitle);
-        Assertions.assertEquals(data.lastActivityDate(), expectedLastActivityDate);
+        assertEquals(data.questionId(), expectedQuestionId);
+        assertEquals(data.questionTitle(), expectedTitle);
+        assertEquals(data.lastActivityDate(), expectedLastActivityDate);
     }
 }

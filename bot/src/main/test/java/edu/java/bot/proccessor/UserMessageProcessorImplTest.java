@@ -15,6 +15,8 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
 public class UserMessageProcessorImplTest {
@@ -47,7 +49,7 @@ public class UserMessageProcessorImplTest {
         var res = processor.process(update);
 
         String expectedValue = "Такой команды не существует";
-        Assertions.assertEquals(res.getParameters().get("text"), expectedValue);
+        assertEquals(res.getParameters().get("text"), expectedValue);
     }
 
     @Test
@@ -61,6 +63,6 @@ public class UserMessageProcessorImplTest {
         UserMessageProcessorImpl processor = new UserMessageProcessorImpl();
         var res = processor.process(update);
 
-        Assertions.assertEquals(res.getParameters().get("text"), FINAL_OUTPUT_BY_HELP_COMMAND);
+        assertEquals(res.getParameters().get("text"), FINAL_OUTPUT_BY_HELP_COMMAND);
     }
 }

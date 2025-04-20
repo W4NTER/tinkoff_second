@@ -17,6 +17,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @TestPropertySource(locations = "classpath:test")
@@ -53,6 +54,6 @@ public class StackoverflowTestParseJson extends IntegrationTest {
        var data = client.getLastActivity(link);
 
        String expectedValue = null;
-        Assertions.assertEquals(expectedValue, data);
+        assertEquals(expectedValue, data);
     }
 }

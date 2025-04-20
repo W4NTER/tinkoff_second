@@ -6,7 +6,6 @@ import com.github.tomakehurst.wiremock.matching.UrlPattern;
 import edu.java.client.github.GitHubClient;
 import edu.java.client.github.GitHubClientImpl;
 import edu.java.scrapper.IntegrationTest;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -20,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @SpringBootTest
@@ -63,8 +63,8 @@ public class GitHubClientTest extends IntegrationTest {
 
         var dto = client.getLastUpdate(USER_URL);
 
-        Assertions.assertEquals(dto.id(), expectedId);
-        Assertions.assertEquals(dto.name(), expectedName);
-        Assertions.assertEquals(dto.updatedAt(), expectedDate);
+        assertEquals(dto.id(), expectedId);
+        assertEquals(dto.name(), expectedName);
+        assertEquals(dto.updatedAt(), expectedDate);
     }
 }
