@@ -1,3 +1,24 @@
-/scrapper/target/
+**/src/main/**/target/
+**/src/test/**/target/
 /target/
-/bot/target/
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+@@ -21,6 +12,12 @@ target/
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+@@ -33,6 +30,3 @@ build/
+
+### VS Code ###
+.vscode/

@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: edu.java.scrapper.client.gitgub.GitHubClientTest
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.625 s -- in edu.java.scrapper.client.gitgub.GitHubClientTest
