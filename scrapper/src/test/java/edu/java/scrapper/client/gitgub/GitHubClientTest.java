@@ -5,11 +5,13 @@ import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import com.github.tomakehurst.wiremock.matching.UrlPattern;
 import edu.java.client.github.GitHubClient;
 import edu.java.client.github.GitHubClientImpl;
+import edu.java.scrapper.IntegrationTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -22,7 +24,8 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 
 @SpringBootTest
 @TestPropertySource(locations = "classpath:test")
-public class GitHubClientTest {
+@ActiveProfiles("test")
+public class GitHubClientTest extends IntegrationTest {
     private GitHubClient client;
     private final static String USER_NAME = "Owner";
     private final static String REPO = "Repo";

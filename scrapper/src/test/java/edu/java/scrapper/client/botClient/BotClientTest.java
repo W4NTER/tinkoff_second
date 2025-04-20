@@ -4,10 +4,12 @@ import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import com.github.tomakehurst.wiremock.matching.UrlPattern;
 import edu.java.client.botClient.BotWebClient;
+import edu.java.scrapper.IntegrationTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
@@ -15,7 +17,8 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 import static org.junit.Assert.assertEquals;
 
 @SpringBootTest
-public class BotClientTest {
+@ActiveProfiles("test")
+public class BotClientTest extends IntegrationTest {
     BotWebClient client;
 
     @RegisterExtension

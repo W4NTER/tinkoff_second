@@ -7,6 +7,7 @@ app:
   base-url-stackoverflow: https://api.stackexchange.com/2.3/questions
   base-url-bot: http://localhost:8090
   git-token: ${GIT_TOKEN}
+  database-access-type: jpa
 
 spring:
   application:
@@ -14,10 +15,15 @@ spring:
   liquibase:
     enabled: false
     change-log: liquibase/master.xml
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
   datasource:
-    url: jdbc:postgresql://localhost:5432/scrapper
+    url: ${DATASOURCE_URL}
     username: postgres
     password: postgres
+    driver-class-name: org.postgresql.Driver
 
 # swagger-ui custom path
 springdoc:
@@ -26,7 +32,7 @@ springdoc:
 
 
 server:
-  port: 8080
+  port: 8082
 
 logging:
   config: classpath:log4j2-plain.xml

@@ -5,15 +5,15 @@ import edu.java.domain.repository.CommunicationsRepository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-@Repository
 public class JdbcCommunicationsRepository implements CommunicationsRepository {
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
+
+    public JdbcCommunicationsRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @Override
     @Transactional
@@ -34,6 +34,11 @@ public class JdbcCommunicationsRepository implements CommunicationsRepository {
                 (resultSet, rowNum) -> createDTOObject(resultSet));
     }
 
+    @Override
+    public List<Long> findChatsByLink(long linkId) {
+        return jdbcTemplate.query("select chat_id, link_id from communications where link_id = ?",
+                (rs, rowNum) -> createDTOObject(rs).chatId(), linkId);
+    }
 
 
     private CommunicationsDTO createDTOObject(ResultSet resultSet) throws SQLException {

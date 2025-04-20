@@ -13,4 +13,6 @@ public interface LinksRepository {
     List<LinksDTO> findAll();
 
     List<LinksDTO> findAllOutdatedLinks();
+
+    LinksDTO getLink(URI url);
 }

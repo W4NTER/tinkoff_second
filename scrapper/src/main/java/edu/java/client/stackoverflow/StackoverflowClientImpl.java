@@ -10,10 +10,10 @@ import java.time.ZoneOffset;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
-@Controller
+@Component
 @RequiredArgsConstructor
 public class StackoverflowClientImpl implements StackoverflowClient {
     private final static Logger LOGGER = LogManager.getLogger();
@@ -49,10 +49,10 @@ public class StackoverflowClientImpl implements StackoverflowClient {
             if (!node.isEmpty() && node.has(arrayItems) && node.get(arrayItems).isArray()) {
                 node = node.get(arrayItems).get(0);
 
-            var instant = Instant.ofEpochSecond(node.get("last_activity_date").asLong());
-            OffsetDateTime lastActivityDate = instant.atZone(ZoneOffset.systemDefault()).toOffsetDateTime();
+                var instant = Instant.ofEpochSecond(node.get("last_activity_date").asLong());
+                OffsetDateTime lastActivityDate = instant.atZone(ZoneOffset.systemDefault()).toOffsetDateTime();
 
-            return new StackoverflowResponseDTO(
+                return new StackoverflowResponseDTO(
                     node.get("question_id").asLong(),
                     node.get("title").asText(),
                     lastActivityDate);

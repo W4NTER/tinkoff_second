@@ -1,1 +1,8 @@
+edu\java\scrapper\domain\repository\jpa\JpaLinksTest.class
+edu\java\scrapper\client\stackoverflow\StackoverflowTestParseJson.class
+edu\java\scrapper\domain\repository\jdbc\JdbcTgChatRepositoryTest.class
+edu\java\scrapper\client\gitgub\GitHubClientTest.class
 edu\java\scrapper\IntegrationTest.class
+edu\java\scrapper\client\botClient\BotClientTest.class
+edu\java\scrapper\domain\repository\jdbc\JdbcLinksRepositoryTest.class
+edu\java\scrapper\client\stackoverflow\StackoverflowTest.class

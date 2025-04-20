@@ -5,11 +5,13 @@ import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import com.github.tomakehurst.wiremock.junit5.WireMockTest;
 import com.github.tomakehurst.wiremock.matching.UrlPattern;
 import edu.java.client.stackoverflow.StackoverflowClientImpl;
+import edu.java.scrapper.IntegrationTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -23,7 +25,8 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 @SpringBootTest
 @TestPropertySource(locations = "classpath:test")
 @WireMockTest
-public class StackoverflowTest {
+@ActiveProfiles("test")
+public class StackoverflowTest extends IntegrationTest {
     private StackoverflowClientImpl client;
 
     @RegisterExtension

@@ -29,6 +29,11 @@
       "sourceType": "edu.java.configuration.ApplicationConfig"
     },
     {
+      "name": "app.database-access-type",
+      "type": "edu.java.configuration.ApplicationConfig$AccessType",
+      "sourceType": "edu.java.configuration.ApplicationConfig"
+    },
+    {
       "name": "app.git-token",
       "type": "java.lang.String",
       "sourceType": "edu.java.configuration.ApplicationConfig"

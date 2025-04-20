@@ -9,11 +9,10 @@ import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 
-@Repository
+
 public class JdbcLinksRepository implements LinksRepository {
     private final JdbcTemplate jdbcTemplate;
     private final static int TIME_IN_MINUTES_TO_OUTDATED_LINK = 5;
@@ -31,7 +30,7 @@ public class JdbcLinksRepository implements LinksRepository {
                 lastUpdate, timeNow, link.toString());
         if (rowUpdate == 0) {
             jdbcTemplate.update(
-                    "insert  into links (link, created_at, last_update, last_check) VALUES (?, ?, ?, ?)",
+                    "insert into links (link, created_at, last_update, last_check) VALUES (?, ?, ?, ?)",
                     link.toString(), timeNow, lastUpdate, timeNow);
         }
     }
@@ -61,9 +60,10 @@ public class JdbcLinksRepository implements LinksRepository {
 
     @Transactional
     public LinksDTO getLink(URI url) {
-        int linkId = jdbcTemplate.queryForObject(
+        //поменял int на long могло что-то сломаться
+        long linkId = jdbcTemplate.queryForObject(
                 "select link_id from links where link = ?",
-                Integer.class, url.toString()).intValue();
+                Long.class, url.toString()).longValue();
         return jdbcTemplate.queryForObject(
                 "select link_id, link, created_at, last_update, last_check from links where link_id = ?",
                 (resultSet, rowNum) -> createLinksDTO(resultSet), linkId);

@@ -22,9 +22,15 @@ public record ApplicationConfig(
         @NotNull
         String baseUrlBot,
         @NotEmpty
-        String gitToken
+        String gitToken,
+        @NotNull
+        AccessType databaseAccessType
 ) {
 
     public record Scheduler(boolean enable, @NotNull Duration interval, @NotNull Duration forceCheckDelay) {
+    }
+
+    public enum AccessType {
+        JDBC, JPA
     }
 }

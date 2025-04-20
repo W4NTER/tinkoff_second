@@ -4,9 +4,8 @@ import edu.java.controller.dto.request.AddLinkRequest;
 import edu.java.controller.dto.request.RemoveLinkRequest;
 import edu.java.controller.dto.response.LinkResponse;
 import edu.java.domain.dto.LinksDTO;
-import edu.java.domain.service.jdbc.JdbcLinksService;
+import edu.java.service.LinksService;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,12 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/links")
 public class LinksController {
-    @Autowired
-    private JdbcLinksService jdbcLinksService;
+    private final LinksService linksService;
+
+    public LinksController(LinksService linksService) {
+        this.linksService = linksService;
+    }
 
     @GetMapping
     public ResponseEntity<List<LinksDTO>> getAllTrackedLinks(@RequestHeader("Tg-Chat-Id") Long id) {
-        return new ResponseEntity<>(jdbcLinksService.listAll(id), HttpStatus.OK);
+        return new ResponseEntity<>(linksService.listAll(id), HttpStatus.OK);
     }
 
     @PostMapping
@@ -35,7 +37,7 @@ public class LinksController {
         if (addLinkRequest.link() == null) {
             throw new IllegalArgumentException("Ссылка равна null");
         }
-        LinksDTO linksDTO = jdbcLinksService.addLink(chatId, addLinkRequest.link());
+        LinksDTO linksDTO = linksService.addLink(chatId, addLinkRequest.link());
         return new ResponseEntity<>(new LinkResponse(linksDTO.id(), linksDTO.link()), HttpStatus.OK);
     }
 
@@ -43,7 +45,7 @@ public class LinksController {
     public ResponseEntity<LinkResponse> untrackLink(
             @RequestHeader("Tg-Chat-Id") Long chatId,
             @RequestBody RemoveLinkRequest url) {
-        LinksDTO linksDTO = jdbcLinksService.deleteLink(chatId, url.link());
+        LinksDTO linksDTO = linksService.deleteLink(chatId, url.link());
         return new ResponseEntity<>(new LinkResponse(linksDTO.id(), linksDTO.link()), HttpStatus.OK);
     }
 }

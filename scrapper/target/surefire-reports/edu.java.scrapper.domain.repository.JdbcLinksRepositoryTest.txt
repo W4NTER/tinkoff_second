@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: edu.java.scrapper.domain.repository.JdbcLinksRepositoryTest
--------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.891 s -- in edu.java.scrapper.domain.repository.JdbcLinksRepositoryTest

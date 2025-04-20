@@ -1,10 +1,8 @@
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\ApplicationContextProvider.java
-C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\Bot.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\bot\Bot.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\bot\BotImpl.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\BotApplication.java
-<<<<<<< HEAD
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\client\ScrapperWebClient.java
-=======
->>>>>>> hw2
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\commands\Command.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\commands\HelpCommand.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\commands\ListCommand.java
@@ -12,14 +10,12 @@ C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\comman
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\commands\TrackCommand.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\commands\UntrackCommand.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\configuration\ApplicationConfig.java
-<<<<<<< HEAD
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\configuration\ClientConfig.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\controller\BotController.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\controller\dto\request\LinkUpdateRequest.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\controller\dto\response\ApiErrorResponse.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\controller\exception\HandleControllerException.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\controller\exception\IdNotFoundException.java
-=======
->>>>>>> hw2
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\processor\UserMessageProcessor.java
 C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\processor\UserMessageProcessorImpl.java
+C:\Users\Vadim\IdeaProjects\tinkoff_second\bot\src\main\java\edu\java\bot\Runner.java

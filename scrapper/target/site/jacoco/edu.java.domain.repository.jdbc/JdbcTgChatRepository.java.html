@@ -2,44 +2,54 @@
 
 import edu.java.domain.dto.ChatDTO;
 import edu.java.domain.repository.TgChatRepository;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-@Repository
 public class JdbcTgChatRepository implements TgChatRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
-<span class="fc" id="L17">    public JdbcTgChatRepository(JdbcTemplate jdbcTemplate) {</span>
-<span class="fc" id="L18">        this.jdbcTemplate = jdbcTemplate;</span>
-<span class="fc" id="L19">    }</span>
+<span class="fc" id="L18">    public JdbcTgChatRepository(JdbcTemplate jdbcTemplate) {</span>
+<span class="fc" id="L19">        this.jdbcTemplate = jdbcTemplate;</span>
+<span class="fc" id="L20">    }</span>
 
     @Override
     @Transactional
     public void add(Long chatId) {
-<span class="fc" id="L24">        jdbcTemplate.update(&quot;insert into chat (chat_id, created_at) values (?, ?)&quot;,</span>
-<span class="fc" id="L25">                chatId, OffsetDateTime.now());</span>
-<span class="fc" id="L26">    }</span>
+<span class="fc" id="L25">        jdbcTemplate.update(&quot;insert into chat (chat_id, created_at) values (?, ?)&quot;,</span>
+<span class="fc" id="L26">                chatId, OffsetDateTime.now());</span>
+<span class="fc" id="L27">    }</span>
 
     @Override
     @Transactional
     public void remove(Long id) {
-<span class="fc" id="L31">        jdbcTemplate.update(&quot;DELETE from chat where chat_id = ?&quot;, id);</span>
-<span class="fc" id="L32">    }</span>
+<span class="fc" id="L32">        jdbcTemplate.update(&quot;DELETE from chat where chat_id = ?&quot;, id);</span>
+<span class="fc" id="L33">    }</span>
 
     @Override
     @Transactional
     public List&lt;ChatDTO&gt; findAll() {
-<span class="fc" id="L37">        return jdbcTemplate.query(&quot;select chat_id, created_at from chat&quot;, (resultSet, rowNum) -&gt; {</span>
-<span class="fc" id="L38">            return new ChatDTO(</span>
-<span class="fc" id="L39">                    resultSet.getLong(&quot;chat_id&quot;),</span>
-<span class="fc" id="L40">                    resultSet.getTimestamp(&quot;created_at&quot;)</span>
-<span class="fc" id="L41">                            .toInstant().atZone(ZoneOffset.systemDefault()).toOffsetDateTime());</span>
-        });
+<span class="fc" id="L38">        return jdbcTemplate.query(&quot;select chat_id, created_at from chat&quot;,</span>
+<span class="fc" id="L39">                (resultSet, rowNum) -&gt; convertToChatDTO(resultSet));</span>
+    }
+
+    @Override
+    public Optional&lt;ChatDTO&gt; findById(Long chatId) {
+<span class="nc" id="L44">        return Optional.ofNullable(jdbcTemplate.queryForObject(&quot;select chat_id, created_at from chat where chat_id = ?&quot;,</span>
+<span class="nc" id="L45">                (rs, rowNum) -&gt; convertToChatDTO(rs)));</span>
+    }
+
+    private ChatDTO convertToChatDTO(ResultSet resultSet) throws SQLException {
+<span class="fc" id="L49">        return new ChatDTO(</span>
+<span class="fc" id="L50">                resultSet.getLong(&quot;chat_id&quot;),</span>
+<span class="fc" id="L51">                resultSet.getTimestamp(&quot;created_at&quot;)</span>
+<span class="fc" id="L52">                        .toInstant().atZone(ZoneOffset.systemDefault()).toOffsetDateTime());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

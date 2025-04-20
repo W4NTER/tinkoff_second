@@ -9,4 +9,6 @@ public interface CommunicationsRepository {
     void remove(Long chatId, Long linkId);
 
     List<CommunicationsDTO> findAll();
+
+    List<Long> findChatsByLink(long linkId);
 }

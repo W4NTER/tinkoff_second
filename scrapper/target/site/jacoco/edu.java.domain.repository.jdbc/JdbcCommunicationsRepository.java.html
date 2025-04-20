@@ -5,15 +5,15 @@ import edu.java.domain.repository.CommunicationsRepository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-@Repository
-<span class="fc" id="L14">public class JdbcCommunicationsRepository implements CommunicationsRepository {</span>
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+public class JdbcCommunicationsRepository implements CommunicationsRepository {
+    private final JdbcTemplate jdbcTemplate;
+
+<span class="fc" id="L14">    public JdbcCommunicationsRepository(JdbcTemplate jdbcTemplate) {</span>
+<span class="fc" id="L15">        this.jdbcTemplate = jdbcTemplate;</span>
+<span class="fc" id="L16">    }</span>
 
     @Override
     @Transactional
@@ -34,12 +34,17 @@ import org.springframework.transaction.annotation.Transactional;
 <span class="nc" id="L34">                (resultSet, rowNum) -&gt; createDTOObject(resultSet));</span>
     }
 
+    @Override
+    public List&lt;Long&gt; findChatsByLink(long linkId) {
+<span class="nc" id="L39">        return jdbcTemplate.query(&quot;select chat_id, link_id from communications where link_id = ?&quot;,</span>
+<span class="nc" id="L40">                (rs, rowNum) -&gt; createDTOObject(rs).chatId(), linkId);</span>
+    }
 
 
     private CommunicationsDTO createDTOObject(ResultSet resultSet) throws SQLException {
-<span class="nc" id="L40">        return new CommunicationsDTO(</span>
-<span class="nc" id="L41">            resultSet.getLong(&quot;chat_id&quot;),</span>
-<span class="nc" id="L42">            resultSet.getLong(&quot;link_id&quot;));</span>
+<span class="nc" id="L45">        return new CommunicationsDTO(</span>
+<span class="nc" id="L46">            resultSet.getLong(&quot;chat_id&quot;),</span>
+<span class="nc" id="L47">            resultSet.getLong(&quot;link_id&quot;));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
