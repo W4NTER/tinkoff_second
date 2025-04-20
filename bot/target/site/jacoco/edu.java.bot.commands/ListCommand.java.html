@@ -2,28 +2,43 @@
 
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
+import edu.java.bot.client.ScrapperWebClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+
 @Component
-<span class="fc" id="L8">public class ListCommand implements Command {</span>
+<span class="fc" id="L11">public class ListCommand implements Command {</span>
+    @Autowired
+    private ScrapperWebClient scrapperWebClient;
+
     @Override
     public String command() {
-<span class="fc" id="L11">        return &quot;/list&quot;;</span>
+<span class="fc" id="L17">        return &quot;/list&quot;;</span>
     }
 
     @Override
     public String description() {
-<span class="fc" id="L16">        return &quot;показать список отслеживаемых ссылок&quot;;</span>
+<span class="fc" id="L22">        return &quot;показать список отслеживаемых ссылок&quot;;</span>
     }
 
-    @Override
+
     public String post() {
-<span class="nc" id="L21">        return description();</span>
+<span class="nc" id="L27">        return &quot;Нет отслеживаемых ссылок&quot;;</span>
     }
 
     @Override
     public SendMessage handle(Update update) {
-<span class="nc" id="L26">        return new SendMessage(update.message().chat().id(), post());</span>
+<span class="nc" id="L32">        return new SendMessage(update.message().chat().id(), trackedLinks(update));</span>
+    }
+
+    private String trackedLinks(Update update) {
+<span class="nc" id="L36">        var listOfLinks = scrapperWebClient.getAllTrackedLinks(update.message().chat().id());</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        if (!listOfLinks.isEmpty()) {</span>
+<span class="nc" id="L38">            return String.join(&quot;\n&quot;, listOfLinks);</span>
+        } else {
+<span class="nc" id="L40">            return post();</span>
+        }
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

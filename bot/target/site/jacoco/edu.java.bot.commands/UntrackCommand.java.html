@@ -22,8 +22,13 @@ import org.springframework.stereotype.Component;
     }
 
     @Override
+    public boolean supports() {
+<span class="nc" id="L26">        return true;</span>
+    }
+
+    @Override
     public SendMessage handle(Update update) {
-<span class="nc" id="L26">        return new SendMessage(update.message().chat().id(), post());</span>
+<span class="nc" id="L31">        return new SendMessage(update.message().chat().id(), post());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

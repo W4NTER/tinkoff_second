@@ -14,6 +14,31 @@
   ],
   "properties": [
     {
+      "name": "app.base-url-bot",
+      "type": "java.lang.String",
+      "sourceType": "edu.java.configuration.ApplicationConfig"
+    },
+    {
+      "name": "app.base-url-git",
+      "type": "java.lang.String",
+      "sourceType": "edu.java.configuration.ApplicationConfig"
+    },
+    {
+      "name": "app.base-url-stackoverflow",
+      "type": "java.lang.String",
+      "sourceType": "edu.java.configuration.ApplicationConfig"
+    },
+    {
+      "name": "app.database-access-type",
+      "type": "edu.java.configuration.ApplicationConfig$AccessType",
+      "sourceType": "edu.java.configuration.ApplicationConfig"
+    },
+    {
+      "name": "app.git-token",
+      "type": "java.lang.String",
+      "sourceType": "edu.java.configuration.ApplicationConfig"
+    },
+    {
       "name": "app.scheduler.enable",
       "type": "java.lang.Boolean",
       "sourceType": "edu.java.configuration.ApplicationConfig$Scheduler",

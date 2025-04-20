@@ -1,0 +1,38 @@
+app:
+  scheduler:
+    enable: true
+    interval: 15s
+    force-check-delay: 10s
+  base-url-git: https://api.github.com
+  base-url-stackoverflow: https://api.stackexchange.com/2.3/questions
+  base-url-bot: http://localhost:8090
+  git-token: ${GIT_TOKEN}
+  database-access-type: jpa
+
+spring:
+  application:
+    name: scrapper
+  liquibase:
+    enabled: false
+    change-log: liquibase/master.xml
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: ${DATASOURCE_URL}
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+# swagger-ui custom path
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+
+
+server:
+  port: 8082
+
+logging:
+  config: classpath:log4j2-plain.xml
